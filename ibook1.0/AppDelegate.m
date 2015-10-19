@@ -7,6 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "NavOneController.h"
+#import "NavTwoController.h"
+#import "NavThreeController.h"
+#import "DHTabBarViewController.h"
+#import "DHMenuPagerViewController.h"
+#import "ViewController.h"
+#import "DHSlideMenuController.h"
+#import "commonhead.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +24,42 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    ViewController *viewd = [[ViewController alloc] init];
+    ViewController *viewd1 = [[ViewController alloc] init];
+    ViewController *viewd2 = [[ViewController alloc] init];
+    DHMenuPagerViewController *pagerView = [[DHMenuPagerViewController alloc] initWithViewControllers:@[viewd,viewd1,viewd2] titles:@[@"首页",@"附近",@"消息"] menuBackgroundColor:IBColor(82, 183, 239)  titleColor: IBColor(239, 239, 239)titleColorHighlighted:IBColor(1, 1, 1)];
+//    pagerView.title = @"PagerView";
+//    DHMenuPagerViewController *pagerView = [[DHMenuPagerViewController alloc] init];
+    
+    NavOneController *one = [[NavOneController alloc] init];
+    NavTwoController *two = [[NavTwoController alloc] initWithRootViewController:pagerView];
+    NavThreeController *three = [[NavThreeController alloc] init];
+    
+    DHTabBarViewController *rootTab = [[DHTabBarViewController alloc] initWithChildViewControllers:@[two,one,three] tabTitles:@[@"首页",@"没想好",@"个人中心"] tabImages:@[@"tabbar_discover",@"tabbar_mainframe",@"tabbar_me"] selectedImages:@[@"tabbar_discoverHL",@"tabbar_mainframeHL",@"tabbar_meHL"] backgroundImage:@"EmotionsBagTabBg" selectionIndicatorImage:nil];
+    rootTab.tabBar.translucent = NO;
+    
+    UIViewController *leftViewController=[[UIViewController alloc]init];
+    leftViewController.view.backgroundColor=[UIColor purpleColor];
+    UIViewController *rightViewController=[[UIViewController alloc]init];
+    rightViewController.view.backgroundColor=[UIColor cyanColor];
+    
+    //DHSlideMenuController *mainVC = [[DHSlideMenuController alloc] initWithMainViewController:rootTab leftViewController:leftViewController rightViewController:rightViewController animationBlock:nil];
+    
+    DHSlideMenuController *mainVC = [DHSlideMenuController sharedInstance];
+    mainVC.mainViewController = rootTab;
+    mainVC.leftViewController = leftViewController;
+    mainVC.rightViewController = rightViewController;
+    
+    mainVC.animationType = SlideAnimationTypeMove;
+    mainVC.needPanFromViewBounds = YES;
+    _window.rootViewController = mainVC;
+    [_window makeKeyAndVisible];
     return YES;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
+#import "ParentCellViewController.h"
+@interface ViewController : ParentCellViewController
 
 
 @end
