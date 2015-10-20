@@ -12,7 +12,7 @@
 #import "registerView2.h"
 #import "registerView3.h"
 #import "UIImage+MJ.h"
-@interface registeredVC ()<UIScrollViewDelegate, registerView1Delagate,registerView2Delagate>
+@interface registeredVC ()<UIScrollViewDelegate, registerView1Delagate,registerView2Delagate,UIImagePickerControllerDelegate, registerView3Delagate>
 /**
  *  取消注册，关闭控制器
  */
@@ -30,11 +30,18 @@
 /**
  *  记录滚动位置的index
  */
+
+@property (nonatomic, strong) UIView *headpickview;
 @property (assign, nonatomic) NSInteger index;
+@property (strong, nonatomic) IBOutlet UIDatePicker *birthdaypicker;
+@property (nonatomic, strong) UIView *birthdaypicktoolbar;
+@property (nonatomic, strong) NSDate *birthdaypdate;
+
 
 /**
  *  底部btn的点击
  */
+
 - (IBAction)bottomBtnclick;
 
 @end
@@ -46,8 +53,12 @@
     
     [self setupscrollview];
     self.index = 1;
+    self.birthdaypdate = [NSDate date];
     
     [self setAddheadimage];
+
+    
+    
     
 }
 
@@ -82,9 +93,141 @@
 #warning 写到这里，明天继续
 - (void)addheadimage
 {
-    
+    self.headpickview = [[UIView alloc] initWithFrame:CGRectMake(80, 140, 160, 120)];
+    self.headpickview.backgroundColor = [UIColor whiteColor];
+    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn1.frame = CGRectMake(20, 60, 40, 30);
+//    btn1.backgroundColor = [UIColor blueColor];
+    [btn1 setTitle:@"相机" forState:UIControlStateNormal];
+    [btn1 setTitle:@"相机" forState:UIControlStateHighlighted];
+    [btn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btn1.titleLabel.font = [UIFont systemFontOfSize:13];
+    [btn1 addTarget:self action:@selector(choosephoto:) forControlEvents:UIControlEventTouchUpInside];
+    btn1.tag = 1;
+    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn2.frame = CGRectMake(100, 60, 40, 30);
+    [btn2 setTitle:@"相册" forState:UIControlStateNormal];
+    [btn2 setTitle:@"相册" forState:UIControlStateHighlighted];
+    [btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btn2.titleLabel.font = [UIFont systemFontOfSize:13];
+        [btn2 addTarget:self action:@selector(choosephoto:) forControlEvents:UIControlEventTouchUpInside];
+    btn2.tag = 2;
+//    btn2.backgroundColor = [UIColor blackColor];
+    [self.headpickview addSubview:btn1];
+    [self.headpickview addSubview:btn2];
+    [self.view addSubview:self.headpickview];
 }
 
+
+
+- (void)choosephoto:(UIButton *)btn
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    if (btn.tag == 1) {
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+    }else
+    {
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+    }
+    
+    
+    
+    picker.delegate = self;
+    //设置选择后的图片可被编辑
+    picker.allowsEditing = YES;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    self.headpickview.hidden = YES;
+}
+-(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+
+{
+    
+    
+    
+    self.headpickview.hidden = YES;
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
+    ;
+    
+    //当选择的类型是图片
+    if ([type isEqualToString:@"public.image"])
+    {
+        //先把图片转成NSData
+        
+        UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        //        NSLog(@"%@",image);
+        
+//        self.tempimage.image = image;
+        NSData *data;
+#warning 不知道返回的图片的扩展名。。。。。搜也搜不到
+//        if (UIImagePNGRepresentation(image))
+//        {
+//            AVUser *user = [AVUser currentUser];
+//            data = UIImageJPEGRepresentation(image, 1.0);
+//            AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.jpg", user.username] data:data];
+//            
+//            [user setObject:file forKey:@"touxiang"];
+//            
+//            [user setObject:@"liuxiang" forKey:@"haoleng"];
+//            
+//            
+//            
+//            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                
+//            } progressBlock:^(NSInteger percentDone) {
+//                [self.progressview setProgress:percentDone animated:YES];
+//                if (percentDone == 100) {
+//                    self.progressview.hidden = YES;
+//                    [MBProgressHUD showSuccess:@"图片上传成功"];
+//                }
+//            }];
+//            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (error) {
+//                    NSLog(@"保存失败");
+//                }
+//            }];
+//            
+//            
+//        }
+//        else
+//        {
+//            AVUser *user = [AVUser currentUser];
+//            data = UIImagePNGRepresentation(image);
+//            AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.png", user.username] data:data];
+//            
+//            
+//            [user setObject:file forKey:@"touxiang"];
+//            
+//            
+//            
+//            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                
+//            } progressBlock:^(NSInteger percentDone) {
+//                [self.progressview setProgress:percentDone animated:YES];
+//                if (percentDone == 100) {
+//                    self.progressview.hidden = YES;
+//                    [MBProgressHUD showSuccess:@"图片上传成功"];
+//                }
+//            }];
+//            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (error) {
+//                    NSLog(@"保存失败");
+//                }
+//            }];
+//            
+//            
+//        }
+        
+        
+    }
+    
+}
 /**
  *  添加scrollview中的三个子view
  */
@@ -109,8 +252,9 @@
     
     UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(scrollW *2, 0, scrollW, scrollH)];
     view3.backgroundColor = [UIColor whiteColor];
-    UIView *view3child = [self loadnibwithname:@"registerView3"];
+    registerView3 *view3child = (registerView3 *)[self loadnibwithname:@"registerView3"];
     view3child.frame = view1child.frame;
+    view3child.delegate = self;
     [view3 addSubview:view3child];
     
     [self.midScrollView addSubview:view1];
@@ -219,6 +363,53 @@
     [UIView animateWithDuration:0.25 animations:^{
         self.view.transform =CGAffineTransformIdentity;
     }];
+}
+
+
+- (void)choosebithday
+{
+    self.birthdaypicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-200, self.view.frame.size.width, 100)];
+    self.birthdaypicker.datePickerMode = UIDatePickerModeDate;
+    self.birthdaypicker.backgroundColor = [UIColor blueColor];
+    [self.birthdaypicker addTarget:self action:@selector(datachange:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:self.birthdaypicker];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-216,self.view.frame.size.width , 30)];
+    view.backgroundColor = [UIColor redColor];
+    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn1.frame = CGRectMake(0, 0, 50, 30);
+    //    btn1.backgroundColor = [UIColor blueColor];
+    [btn1 setTitle:@"完成" forState:UIControlStateNormal];
+    [btn1 setTitle:@"完成" forState:UIControlStateHighlighted];
+    [btn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btn1.titleLabel.font = [UIFont systemFontOfSize:11];
+    [btn1 addTarget:self action:@selector(finishchoosebirthday) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:btn1];
+    self.birthdaypicktoolbar = view;
+
+    
+    [self.view addSubview:view];
+    
+    
+    
+}
+
+- (void)finishchoosebirthday
+{
+    self.birthdaypicker.hidden = YES;
+    self.birthdaypicktoolbar.hidden = YES;
+    NSLog(@"%@", self.birthdaypdate);
+    
+}
+
+- (void)datachange:(UIDatePicker *)date
+{
+    self.birthdaypdate = date.date;
+}
+
+- (void)chooseschool
+{
+    
 }
 
 @end

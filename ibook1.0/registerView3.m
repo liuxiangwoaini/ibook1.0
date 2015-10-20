@@ -51,11 +51,16 @@
 }
 
 - (IBAction)chooseBirthday {
-    
+    if ([self.delegate respondsToSelector:@selector(choosebithday)]) {
+        [self.delegate choosebithday];
+    }
     
 }
 
 - (IBAction)chooseCity{
+    if ([self.delegate respondsToSelector:@selector(chooseschool)]) {
+        [self.delegate chooseschool];
+    }
     
 }
 @end

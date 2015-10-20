@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface registerView3 : UIView
+@protocol registerView3Delagate <NSObject>
 
+@optional
+- (void)choosebithday;
+- (void)chooseschool;
+@end
+@interface registerView3 : UIView
+@property (weak, nonatomic) id<registerView3Delagate> delegate;
 @end
