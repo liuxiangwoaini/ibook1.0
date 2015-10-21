@@ -8,11 +8,7 @@
 
 #import "registerView3.h"
 @interface registerView3()
-/**
- *   选择性别的btn
- */
-@property (weak, nonatomic) IBOutlet UIButton *girlBtn;
-@property (weak, nonatomic) IBOutlet UIButton *boyBtn;
+
 
 /**
  *  选择性别btn的点击
@@ -26,7 +22,7 @@
 /**
  *  选择城市
  */
-- (IBAction)chooseCity;
+- (IBAction)chooseschool;
 @end
 @implementation registerView3
 
@@ -57,7 +53,7 @@
     
 }
 
-- (IBAction)chooseCity{
+- (IBAction)chooseschool{
     if ([self.delegate respondsToSelector:@selector(chooseschool)]) {
         [self.delegate chooseschool];
     }

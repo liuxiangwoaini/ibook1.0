@@ -6,43 +6,52 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="registerView2">
+        <view contentMode="scaleToFill" id="X2f-q3-XKD" customClass="registerView2">
             <rect key="frame" x="0.0" y="0.0" width="260" height="260"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w5l-Yx-72S">
-                    <rect key="frame" x="52" y="51" width="157" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="fSy-G5-S1d">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="RSA-eW-YpG">
                     <rect key="frame" x="30" y="138" width="200" height="1"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="c6r-Hk-20F">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="6rm-vc-Lod">
                     <rect key="frame" x="30" y="206" width="200" height="1"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="K5M-gg-PuI">
+                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hK0-E2-qJI">
                     <rect key="frame" x="52" y="109" width="157" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="YG9-bz-CiE">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="EyT-oN-dXK">
                     <rect key="frame" x="30" y="80" width="200" height="1"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="签名" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="v4J-sH-QDD">
+                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="签名" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HRM-aH-jya">
                     <rect key="frame" x="52" y="177" width="157" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                 </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="b7G-e5-LbP">
+                    <rect key="frame" x="52" y="51" width="157" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dy-1y-1YG">
+                    <rect key="frame" x="193" y="51" width="59" height="30"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                    <state key="normal" title="发送验证码"/>
+                    <connections>
+                        <action selector="sendVerification" destination="X2f-q3-XKD" eventType="touchUpInside" id="oSb-5l-SOw"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="Verificationcode" destination="w5l-Yx-72S" id="pcF-cR-J6d"/>
-                <outlet property="nickname" destination="K5M-gg-PuI" id="giL-Vi-kJP"/>
-                <outlet property="signature" destination="v4J-sH-QDD" id="diu-sm-Dd9"/>
+                <outlet property="Verificationcode" destination="b7G-e5-LbP" id="QqZ-3g-ORi"/>
+                <outlet property="nickname" destination="hK0-E2-qJI" id="eEU-FJ-Zmb"/>
+                <outlet property="sendVerificationBtn" destination="6Dy-1y-1YG" id="4Ya-GY-Rgj"/>
+                <outlet property="signature" destination="HRM-aH-jya" id="SjD-20-mPf"/>
             </connections>
-            <point key="canvasLocation" x="135" y="80"/>
+            <point key="canvasLocation" x="181" y="94"/>
         </view>
     </objects>
     <resources>

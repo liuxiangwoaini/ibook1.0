@@ -12,7 +12,21 @@
 @optional
 - (void)signatureTextfieldBeginedit;
 - (void)signatureTextfieldEndedit;
+- (void)sendVerificationBtnClick;
 @end
 @interface registerView2 : UIView
 @property (weak, nonatomic) id<registerView2Delagate> delegate;
+/**
+ *验证码
+ */
+@property (weak, nonatomic) IBOutlet UITextField *Verificationcode;
+/**
+ 昵称
+ */
+@property (weak, nonatomic) IBOutlet UITextField *nickname;
+/**
+ 签名
+ */
+@property (weak, nonatomic) IBOutlet UITextField *signature;
+@property (assign, nonatomic, getter=isSend) BOOL send;
 @end

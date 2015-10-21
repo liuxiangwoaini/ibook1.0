@@ -6,43 +6,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="registerView1">
+        <view contentMode="scaleToFill" id="rk4-xZ-0yO" customClass="registerView1">
             <rect key="frame" x="0.0" y="0.0" width="260" height="260"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TPP-Di-ZXb">
-                    <rect key="frame" x="52" y="62" width="157" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="e6c-Xu-cX8">
+                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hRx-w0-idw">
                     <rect key="frame" x="52" y="120" width="157" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="bec-86-L2A">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="pjI-Ic-xoF">
                     <rect key="frame" x="30" y="149" width="200" height="1"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="c6p-cn-dVi">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="YkS-a8-i5T">
                     <rect key="frame" x="30" y="217" width="200" height="1"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qrk-dr-lrU">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider.png" translatesAutoresizingMaskIntoConstraints="NO" id="lJd-ZS-XiC">
                     <rect key="frame" x="30" y="91" width="200" height="1"/>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="再次确认密码" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="psA-QE-jeo">
+                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="再次确认密码" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gBc-VS-Iti">
                     <rect key="frame" x="52" y="188" width="157" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ix0-5d-c6T">
+                    <rect key="frame" x="52" y="62" width="157" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="passwd" destination="e6c-Xu-cX8" id="xrp-LX-TGb"/>
-                <outlet property="passwdagain" destination="psA-QE-jeo" id="bUE-W5-k9d"/>
-                <outlet property="username" destination="TPP-Di-ZXb" id="Ky9-Yz-ESk"/>
+                <outlet property="passwd" destination="hRx-w0-idw" id="UNb-Hv-sYe"/>
+                <outlet property="passwdagain" destination="gBc-VS-Iti" id="U3N-Cg-0Hb"/>
+                <outlet property="username" destination="Ix0-5d-c6T" id="aHV-iE-6o0"/>
             </connections>
-            <point key="canvasLocation" x="31" y="95"/>
+            <point key="canvasLocation" x="114" y="191"/>
         </view>
     </objects>
     <resources>

@@ -83,6 +83,7 @@
 		22938D5D1BD4935800A58B9C /* registeredVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22938D5B1BD4935800A58B9C /* registeredVC.m */; };
 		22938D5E1BD4935800A58B9C /* registeredVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22938D5C1BD4935800A58B9C /* registeredVC.xib */; };
 		229C596E1BD47A2F005BDB8A /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C596D1BD47A2F005BDB8A /* UIImage+Extension.m */; };
+		22A867D21BD73BAA0085AACB /* schools.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22A867D11BD73BAA0085AACB /* schools.plist */; };
 		22E5F8331BD50C49003120BC /* registerView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E5F8321BD50C49003120BC /* registerView1.xib */; };
 		22E5F8361BD50CBA003120BC /* registerView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5F8351BD50CBA003120BC /* registerView1.m */; };
 		22E5F8391BD50CD0003120BC /* registerView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5F8381BD50CD0003120BC /* registerView2.m */; };
@@ -204,6 +205,7 @@
 		22938D5C1BD4935800A58B9C /* registeredVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = registeredVC.xib; sourceTree = "<group>"; };
 		229C596C1BD47A2F005BDB8A /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		229C596D1BD47A2F005BDB8A /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		22A867D11BD73BAA0085AACB /* schools.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = schools.plist; sourceTree = "<group>"; };
 		22E5F8321BD50C49003120BC /* registerView1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = registerView1.xib; sourceTree = "<group>"; };
 		22E5F8341BD50CBA003120BC /* registerView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerView1.h; sourceTree = "<group>"; };
 		22E5F8351BD50CBA003120BC /* registerView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registerView1.m; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 		22E5F8311BD50C12003120BC /* register(注册) */ = {
 			isa = PBXGroup;
 			children = (
+				22A867D11BD73BAA0085AACB /* schools.plist */,
 				22938D5A1BD4935800A58B9C /* registeredVC.h */,
 				22938D5B1BD4935800A58B9C /* registeredVC.m */,
 				22938D5C1BD4935800A58B9C /* registeredVC.xib */,
@@ -641,6 +644,7 @@
 				22419ABB1BD3881B00235CBD /* ic_end_aty.png in Resources */,
 				22419AB41BD3881B00235CBD /* ic_apply_aty.png in Resources */,
 				22419ACF1BD3881B00235CBD /* left_bg_.png in Resources */,
+				22A867D21BD73BAA0085AACB /* schools.plist in Resources */,
 				22419A6A1BD3852300235CBD /* ToggleMenu.png in Resources */,
 				22938D451BD48D0E00A58B9C /* MBProgressHUD.bundle in Resources */,
 				22419A671BD3852300235CBD /* tab_bg.png in Resources */,

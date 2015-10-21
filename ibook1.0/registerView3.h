@@ -16,4 +16,12 @@
 @end
 @interface registerView3 : UIView
 @property (weak, nonatomic) id<registerView3Delagate> delegate;
+@property (weak, nonatomic) IBOutlet UILabel *birthdaylable;
+@property (weak, nonatomic) IBOutlet UILabel *schoollable;
+/**
+ *   选择性别的btn
+ */
+@property (weak, nonatomic) IBOutlet UIButton *girlBtn;
+@property (weak, nonatomic) IBOutlet UIButton *boyBtn;
+
 @end

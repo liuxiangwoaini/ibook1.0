@@ -12,7 +12,8 @@
 #import "registerView2.h"
 #import "registerView3.h"
 #import "UIImage+MJ.h"
-@interface registeredVC ()<UIScrollViewDelegate, registerView1Delagate,registerView2Delagate,UIImagePickerControllerDelegate, registerView3Delagate>
+#import "MBProgressHUD+MJ.h"
+@interface registeredVC ()<UIScrollViewDelegate, registerView1Delagate,registerView2Delagate,UIImagePickerControllerDelegate, registerView3Delagate, UITableViewDataSource, UITableViewDelegate>
 /**
  *  取消注册，关闭控制器
  */
@@ -37,6 +38,12 @@
 @property (nonatomic, strong) UIView *birthdaypicktoolbar;
 @property (nonatomic, strong) NSDate *birthdaypdate;
 
+@property (nonatomic, strong) registerView3 *register3;
+@property (nonatomic, strong) registerView2 *register2;
+@property (nonatomic, strong) registerView1 *register1;
+@property (nonatomic, strong) UITableView *chooseschooltable;
+@property (nonatomic ,strong) NSMutableArray *schools;
+@property (nonatomic, strong) UIView *backgroundview;
 
 /**
  *  底部btn的点击
@@ -48,6 +55,15 @@
 
 @implementation registeredVC
 
+
+- (NSMutableArray *)schools
+{
+    if (_schools == nil) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"schools.plist" ofType:nil];
+        _schools = [NSMutableArray arrayWithContentsOfFile:path];
+    }
+    return _schools;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -56,7 +72,7 @@
     self.birthdaypdate = [NSDate date];
     
     [self setAddheadimage];
-
+    
     
     
     
@@ -67,7 +83,7 @@
     CGFloat scrollW = self.midScrollView.frame.size.width;
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(scrollW/2 - 40, 30, 80, 80);
-//    btn.backgroundColor = [UIColor redColor];
+    //    btn.backgroundColor = [UIColor redColor];
     UIImage *backimage = [UIImage circleImageWithName:@"avatar_default_add.png" borderWidth:1 borderColor:IBColor(238, 238, 238)];
     
     [btn setImage:backimage forState:UIControlStateNormal];
@@ -97,7 +113,7 @@
     self.headpickview.backgroundColor = [UIColor whiteColor];
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
     btn1.frame = CGRectMake(20, 60, 40, 30);
-//    btn1.backgroundColor = [UIColor blueColor];
+    //    btn1.backgroundColor = [UIColor blueColor];
     [btn1 setTitle:@"相机" forState:UIControlStateNormal];
     [btn1 setTitle:@"相机" forState:UIControlStateHighlighted];
     [btn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -110,9 +126,9 @@
     [btn2 setTitle:@"相册" forState:UIControlStateHighlighted];
     [btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     btn2.titleLabel.font = [UIFont systemFontOfSize:13];
-        [btn2 addTarget:self action:@selector(choosephoto:) forControlEvents:UIControlEventTouchUpInside];
+    [btn2 addTarget:self action:@selector(choosephoto:) forControlEvents:UIControlEventTouchUpInside];
     btn2.tag = 2;
-//    btn2.backgroundColor = [UIColor blackColor];
+    //    btn2.backgroundColor = [UIColor blackColor];
     [self.headpickview addSubview:btn1];
     [self.headpickview addSubview:btn2];
     [self.view addSubview:self.headpickview];
@@ -163,66 +179,66 @@
         UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
         //        NSLog(@"%@",image);
         
-//        self.tempimage.image = image;
+        //        self.tempimage.image = image;
         NSData *data;
 #warning 不知道返回的图片的扩展名。。。。。搜也搜不到
-//        if (UIImagePNGRepresentation(image))
-//        {
-//            AVUser *user = [AVUser currentUser];
-//            data = UIImageJPEGRepresentation(image, 1.0);
-//            AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.jpg", user.username] data:data];
-//            
-//            [user setObject:file forKey:@"touxiang"];
-//            
-//            [user setObject:@"liuxiang" forKey:@"haoleng"];
-//            
-//            
-//            
-//            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                
-//            } progressBlock:^(NSInteger percentDone) {
-//                [self.progressview setProgress:percentDone animated:YES];
-//                if (percentDone == 100) {
-//                    self.progressview.hidden = YES;
-//                    [MBProgressHUD showSuccess:@"图片上传成功"];
-//                }
-//            }];
-//            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                if (error) {
-//                    NSLog(@"保存失败");
-//                }
-//            }];
-//            
-//            
-//        }
-//        else
-//        {
-//            AVUser *user = [AVUser currentUser];
-//            data = UIImagePNGRepresentation(image);
-//            AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.png", user.username] data:data];
-//            
-//            
-//            [user setObject:file forKey:@"touxiang"];
-//            
-//            
-//            
-//            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                
-//            } progressBlock:^(NSInteger percentDone) {
-//                [self.progressview setProgress:percentDone animated:YES];
-//                if (percentDone == 100) {
-//                    self.progressview.hidden = YES;
-//                    [MBProgressHUD showSuccess:@"图片上传成功"];
-//                }
-//            }];
-//            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                if (error) {
-//                    NSLog(@"保存失败");
-//                }
-//            }];
-//            
-//            
-//        }
+        //        if (UIImagePNGRepresentation(image))
+        //        {
+        //            AVUser *user = [AVUser currentUser];
+        //            data = UIImageJPEGRepresentation(image, 1.0);
+        //            AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.jpg", user.username] data:data];
+        //
+        //            [user setObject:file forKey:@"touxiang"];
+        //
+        //            [user setObject:@"liuxiang" forKey:@"haoleng"];
+        //
+        //
+        //
+        //            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        //
+        //            } progressBlock:^(NSInteger percentDone) {
+        //                [self.progressview setProgress:percentDone animated:YES];
+        //                if (percentDone == 100) {
+        //                    self.progressview.hidden = YES;
+        //                    [MBProgressHUD showSuccess:@"图片上传成功"];
+        //                }
+        //            }];
+        //            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        //                if (error) {
+        //                    NSLog(@"保存失败");
+        //                }
+        //            }];
+        //
+        //
+        //        }
+        //        else
+        //        {
+        //            AVUser *user = [AVUser currentUser];
+        //            data = UIImagePNGRepresentation(image);
+        //            AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.png", user.username] data:data];
+        //
+        //
+        //            [user setObject:file forKey:@"touxiang"];
+        //
+        //
+        //
+        //            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        //
+        //            } progressBlock:^(NSInteger percentDone) {
+        //                [self.progressview setProgress:percentDone animated:YES];
+        //                if (percentDone == 100) {
+        //                    self.progressview.hidden = YES;
+        //                    [MBProgressHUD showSuccess:@"图片上传成功"];
+        //                }
+        //            }];
+        //            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        //                if (error) {
+        //                    NSLog(@"保存失败");
+        //                }
+        //            }];
+        //
+        //
+        //        }
         
         
     }
@@ -240,6 +256,7 @@
     registerView1 *view1child = (registerView1 *)[self loadnibwithname:@"registerView1"];
     view1child.delegate =self;
     view1child.frame = CGRectMake((scrollW - view1child.frame.size.width) / 2, 0, view1child.frame.size.width, view1child.frame.size.height);
+    self.register1 = view1child;
     [view1 addSubview:view1child];
     
     UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(scrollW, 0, scrollW, scrollH)];
@@ -247,6 +264,7 @@
     registerView2 *view2child = (registerView2 *)[self loadnibwithname:@"registerView2"];
     view2child.delegate  =self;
     view2child.frame = view1child.frame;
+    self.register2 = view2child;
     [view2 addSubview:view2child];
     
     
@@ -255,6 +273,7 @@
     registerView3 *view3child = (registerView3 *)[self loadnibwithname:@"registerView3"];
     view3child.frame = view1child.frame;
     view3child.delegate = self;
+    self.register3 = view3child;
     [view3 addSubview:view3child];
     
     [self.midScrollView addSubview:view1];
@@ -286,7 +305,7 @@
     
 }
 /**
-    根据nib名字返回相应的view
+ 根据nib名字返回相应的view
  */
 
 - (UIView *)loadnibwithname:(NSString *)name
@@ -313,7 +332,7 @@
     
 }
 /**
-    设置底部btn的旋转
+ 设置底部btn的旋转
  */
 - (void)setBtnStatuWithnum:(NSInteger)index
 {
@@ -326,8 +345,8 @@
     }else
     {
         [UIView animateWithDuration:0.25 animations:^{
-        self.bottomBtn.transform =  CGAffineTransformIdentity;
-            }];
+            self.bottomBtn.transform =  CGAffineTransformIdentity;
+        }];
     }
 }
 
@@ -336,6 +355,7 @@
 //    UIImageView *view =[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 260, 1)];
 //    view.image = [UIImage imageNamed:@""];
 //}
+
 
 - (void)PasswdagainTextfieldEndedit
 {
@@ -386,7 +406,7 @@
     [btn1 addTarget:self action:@selector(finishchoosebirthday) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:btn1];
     self.birthdaypicktoolbar = view;
-
+    
     
     [self.view addSubview:view];
     
@@ -398,7 +418,9 @@
 {
     self.birthdaypicker.hidden = YES;
     self.birthdaypicktoolbar.hidden = YES;
-    NSLog(@"%@", self.birthdaypdate);
+    
+    NSString *temp = [[NSString stringWithFormat:@"%@", self.birthdaypdate] substringToIndex:10];
+    self.register3.birthdaylable.text = temp;
     
 }
 
@@ -409,6 +431,71 @@
 
 - (void)chooseschool
 {
+    if (self.chooseschooltable && self.backgroundview) {
+        self.backgroundview.hidden = NO;
+        self.chooseschooltable.hidden = NO;
+        return;
+    }
+    self.backgroundview  =[[UIView alloc] initWithFrame:self.view.bounds];
+    self.backgroundview.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:self.backgroundview];
+    self.chooseschooltable = [[UITableView alloc] initWithFrame:CGRectMake(30, 80, 260, 300) style:UITableViewStylePlain];
+    self.chooseschooltable.delegate = self;
+    self.chooseschooltable.dataSource  =self;
+    [self.view addSubview:self.chooseschooltable];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+
+{
+    return self.schools.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *ID = @"hehe";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    cell.textLabel.text =self.schools[indexPath.row];
+    
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.backgroundview.hidden = YES;
+    self.chooseschooltable.hidden = YES;
+    self.register3.schoollable.text = self.schools[indexPath.row];
+}
+
+- (void)sendVerificationBtnClick
+{
+    if (self.register1.username.text.length !=11 )
+    {
+        [MBProgressHUD showError:@"手机号码位数不对"];
+        self.register2.send = NO;
+        return;
+    }
+    else if (![self isPureInt:self.register1.username.text] )
+    {
+        [MBProgressHUD showError:@"手机号码格式不对"];
+        self.register2.send = NO;
+        return;
+    }
+    self.register2.send = YES;
+    
+    
+    
+}
+
+- (BOOL)isPureInt:(NSString *)string{
+    
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    
+    int val;
+    
+    return [scan scanInt:&val] && [scan isAtEnd];
     
 }
 

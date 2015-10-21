@@ -16,4 +16,16 @@
 
 @interface registerView1 : UIView
 @property (weak, nonatomic) id<registerView1Delagate> delegate;
+/**
+ *  用户名
+ */
+@property (weak, nonatomic) IBOutlet UITextField *username;
+/**
+ *  密码
+ */
+@property (weak, nonatomic) IBOutlet UITextField *passwd;
+/**
+ *    确认密码
+ */
+@property (weak, nonatomic) IBOutlet UITextField *passwdagain;
 @end

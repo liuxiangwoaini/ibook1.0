@@ -8,18 +8,11 @@
 
 #import "registerView2.h"
 @interface registerView2()<UITextFieldDelegate>
-/**
- *验证码
- */
-@property (weak, nonatomic) IBOutlet UITextField *Verificationcode;
-/**
- 昵称
- */
-@property (weak, nonatomic) IBOutlet UITextField *nickname;
-/**
- 签名
- */
-@property (weak, nonatomic) IBOutlet UITextField *signature;
+
+@property (weak, nonatomic) IBOutlet UIButton *sendVerificationBtn;
+@property (strong, nonatomic) NSTimer *timer;
+@property (assign, nonatomic) NSInteger timeindex;
+- (IBAction)sendVerification;
 
 @end
 @implementation registerView2
@@ -29,9 +22,21 @@
     [self endEditing:YES];
 }
 
+- (NSTimer *)timer
+{
+    if (_timer == nil) {
+        _timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(timerCall:) userInfo:nil repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+    return _timer;
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    self.timeindex = 60;
+    //    self.sendVerificationBtn.titleLabel.text = @"发送验证码";
+    
     self.Verificationcode.delegate  =self;
     self.nickname.delegate  =self;
     self.signature.delegate  =self;
@@ -54,7 +59,7 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    NSLog(@"%d", textField.tag);
+    
     if (textField.tag == 2) {
         if ([self.delegate respondsToSelector:@selector(signatureTextfieldBeginedit)]) {
             [self.delegate signatureTextfieldBeginedit];
@@ -67,6 +72,34 @@
         if ([self.delegate respondsToSelector:@selector(signatureTextfieldEndedit)]) {
             [self.delegate signatureTextfieldEndedit];
         }
+    }
+}
+- (IBAction)sendVerification {
+    
+    if ([self.delegate respondsToSelector:@selector(sendVerificationBtnClick)]) {
+        [self.delegate sendVerificationBtnClick];
+    }
+    
+    if (self.send) {
+        self.sendVerificationBtn.enabled = NO;
+        self.timer.fireDate = [NSDate date];
+    }
+}
+
+- (void)timerCall:(NSTimer *)time
+{
+    
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.sendVerificationBtn setTitle:[NSString stringWithFormat:@"还剩%d秒", self.timeindex] forState:UIControlStateDisabled];
+    }];
+    self.timeindex -= 1;
+    if (self.timeindex == 0) {
+        self.sendVerificationBtn.enabled = YES;
+        self.sendVerificationBtn.titleLabel.text = @"再次发送";
+        [self.timer invalidate];
+        self.timer = nil;
+        self.timeindex = 60;
     }
 }
 @end

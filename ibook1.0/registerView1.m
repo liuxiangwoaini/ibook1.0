@@ -8,18 +8,7 @@
 
 #import "registerView1.h"
 @interface registerView1()<UITextFieldDelegate>
-/**
- *  用户名
- */
-@property (weak, nonatomic) IBOutlet UITextField *username;
-/**
- *  密码
- */
-@property (weak, nonatomic) IBOutlet UITextField *passwd;
-/**
- *    确认密码
- */
-@property (weak, nonatomic) IBOutlet UITextField *passwdagain;
+
 @end
 
 @implementation registerView1
