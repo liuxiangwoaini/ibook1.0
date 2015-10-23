@@ -9,6 +9,7 @@
 #import "NavThreeController.h"
 #import "NotLoginVC.h"
 #import "HaveLoginVC.h"
+#import <AVOSCloud/AVOSCloud.h>
 @interface NavThreeController ()
 
 @end
@@ -17,8 +18,15 @@
 
 - (void)loadView {
     [super loadView];
-    NotLoginVC *root = [[NotLoginVC alloc] init];
-    [self addChildViewController:root];
+    AVUser *user = [AVUser currentUser];
+    if (user) {
+        HaveLoginVC *root  = [[HaveLoginVC alloc] init];
+        [self addChildViewController:root];
+    }else
+    {
+        NotLoginVC *root = [[NotLoginVC alloc] init];
+        [self addChildViewController:root];
+    }
     self.navigationBarHidden = YES;
 }
 

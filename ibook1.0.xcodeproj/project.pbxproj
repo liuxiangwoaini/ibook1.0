@@ -83,6 +83,7 @@
 		22938D5D1BD4935800A58B9C /* registeredVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22938D5B1BD4935800A58B9C /* registeredVC.m */; };
 		22938D5E1BD4935800A58B9C /* registeredVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22938D5C1BD4935800A58B9C /* registeredVC.xib */; };
 		229C596E1BD47A2F005BDB8A /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C596D1BD47A2F005BDB8A /* UIImage+Extension.m */; };
+		229D61B21BD9EFD0002654AE /* iBookUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D61B11BD9EFD0002654AE /* iBookUser.m */; };
 		22A867D21BD73BAA0085AACB /* schools.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22A867D11BD73BAA0085AACB /* schools.plist */; };
 		22E5F8331BD50C49003120BC /* registerView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E5F8321BD50C49003120BC /* registerView1.xib */; };
 		22E5F8361BD50CBA003120BC /* registerView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5F8351BD50CBA003120BC /* registerView1.m */; };
@@ -208,6 +209,8 @@
 		22938D5C1BD4935800A58B9C /* registeredVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = registeredVC.xib; sourceTree = "<group>"; };
 		229C596C1BD47A2F005BDB8A /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		229C596D1BD47A2F005BDB8A /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		229D61B01BD9EFD0002654AE /* iBookUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBookUser.h; sourceTree = "<group>"; };
+		229D61B11BD9EFD0002654AE /* iBookUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBookUser.m; sourceTree = "<group>"; };
 		22A867D11BD73BAA0085AACB /* schools.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = schools.plist; sourceTree = "<group>"; };
 		22E5F8321BD50C49003120BC /* registerView1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = registerView1.xib; sourceTree = "<group>"; };
 		22E5F8341BD50CBA003120BC /* registerView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerView1.h; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 		222E294D1BD488E800147A3C /* model */ = {
 			isa = PBXGroup;
 			children = (
+				229D61B01BD9EFD0002654AE /* iBookUser.h */,
+				229D61B11BD9EFD0002654AE /* iBookUser.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -765,6 +770,7 @@
 				22419A6E1BD3854100235CBD /* DHSlideMenuController.m in Sources */,
 				22E5F8391BD50CD0003120BC /* registerView2.m in Sources */,
 				22E5F83C1BD50CDC003120BC /* registerView3.m in Sources */,
+				229D61B21BD9EFD0002654AE /* iBookUser.m in Sources */,
 				22419A5A1BD384FC00235CBD /* NavOneController.m in Sources */,
 				22938D5D1BD4935800A58B9C /* registeredVC.m in Sources */,
 				22419A741BD3855B00235CBD /* DHTabBarViewController.m in Sources */,

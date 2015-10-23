@@ -47,12 +47,15 @@
 @property (nonatomic, strong) UIView *backgroundview;
 @property (nonatomic, strong) AVFile *touxiang;
 @property (nonatomic, strong) UIButton *addbtn;
+@property (assign, nonatomic, getter=isChooseHeadImage) BOOL ChooseHeadImage;
+@property (assign, nonatomic) NSInteger gender;
 
 /**
  *  底部btn的点击
  */
 
 - (IBAction)bottomBtnclick;
+- (IBAction)ceshi;
 
 @end
 
@@ -73,7 +76,7 @@
     [self setupscrollview];
     self.index = 1;
     self.birthdaypdate = [NSDate date];
-    
+    self.ChooseHeadImage = NO;
     [self setAddheadimage];
     
     
@@ -113,7 +116,18 @@
 - (void)addheadimage
 {
     
-  
+    if (self.register1.username.text.length !=11 )
+    {
+        [MBProgressHUD showError:@"手机号码位数不对"];
+        self.register2.send = NO;
+        return;
+    }
+    else if (![self isPureInt:self.register1.username.text] )
+    {
+        [MBProgressHUD showError:@"手机号码格式不对"];
+        self.register2.send = NO;
+        return;
+    }
 
     self.headpickview = [[UIView alloc] initWithFrame:CGRectMake(80, 140, 160, 120)];
     self.headpickview.backgroundColor = [UIColor whiteColor];
@@ -188,6 +202,7 @@
         NSString *imagepath = [path stringByAppendingPathComponent:@"touxiang.png"];
         UIImage *backimage = [self circleImage:image withParam:1];
         [self.addbtn setImage:backimage forState:UIControlStateNormal];
+        self.ChooseHeadImage = YES;
         NSData *data;
 //#warning 不知道返回的图片的扩展名。。。。。搜也搜不到
                 if (UIImagePNGRepresentation(image))
@@ -199,7 +214,15 @@
                     AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.jpg", self.register1.username.text] data:data];
                     
                     
-                    self.touxiang = file;
+                    
+                    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (succeeded) {
+                            NSLog(@"chengg");
+                        }else
+                        {
+                            NSLog(@"shibai");
+                        }
+                    }];
 
                     
 
@@ -218,8 +241,14 @@
 //                    [data writeToFile:imagepath atomically:YES];
                     AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.png", self.register1.username.text] data:data];
                     
-                    
-                    self.touxiang = file;
+                    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (succeeded) {
+                            NSLog(@"chengg");
+                        }else
+                        {
+                            NSLog(@"shibai");
+                        }
+                    }];
                     
                     
 
@@ -297,6 +326,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)bottomBtnclick {
+   [UIView animateWithDuration:0.25 animations:^{
+        self.view.transform = CGAffineTransformIdentity;
+   }];
     CGFloat scrollW = self.midScrollView.frame.size.width;
     CGFloat scrollH = self.midScrollView.frame.size.height;
     if (self.index == 1) {
@@ -308,10 +340,160 @@
         [self.midScrollView scrollRectToVisible:CGRectMake(scrollW*2, 0, scrollW, scrollH) animated:YES];
         self.index =3;
     }
+    else
+    {
+        if (self.register2.Verificationcode.text.length != 6 || ![self isPureInt:self.register2.Verificationcode.text]) {
+            [MBProgressHUD showError:@"验证码错误"];
+            
+        }else if (!self.register2.nickname.text.length || !self.register2.signature.text.length)
+        {
+            [MBProgressHUD showError:@"昵称或者签名没写"];
+        }else if (!self.register3.birthdaylable.text.length || !self.register3.schoollable.text.length)
+        {
+            [MBProgressHUD showError:@"学校或者生日没选"];
+        }
+        else if (!self.register3.boyBtn.selected && !self.register3.girlBtn.selected)
+        {
+            [MBProgressHUD showError:@"选择性别"];
+        }
+        else
+        {
+            if (self.register3.boyBtn.selected) {
+                self.gender = 1;
+            }
+            [AVUser verifyMobilePhone:self.register2.Verificationcode.text withBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    [MBProgressHUD showSuccess:@"注册成功"];
+                    NSString *full = [NSString stringWithFormat:@"%@.jpg", self.register1.username.text];
+                    NSString *full1 = [NSString stringWithFormat:@"%@.png", self.register1.username.text];
+                    AVQuery *query = [AVQuery queryWithClassName:@"_File"];
+                    __block NSString *imageurl;
+                    [query whereKey:@"name" equalTo:full];
+                    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                        if (!error) {
+                            // 检索成功
+                            NSDictionary *dict = [objects lastObject];
+                            imageurl = dict[@"localData"][@"url"];
+//                            imageurl = (NSString *)file[@"url"];
+                            NSLog(@"%@", imageurl);
+                        } else {
+                            // 输出错误信息
+                            NSLog(@"Error: %@ %@", error, [error userInfo]);
+                        }
+                    }];
+                    
+                    [AVUser logInWithUsername:self.register1.username.text password:self.register1.passwd.text error:nil];
+                    AVUser *user = [AVUser currentUser];
+                    
+                            [user setObject:self.register3.schoollable.text forKey:@"school"];
+                            [user setObject:self.register2.signature.text forKey:@"signature"];
+                            [user setObject:self.register2.nickname.text forKey:@"nickname"];
+                            [user setObject:@(self.gender) forKey:@"gender"];
+                            [user setObject:self.birthdaypdate forKey:@"birth"];
+                    [user setObject:imageurl forKey:@"avatarUrl"];
+//                            [user setObject:self.touxiang forKey:@"touxiang"];
+                    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (succeeded) {
+                            NSLog(@"chengg");
+                        }else
+                        {
+                            NSLog(@"shibai");
+                        }
+                    }];
+                    
+
+                    
+
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    
+                }else
+                {
+                    [MBProgressHUD showError:@"注册失败"];
+                }
+            }];
+            
+            
+        }
+    }
     [self setBtnStatuWithnum:self.index];
     
     
     
+    
+}
+
+- (IBAction)ceshi {
+//    AVQuery *query = [AVUser query];
+//    [query whereKey:@"username" equalTo:@"18345189176"];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (error == nil) {
+//            AVUser *user = [objects lastObject];
+////            [user setObject:self.register3.schoollable.text forKey:@"school"];
+////            [user setObject:self.register2.signature.text forKey:@"signature"];
+////            [user setObject:self.register2.nickname.text forKey:@"nickname"];
+////            [user setObject:@(self.gender) forKey:@"gender"];
+////            [user setObject:self.register3.birthdaylable.text forKey:@"birth"];
+////            [user setObject:self.touxiang forKey:@"touxiang"];
+//            [user setObject:@"dasd" forKey:@"das"];
+//            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (succeeded) {
+//                    NSLog(@"chengg");
+//                }else
+//                {
+//                    NSLog(@"shibai");
+//                }
+//            }];
+//        } else {
+//            
+//        }
+//    }];
+//    [AVUser logInWithUsername:@"18345189176" password:@"123456" error:nil];
+
+//    [AVUser logInWithUsername:@"18345189176" password:@"123456" error:nil];
+//    AVUser *user = [AVUser currentUser];
+//    
+////    [user setObject:self.register3.schoollable.text forKey:@"school"];
+////    [user setObject:self.register2.signature.text forKey:@"signature"];
+////    [user setObject:self.register2.nickname.text forKey:@"nickname"];
+////    [user setObject:@(self.gender) forKey:@"gender"];
+////    [user setObject:self.birthdaypdate forKey:@"birth"];
+//    [user setObject:self.touxiang forKey:@"touxiang"];
+//    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            NSLog(@"chengg");
+//        }else
+//        {
+//            NSLog(@"shibai");
+//        }
+//    }];
+    
+//    NSString *full = [NSString stringWithFormat:@"11111111111.jpg"];
+////    NSString *full1 = [NSString stringWithFormat:@"%@.png", self.register1.username.text];
+//    AVQuery *query = [AVQuery queryWithClassName:@"_File"];
+//    __block NSString *imageurl;
+//    [query whereKey:@"name" equalTo:full];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            // 检索成功
+//            NSDictionary *dict = (NSDictionary *)[objects lastObject];
+//            NSLog(@"%@", dict[@"localData"][@"url"]);
+//            AVUser *user = [AVUser currentUser];
+//            [user setObject:dict[@"localData"][@"url"] forKey:@"avatarUrl"];
+//                [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                    if (succeeded) {
+//                        NSLog(@"chengg");
+//                    }else
+//                    {
+//                        NSLog(@"shibai");
+//                    }
+//                }];
+//            
+//            
+//        } else {
+//            // 输出错误信息
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//    }];
     
 }
 /**
@@ -503,13 +685,16 @@
     
     
     
+    
     AVUser *user = [AVUser user];
     user.username =self.register1.username.text;
     user.password =self.register1.passwd.text;
     user.mobilePhoneNumber =self.register1.username.text;
     NSError *error = nil;
     [user signUp:&error];
-    
+    if (error) {
+        NSLog(@"shibai--%@", error.description);
+    }
     self.register2.send = YES;
     
     

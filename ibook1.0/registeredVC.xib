@@ -43,6 +43,15 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3gc-rY-ZDr">
                     <rect key="frame" x="0.0" y="69" width="320" height="260"/>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeC-mI-vcG">
+                    <rect key="frame" x="48" y="375" width="46" height="30"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="ceshi" destination="-1" eventType="touchUpInside" id="r2z-O2-JbH"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.058708231884518375" green="0.28423904420540236" blue="0.56098533163265307" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>

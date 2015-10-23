@@ -7,8 +7,11 @@
 //
 
 #import "HaveLoginVC.h"
+#import <AVOSCloud/AVOSCloud.h>
 
-@interface HaveLoginVC ()
+@interface HaveLoginVC ()<UIActionSheetDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *headview;
+- (IBAction)logout;
 
 @end
 
@@ -16,22 +19,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
+
+
+- (IBAction)logout {
+    UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"真的要注销吗" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"注销" otherButtonTitles:nil, nil];
+    [action showInView:self.view];
+    
+    [AVUser logOut];
+    
 }
 
-/*
-#pragma mark - Navigation
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [AVUser logOut];
+        
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    }
 }
-*/
-
 @end

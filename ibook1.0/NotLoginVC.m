@@ -9,6 +9,8 @@
 #import "NotLoginVC.h"
 #import "MBProgressHUD+MJ.h"
 #import "registeredVC.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import "HaveLoginVC.h"
 @interface NotLoginVC ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *passwd;
@@ -52,6 +54,18 @@
         return;
     }
     
+    [AVUser logInWithUsernameInBackground:self.username.text password:self.passwd.text block:^(AVUser *user, NSError *error) {
+        if (user != nil) {
+            [MBProgressHUD showSuccess:@"登陆成功,正在跳转..."];
+            HaveLoginVC *vc = [[HaveLoginVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+//            [self presentViewController:vc animated:YES completion:nil];
+        } else {
+            [MBProgressHUD showError:@"登陆失败"];
+        }
+    }];
+    
+
 }
 
 /**
