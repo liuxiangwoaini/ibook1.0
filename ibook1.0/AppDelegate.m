@@ -15,6 +15,7 @@
 #import "ViewController.h"
 #import "DHSlideMenuController.h"
 #import "commonhead.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface AppDelegate ()
 
@@ -58,6 +59,9 @@
     mainVC.needPanFromViewBounds = YES;
     _window.rootViewController = mainVC;
     [_window makeKeyAndVisible];
+    [AVOSCloud setApplicationId:@"MdAPK8e8ncw2okkw4BwNLkWT"
+                      clientKey:@"98Ep0eF2Eo2ThBlJuLaos8Ko"];
+    
     return YES;
     
 }

@@ -10,4 +10,5 @@
 
 @interface UIImage (MJ)
 + (instancetype)circleImageWithName:(NSString *)name borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
++ (instancetype)circleImageWithimage:(UIImage *)oldimage borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
 @end

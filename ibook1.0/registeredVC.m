@@ -13,6 +13,7 @@
 #import "registerView3.h"
 #import "UIImage+MJ.h"
 #import "MBProgressHUD+MJ.h"
+#import <AVOSCloud/AVOSCloud.h>
 @interface registeredVC ()<UIScrollViewDelegate, registerView1Delagate,registerView2Delagate,UIImagePickerControllerDelegate, registerView3Delagate, UITableViewDataSource, UITableViewDelegate>
 /**
  *  取消注册，关闭控制器
@@ -44,6 +45,8 @@
 @property (nonatomic, strong) UITableView *chooseschooltable;
 @property (nonatomic ,strong) NSMutableArray *schools;
 @property (nonatomic, strong) UIView *backgroundview;
+@property (nonatomic, strong) AVFile *touxiang;
+@property (nonatomic, strong) UIButton *addbtn;
 
 /**
  *  底部btn的点击
@@ -88,7 +91,7 @@
     
     [btn setImage:backimage forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(addheadimage) forControlEvents:UIControlEventTouchUpInside];
-    
+    self.addbtn = btn;
     [self.view addSubview:btn];
 }
 
@@ -109,6 +112,9 @@
 #warning 写到这里，明天继续
 - (void)addheadimage
 {
+    
+  
+
     self.headpickview = [[UIView alloc] initWithFrame:CGRectMake(80, 140, 160, 120)];
     self.headpickview.backgroundColor = [UIColor whiteColor];
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -138,6 +144,7 @@
 
 - (void)choosephoto:(UIButton *)btn
 {
+
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     if (btn.tag == 1) {
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -170,83 +177,86 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
     ;
-    
+
     //当选择的类型是图片
     if ([type isEqualToString:@"public.image"])
     {
-        //先把图片转成NSData
-        
+//        //先把图片转成NSData
+//        
         UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        //        NSLog(@"%@",image);
-        
-        //        self.tempimage.image = image;
+        NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *imagepath = [path stringByAppendingPathComponent:@"touxiang.png"];
+        UIImage *backimage = [self circleImage:image withParam:1];
+        [self.addbtn setImage:backimage forState:UIControlStateNormal];
         NSData *data;
-#warning 不知道返回的图片的扩展名。。。。。搜也搜不到
-        //        if (UIImagePNGRepresentation(image))
-        //        {
-        //            AVUser *user = [AVUser currentUser];
-        //            data = UIImageJPEGRepresentation(image, 1.0);
-        //            AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.jpg", user.username] data:data];
-        //
-        //            [user setObject:file forKey:@"touxiang"];
-        //
-        //            [user setObject:@"liuxiang" forKey:@"haoleng"];
-        //
-        //
-        //
-        //            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        //
-        //            } progressBlock:^(NSInteger percentDone) {
-        //                [self.progressview setProgress:percentDone animated:YES];
-        //                if (percentDone == 100) {
-        //                    self.progressview.hidden = YES;
-        //                    [MBProgressHUD showSuccess:@"图片上传成功"];
-        //                }
-        //            }];
-        //            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        //                if (error) {
-        //                    NSLog(@"保存失败");
-        //                }
-        //            }];
-        //
-        //
-        //        }
-        //        else
-        //        {
-        //            AVUser *user = [AVUser currentUser];
-        //            data = UIImagePNGRepresentation(image);
-        //            AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.png", user.username] data:data];
-        //
-        //
-        //            [user setObject:file forKey:@"touxiang"];
-        //
-        //
-        //
-        //            [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        //
-        //            } progressBlock:^(NSInteger percentDone) {
-        //                [self.progressview setProgress:percentDone animated:YES];
-        //                if (percentDone == 100) {
-        //                    self.progressview.hidden = YES;
-        //                    [MBProgressHUD showSuccess:@"图片上传成功"];
-        //                }
-        //            }];
-        //            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        //                if (error) {
-        //                    NSLog(@"保存失败");
-        //                }
-        //            }];
-        //
-        //
-        //        }
+//#warning 不知道返回的图片的扩展名。。。。。搜也搜不到
+                if (UIImagePNGRepresentation(image))
+                {
+
+                    data = UIImageJPEGRepresentation(image, 1.0);
+                    
+//                    [data writeToFile:imagepath atomically:YES];
+                    AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.jpg", self.register1.username.text] data:data];
+                    
+                    
+                    self.touxiang = file;
+
+                    
+
         
         
+        
+                    
+        
+        
+        
+                }
+                else
+                {
+
+                    data = UIImagePNGRepresentation(image);
+//                    [data writeToFile:imagepath atomically:YES];
+                    AVFile *file = [AVFile fileWithName:[NSString stringWithFormat:@"%@.png", self.register1.username.text] data:data];
+                    
+                    
+                    self.touxiang = file;
+                    
+                    
+
+  
+
+        
+       
+    
+}
     }
     
+
+    
+}
+
+
+-(UIImage*) circleImage:(UIImage*) image withParam:(CGFloat) inset {
+    UIGraphicsBeginImageContext(image.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetLineWidth(context, 2);
+    CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
+    CGRect rect = CGRectMake(inset, inset, image.size.width - inset * 2.0f, image.size.height - inset * 2.0f);
+    CGContextAddEllipseInRect(context, rect);
+    CGContextClip(context);
+    
+    [image drawInRect:rect];
+    CGContextAddEllipseInRect(context, rect);
+    CGContextStrokePath(context);
+    UIImage *newimg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newimg;
 }
 /**
  *  添加scrollview中的三个子view
  */
+        
+        
 - (void)addchildviews
 {
     CGFloat scrollW = self.midScrollView.frame.size.width;
@@ -483,6 +493,23 @@
         self.register2.send = NO;
         return;
     }
+    else if (![self.register1.passwd.text isEqualToString:self.register1.passwdagain.text])
+    {
+        [MBProgressHUD showError:@"密码不对"];
+        self.register2.send = NO;
+        return;
+    }
+    
+    
+    
+    
+    AVUser *user = [AVUser user];
+    user.username =self.register1.username.text;
+    user.password =self.register1.passwd.text;
+    user.mobilePhoneNumber =self.register1.username.text;
+    NSError *error = nil;
+    [user signUp:&error];
+    
     self.register2.send = YES;
     
     
