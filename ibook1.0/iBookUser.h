@@ -44,5 +44,15 @@
 //    "updatedAt": "2015-10-18T18:43:57.851Z"
 //}
 @interface iBookUser : NSObject
+@property (nonatomic ,copy) NSString *school;
+@property (nonatomic ,copy) NSString *signature;
+@property (nonatomic ,copy) NSString *nickname;
+@property (nonatomic ,copy) NSString *username;
+@property (nonatomic ,copy) NSString *mobilePhoneNumber;
+@property (nonatomic ,copy) NSString *avatarUrl;
+@property (nonatomic, strong)NSDate *birth;
+@property (nonatomic , assign) BOOL gender;
 
++ (instancetype)userwithdict:(NSDictionary *)dict;
+- (instancetype)initwithdict:(NSDictionary *)dict;
 @end

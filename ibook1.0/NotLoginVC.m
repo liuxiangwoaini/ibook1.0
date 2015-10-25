@@ -35,7 +35,7 @@
     [super viewDidLoad];
     self.username.delegate = self;
     self.passwd.delegate = self;
-    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
     
     

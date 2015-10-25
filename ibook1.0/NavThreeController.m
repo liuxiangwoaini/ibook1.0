@@ -21,6 +21,8 @@
     AVUser *user = [AVUser currentUser];
     if (user) {
         HaveLoginVC *root  = [[HaveLoginVC alloc] init];
+        NotLoginVC *root1 = [[NotLoginVC alloc] init];
+        [self addChildViewController:root1];
         [self addChildViewController:root];
     }else
     {
