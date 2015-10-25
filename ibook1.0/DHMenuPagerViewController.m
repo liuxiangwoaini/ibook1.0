@@ -15,8 +15,10 @@
     NSArray *titleArray;
     DHLandscapeMenuScrollView *menuView;
     DHLandscapeTableView *contentView;
+    
 }
-
+@property (nonatomic ,strong) UIView *navrightview;
+@property (nonatomic ,strong) UILabel *navrightlable;
 @end
 
 @implementation DHMenuPagerViewController
@@ -46,8 +48,29 @@
         }
         contentView.swipDelegate = self;
     }
-    self.navigationController.navigationBar.hidden = YES;
+//    self.navigationController.navigationBar.hidden = YES;
+    self.navrightview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
+    lable.text = @"哈尔滨";
+    lable.textAlignment = NSTextAlignmentRight;
+    lable.font = [UIFont systemFontOfSize:13];
+    lable.textColor = [UIColor whiteColor];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(60, 5, 40, 34);
+    [btn addTarget:self action:@selector(chooselocation) forControlEvents:UIControlEventTouchUpInside];
+    [btn setBackgroundImage:[UIImage imageNamed:@"ic_location.png"] forState:UIControlStateNormal];
+    [self.navrightview addSubview:btn];
+    [self.navrightview addSubview:lable];
+//    self.navrightview.backgroundColor = [UIColor greenColor];
+    UIBarButtonItem *item1 =[[UIBarButtonItem alloc] initWithTitle:@"hehe" style:UIBarButtonItemStyleDone target:self action:nil];
+    UIBarButtonItem *item2 =[[UIBarButtonItem alloc] initWithCustomView:self.navrightview ];
+    self.navigationItem.rightBarButtonItems =@[item2];
     return self;
+}
+
+- (void)chooselocation
+{
+    
 }
 
 - (void)menuSelectedBtnIndex:(NSUInteger)tag {

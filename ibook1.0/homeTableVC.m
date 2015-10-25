@@ -16,12 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *item1 =[[UIBarButtonItem alloc] initWithTitle:@"hehe" style:UIBarButtonItemStyleDone target:self action:nil];
+    UIBarButtonItem *item2 =[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_location.png"] style:UIBarButtonItemStyleDone target:self action:nil];
+    self.navigationItem.rightBarButtonItems =@[item1, item2];
+    self.navigationItem.title = @"das";
 }
 
 - (void)didReceiveMemoryWarning {

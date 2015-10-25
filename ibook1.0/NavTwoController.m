@@ -19,6 +19,8 @@
 //    homeTableVC *home = [[homeTableVC alloc] init];
 //    [self addChildViewController:home];
 //    self.navigationBarHidden = YES;
-    
+    UIBarButtonItem *item1 =[[UIBarButtonItem alloc] initWithTitle:@"hehe" style:UIBarButtonItemStyleDone target:self action:nil];
+    UIBarButtonItem *item2 =[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_location.png"] style:UIBarButtonItemStyleDone target:self action:nil];
+    self.navigationItem.rightBarButtonItems =@[item1, item2];
 }
 @end
