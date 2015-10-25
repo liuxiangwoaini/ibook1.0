@@ -7,11 +7,18 @@
 //
 
 #import "NavTwoController.h"
-
+#import "homeTableVC.h"
 @interface NavTwoController ()
 
 @end
 
 @implementation NavTwoController
-
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+//    homeTableVC *home = [[homeTableVC alloc] init];
+//    [self addChildViewController:home];
+//    self.navigationBarHidden = YES;
+    
+}
 @end

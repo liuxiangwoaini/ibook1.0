@@ -13,6 +13,7 @@
 #import "iBookUser.h"
 #import "SDWebImageDownloader.h"
 #import "PersonDataVC.h"
+#import "PersonActivityVC.h"
 
 @interface HaveLoginVC ()<UIActionSheetDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headview;
@@ -53,6 +54,7 @@
 {
     [super viewDidDisappear:YES];
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+//    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)sethead
@@ -140,15 +142,26 @@
             break;
         }
         case 1:
+        {
             
+            PersonActivityVC *vc = [[PersonActivityVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
             break;
+        }
         case 2:
+        {
             
+            PersonActivityVC *vc = [[PersonActivityVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
             break;
+        }
         case 3:
+        {
             
+            PersonActivityVC *vc = [[PersonActivityVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
             break;
-            
+        }
         default:
         {
             UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"真的要注销吗" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"注销" otherButtonTitles:nil, nil];

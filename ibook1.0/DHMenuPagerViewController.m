@@ -46,6 +46,7 @@
         }
         contentView.swipDelegate = self;
     }
+    self.navigationController.navigationBar.hidden = YES;
     return self;
 }
 

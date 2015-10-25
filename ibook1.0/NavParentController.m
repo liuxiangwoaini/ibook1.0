@@ -10,6 +10,7 @@
 
 #import "NavParentController.h"
 #import "DHSlideMenuController.h"
+#import "UIImage+Extension.h"
 @interface NavParentController ()
 
 @end
@@ -21,7 +22,7 @@
     self.navigationBar.translucent = NO;
     //self.navigationBar.barTintColor = [UIColor colorWithRed:132%255/255.0 green:142%255/255.0 blue:192%255/255.0 alpha:0.8];
     self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor cyanColor],NSForegroundColorAttributeName, [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:30],NSFontAttributeName, nil];
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bg"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setBackgroundImage:[UIImage resizableImage:@"SetHeaderBkgHL.png"] forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)viewDidLoad {

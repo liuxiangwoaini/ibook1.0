@@ -27,6 +27,7 @@
     lable1.backgroundColor = [UIColor colorWithWhite:0.6 alpha:0.7];
     [root.view addSubview:lable1];
     [self addChildViewController:root];
+    self.navigationBarHidden = YES;
 }
 
 @end

@@ -11,10 +11,15 @@
 #import "SDWebImageDownloader.h"
 #import "UIImageView+WebCache.h"
 #import "MBProgressHUD+MJ.h"
+//#import "PersonActivityVC.h"
 @interface PersonDataVC ()<UIImagePickerControllerDelegate>
 - (IBAction)back;
 @property (weak, nonatomic) IBOutlet UIImageView *headview;
+@property (weak, nonatomic) IBOutlet UILabel *nickname;
+@property (weak, nonatomic) IBOutlet UILabel *school;
 @property (copy ,nonatomic) NSString *imageUrl;
+@property (weak, nonatomic) IBOutlet UILabel *phonenum;
+@property (weak, nonatomic) IBOutlet UILabel *birthday;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressview;
 - (IBAction)tianjiatouxiang;
 @end
@@ -25,6 +30,19 @@
     [super viewDidLoad];
     [self sethead];
     self.progressview.hidden = YES;
+    [self setziliao];
+    
+}
+
+- (void)setziliao
+{
+    AVUser *user = [AVUser currentUser];
+    self.nickname.text = user[@"nickname"];
+    self.school.text = user[@"school"];
+    self.phonenum.text = user[@"mobilePhoneNumber"];
+    
+    NSDate *date = user[@"birth"];
+    self.birthday.text =[date.description substringToIndex:10];
 }
 
 - (IBAction)back {
@@ -34,7 +52,7 @@
 - (void)sethead
 {
     AVUser *user = [AVUser currentUser];
-    ;
+    
     
     //    iBookUser *u = [[iBookUser alloc] initwithdict:dict];
     //    NSLog(@"%@---%@", dict[@"nickname"],user);
@@ -241,7 +259,7 @@
 //        }
 //    }];
 //    
-//    
+//
 //    if (self.imageUrl.length) {
 ////        NSLog(@"%@", self.imageUrl);
 //        [user setObject:self.imageUrl forKey:@"avatarUrl"];
