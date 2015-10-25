@@ -8,7 +8,7 @@
 
 #import "HaveLoginVC.h"
 #import <AVOSCloud/AVOSCloud.h>
-
+#import "MBProgressHUD+MJ.h"
 @interface HaveLoginVC ()<UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headview;
 - (IBAction)logout;
@@ -38,8 +38,10 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
+        [MBProgressHUD showSuccess:@"注销成功"];
         [AVUser logOut];
         
+        [self.navigationController popViewControllerAnimated:YES];
 
     }
 }
