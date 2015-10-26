@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		22054E1E1BD38F7100C066F8 /* LaunchScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 22054E1D1BD38F7100C066F8 /* LaunchScreen.m */; };
 		222072831BDE567D000C3782 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222072821BDE567D000C3782 /* AddressBookUI.framework */; };
+		222072C51BDE6664000C3782 /* WGS84TOGCJ02.m in Sources */ = {isa = PBXBuildFile; fileRef = 222072C41BDE6664000C3782 /* WGS84TOGCJ02.m */; };
 		22419A2A1BD383BE00235CBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22419A291BD383BE00235CBD /* main.m */; };
 		22419A2D1BD383BE00235CBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22419A2C1BD383BE00235CBD /* AppDelegate.m */; };
 		22419A301BD383BE00235CBD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22419A2F1BD383BE00235CBD /* ViewController.m */; };
@@ -139,6 +140,8 @@
 		22054E1F1BD3924E00C066F8 /* ibook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ibook-Prefix.pch"; sourceTree = "<group>"; };
 		22054E201BD3970600C066F8 /* commonhead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonhead.h; sourceTree = "<group>"; };
 		222072821BDE567D000C3782 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		222072C31BDE6664000C3782 /* WGS84TOGCJ02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGS84TOGCJ02.h; sourceTree = "<group>"; };
+		222072C41BDE6664000C3782 /* WGS84TOGCJ02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGS84TOGCJ02.m; sourceTree = "<group>"; };
 		22419A241BD383BE00235CBD /* ibook1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ibook1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22419A281BD383BE00235CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22419A291BD383BE00235CBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -489,6 +492,8 @@
 				22054E1C1BD38F7100C066F8 /* LaunchScreen.h */,
 				22054E1D1BD38F7100C066F8 /* LaunchScreen.m */,
 				22054E201BD3970600C066F8 /* commonhead.h */,
+				222072C31BDE6664000C3782 /* WGS84TOGCJ02.h */,
+				222072C41BDE6664000C3782 /* WGS84TOGCJ02.m */,
 			);
 			name = other;
 			sourceTree = "<group>";
@@ -959,6 +964,7 @@
 				22938D461BD48D0E00A58B9C /* MBProgressHUD.m in Sources */,
 				22938D021BD48AFE00A58B9C /* HaveLoginVC.m in Sources */,
 				22AA889C1BDC682F00FAD31F /* UIImage+GIF.m in Sources */,
+				222072C51BDE6664000C3782 /* WGS84TOGCJ02.m in Sources */,
 				22419A301BD383BE00235CBD /* ViewController.m in Sources */,
 				22419A5B1BD384FC00235CBD /* NavParentController.m in Sources */,
 				22419A2D1BD383BE00235CBD /* AppDelegate.m in Sources */,

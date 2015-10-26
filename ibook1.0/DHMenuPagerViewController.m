@@ -13,6 +13,7 @@
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import <AVOSCloud/AVOSCloud.h>
+#import "WGS84TOGCJ02.h"
 #define kTopBarHeight 0
 #define kMenuViewHeight 30
 @interface DHMenuPagerViewController () <MenuViewDelegate, CLLocationManagerDelegate> {
@@ -25,6 +26,7 @@
 @property (nonatomic ,strong) UILabel *navrightlable;
 @property (strong, nonatomic) CLLocationManager *manage;
 @property (assign ,nonatomic) CLLocation *location;
+@property (nonatomic, assign) BOOL getlocation;
 @end
 
 @implementation DHMenuPagerViewController
@@ -57,7 +59,15 @@
 //    self.navigationController.navigationBar.hidden = YES;
     self.navrightview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
     UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
-    lable.text = @"未定位";
+    NSString *city = [[NSUserDefaults standardUserDefaults] objectForKey:@"city"];
+    if (city.length) {
+        lable.text = city;
+    }else
+    {
+        lable.text = @"未定位";
+    }
+    
+    
     lable.textAlignment = NSTextAlignmentRight;
     lable.font = [UIFont systemFontOfSize:13];
     lable.textColor = [UIColor whiteColor];
@@ -81,6 +91,7 @@
     [manager requestAlwaysAuthorization];
 //    [manager startUpdatingLocation];
     self.manage =manager;
+    self.getlocation = NO;
     return self;
 }
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -90,8 +101,16 @@
     //    NSLog(@"%@", location);
 #warning 地理位置看反编码失败，下面这个方法进不去
 #warning 这个方法有时进得去，有时进不去，真是日了狗了
-    NSLog(@"%@", location);
     
+//    CLLocation *new ;
+    //判断是不是属于国内范围
+    if (![WGS84TOGCJ02 isLocationOutOfChina:[location coordinate]]) {
+        //转换后的coord
+        CLLocationCoordinate2D coord = [WGS84TOGCJ02 transformFromWGSToGCJ:[location coordinate]];
+        location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
+        
+        
+    }
     [geo reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         
         if (error) {
@@ -114,6 +133,7 @@
 //            }
 //
 //            self.location = location;
+//            NSLog(@"%f", location.coordinate.latitude);
             self.navrightlable.text = city;
 
             AVUser *user = [AVUser currentUser];
@@ -121,7 +141,8 @@
             if (user) {
                 AVGeoPoint *point = [AVGeoPoint geoPointWithLatitude:location.coordinate.latitude longitude:location.coordinate.longitude];
                 [user setObject:point forKey:@"lastLocation"];
-                
+                [user setObject:city forKey:@"city"];
+                [[NSUserDefaults standardUserDefaults] setValue:city forKey:@"city"];
                 [user saveInBackground];
             }
             
@@ -143,7 +164,20 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    [self.manage startUpdatingLocation];
+//
+    if (self.getlocation) {
+        return;
+    }
+    AVUser *user = [AVUser currentUser];
+    if (user[@"lastLocation"]) {
+        return;
+    }
+    
+    if (user)
+    {
+        [self.manage startUpdatingLocation];
+        self.getlocation = YES;
+    }
 }
 
 - (void)chooselocation
