@@ -31,4 +31,10 @@
     self.target.text = [NSString activitarget:[dict[@"target"] intValue]];
     
 }
+//-(void)setFrame:(CGRect)frame {
+//    CGFloat y = frame.origin.y +10;
+//    CGRect rect = CGRectMake(frame.origin.x,y , frame.size.width, frame.size.height);
+//    self.contentView.frame = rect;
+//    [super setFrame:frame];
+//}
 @end

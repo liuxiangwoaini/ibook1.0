@@ -11,7 +11,7 @@
 @protocol DHMenuPagerViewDelegate <NSObject>
 
 - (void)changedTitle:(NSString *)title;
-
+- (void)pageviewwilapear;
 @end
 
 @interface DHMenuPagerViewController : UIViewController

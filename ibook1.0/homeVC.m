@@ -12,37 +12,98 @@
 #import "NSString+LX.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "homedataCell.h"
-@interface homeVC ()<UITableViewDataSource, UITableViewDelegate>
+#import "FMDB.h"
+#import "activity.h"
+#import "DHMenuPagerViewController.h"
+#import "MBProgressHUD+MJ.h"
+
+@interface homeVC ()<UITableViewDataSource, UITableViewDelegate,DHMenuPagerViewDelegate>
 @property (strong ,nonatomic) UIButton *addbtn;
 @property (strong ,nonatomic) UIView *chooseview;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (nonatomic, strong) NSMutableArray *activities;
+@property (nonatomic, strong) NSMutableArray *activitiedatas;
+
 @end
 
 @implementation homeVC
+#warning 重写下cell。。。。
 
+- (NSMutableArray *)activitiedatas
+{
+    if (_activitiedatas == nil) {
+        _activitiedatas = [NSMutableArray array];
+    }
+    
+    return _activitiedatas;
+}
 - (NSMutableArray *)activities
 {
     if (_activities == nil) {
-        
-        AVQuery *query = [AVQuery queryWithClassName:@"Activities"];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                // 检索成功
-                _activities = [NSMutableArray arrayWithArray:objects];
+        NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *dbpath = [path stringByAppendingPathComponent:@"activitesdata"];
+        NSArray *array = [NSArray arrayWithContentsOfFile:dbpath];
+        if (array.count > 0) {
+            _activities = [NSMutableArray arrayWithArray:array];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableview reloadData];
+            });
+            AVQuery *query = [AVQuery queryWithClassName:@"Activities"];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (!error) {
+                    // 检索成功
+                    self.activitiedatas = [NSMutableArray arrayWithArray:objects];
                     
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.tableview reloadData];
-                });
-                
-                
-                
-                
-            } else {
-                // 输出错误信息
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
-            }
-        }];
+                    
+                }}];
+            
+
+            
+        }else
+        {
+            AVQuery *query = [AVQuery queryWithClassName:@"Activities"];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                if (!error) {
+                    // 检索成功
+                    _activities = [NSMutableArray arrayWithArray:objects];
+                    self.activitiedatas = [NSMutableArray arrayWithArray:objects];
+                    
+                    NSMutableArray *temp = [NSMutableArray array];
+                    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+                    NSString *dbpath = [path stringByAppendingPathComponent:@"activitesdata"];
+//                    NSArray *array = [NSArray arrayWithContentsOfFile:dbpath];
+                    
+                    
+                    [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                        NSDictionary *dict = (NSDictionary *)obj;
+//                        NSLog(@"%@", [dict class]);
+                        NSString *title = obj[@"title"];
+                        NSString *remark = obj[@"remark"];
+                        NSString *place = obj[@"place"];
+                        NSInteger target = (NSInteger)obj[@"target"];
+                        NSInteger type= (NSInteger )obj[@"type"];
+                        NSInteger isuseful =(NSInteger)obj[@"isUseful"];
+                        NSDictionary *dict1 = @{@"title":title, @"remark":remark, @"place":place,@"target":@(target),@"type":@(type),@"isuseful":@(isuseful)};
+                        [temp addObject:dict1];
+                    }];
+                    
+                    [temp writeToFile:dbpath atomically:YES];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.tableview reloadData];
+                    });
+                    
+//                    NSData
+                    
+                    
+                } else {
+                    // 输出错误信息
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
+        }
+        
+
     }
 
     return _activities;
@@ -51,18 +112,31 @@
     [super viewDidLoad];
     [self setAddbtn1];
     [self setchoosebtns];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeVC) name:@"changeVC" object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeVC1) name:@"changeVC1" object:nil];
+    
     NSInteger num = self.activities.count;
     self.tableview.dataSource =self;
     self.tableview.delegate = self;
+    self.tableview.separatorStyle= UITableViewCellSeparatorStyleNone;
 
     self.tableview.rowHeight = 80;
     
 }
 
+- (void)changeVC
+{
+    self.addbtn.hidden = NO;
+}
+- (void)changeVC1
+{
+    self.addbtn.hidden = YES;
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    
+ 
+ 
     AVUser *user = [AVUser currentUser];
     if (user) {
         self.addbtn.hidden = NO;
@@ -151,6 +225,11 @@
 - (void)addbtnclick
 {
     self.chooseview.hidden = !self.chooseview.hidden;
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *dbpath = [path stringByAppendingPathComponent:@"activitesdata"];
+    NSArray *array = [NSArray arrayWithContentsOfFile:dbpath];
+    NSLog(@"%@", array);
+    
 }
 
 -(UIImage*) circleImage:(UIImage*) image withParam:(CGFloat) inset
@@ -171,6 +250,57 @@
     return newimg;
 }
 
+- (void)getfromdb
+{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *dbpath = [path stringByAppendingPathComponent:@"activitesdata.db"];
+    NSFileManager *manage = [[NSFileManager alloc] init];
+    if([manage fileExistsAtPath:dbpath])
+    {
+        FMDatabase *db = [FMDatabase databaseWithPath:dbpath];
+        if ([db open]) {
+            NSLog(@"get--db成功");
+        }
+        
+        FMResultSet *result = [db executeQuery:@"SELECT City, Weather  FROM CityWeather"];
+        while ([result next]) {
+            NSData *data = [result dataForColumn:@"Weather"];
+//            [self.datas addObject:data];
+        }
+    }
+    else
+    {
+        return;
+    }
+    
+}
+
+
+- (void)setupdatabaseWithCithname:(NSString *)name andData:(NSData *)data
+{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *dbpath = [path stringByAppendingPathComponent:@"cityweather.db"];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbpath];
+    if ([db open]) {
+        NSLog(@"db 打开成功");
+        [db executeUpdate:@"CREATE TABLE if not exists CityWeather (City text, Weather blob)"];
+        [db executeUpdate:@"INSERT INTO  CityWeather(City, Weather ) VALUES (?,?)",name, data];
+        
+    }
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    id data = self.activitiedatas[indexPath.row];
+    NSLog(@"%@", self.activitiedatas);
+    if (self.activitiedatas.count == 0) {
+        [MBProgressHUD showError:@"网络不好请稍等"];
+        return;
+    }
+    
+    [self.delegate changedetailactiviVCwithdata:self.activitiedatas[indexPath.row]];
+}
 //"remark": "图兔兔吐了",
 //"place": "哈尔滨理工大学南校区图书馆",
 //"isUseful": 0,

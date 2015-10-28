@@ -14,9 +14,10 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import <AVOSCloud/AVOSCloud.h>
 #import "WGS84TOGCJ02.h"
+#import "homeVC.h"
 #define kTopBarHeight 0
 #define kMenuViewHeight 30
-@interface DHMenuPagerViewController () <MenuViewDelegate, CLLocationManagerDelegate> {
+@interface DHMenuPagerViewController () <MenuViewDelegate, CLLocationManagerDelegate,homeVCdelegate> {
     NSArray *titleArray;
     DHLandscapeMenuScrollView *menuView;
     DHLandscapeTableView *contentView;
@@ -169,6 +170,12 @@
         return;
     }
     AVUser *user = [AVUser currentUser];
+    if (user) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"changeVC" object:nil];
+    }else
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"changeVC1" object:nil];
+    }
 //    user[@"dasd"];
     if (user[@"lastLocation"]) {
         
@@ -200,6 +207,12 @@
 
 - (void)contentViewChangedAtIndex:(NSUInteger)tag offset:(CGPoint)offset {
     [menuView changeIndicatorViewWithPage:tag offset:offset.y];
+}
+- (void)changedetailactiviVCwithdata:(AVObject *)data
+{
+        UIViewController *vc = [[UIViewController alloc] init];
+    vc.view.backgroundColor = [UIColor blueColor];
+        [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

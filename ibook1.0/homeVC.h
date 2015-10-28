@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVOSCloud/AVOSCloud.h>
+@protocol homeVCdelegate <NSObject>
+
+
+- (void)changedetailactiviVCwithdata:(AVObject *)data;
+@end
 
 @interface homeVC : UIViewController
-
+@property (assign, nonatomic) id<homeVCdelegate> delegate;
 @end

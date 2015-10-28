@@ -35,7 +35,7 @@
     DHMenuPagerViewController *pagerView = [[DHMenuPagerViewController alloc] initWithViewControllers:@[viewd,viewd1,viewd2] titles:@[@"首页",@"附近",@"消息"] menuBackgroundColor:IBColor(82, 183, 239)  titleColor: IBColor(239, 239, 239)titleColorHighlighted:IBColor(1, 1, 1)];
 //    pagerView.title = @"PagerView";
 //    DHMenuPagerViewController *pagerView = [[DHMenuPagerViewController alloc] init];
-    
+    viewd.delegate = pagerView;
     NavOneController *one = [[NavOneController alloc] init];
     NavTwoController *two = [[NavTwoController alloc] initWithRootViewController:pagerView];
     NavThreeController *three = [[NavThreeController alloc] init];

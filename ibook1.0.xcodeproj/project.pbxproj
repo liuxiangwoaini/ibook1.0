@@ -78,6 +78,7 @@
 		22475B0B1BE09D4300B6789E /* homeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22475B091BE09D4300B6789E /* homeVC.xib */; };
 		225F42BA1BE0ACBA00987FCD /* homedataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 225F42B81BE0ACBA00987FCD /* homedataCell.m */; };
 		225F42BB1BE0ACBA00987FCD /* homedataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225F42B91BE0ACBA00987FCD /* homedataCell.xib */; };
+		225F42BE1BE0DF8800987FCD /* activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 225F42BD1BE0DF8800987FCD /* activity.m */; };
 		226D38B81BD52B090019B4AB /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D38B71BD52B090019B4AB /* UIImage+MJ.m */; };
 		22938CFD1BD489E400A58B9C /* NotLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22938CFB1BD489E400A58B9C /* NotLoginVC.m */; };
 		22938CFE1BD489E400A58B9C /* NotLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22938CFC1BD489E400A58B9C /* NotLoginVC.xib */; };
@@ -230,6 +231,8 @@
 		225F42B71BE0ACBA00987FCD /* homedataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homedataCell.h; sourceTree = "<group>"; };
 		225F42B81BE0ACBA00987FCD /* homedataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homedataCell.m; sourceTree = "<group>"; };
 		225F42B91BE0ACBA00987FCD /* homedataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homedataCell.xib; sourceTree = "<group>"; };
+		225F42BC1BE0DF8800987FCD /* activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activity.h; sourceTree = "<group>"; };
+		225F42BD1BE0DF8800987FCD /* activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activity.m; sourceTree = "<group>"; };
 		226D38B61BD52B090019B4AB /* UIImage+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MJ.h"; sourceTree = "<group>"; };
 		226D38B71BD52B090019B4AB /* UIImage+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MJ.m"; sourceTree = "<group>"; };
 		22938CFA1BD489E400A58B9C /* NotLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotLoginVC.h; sourceTree = "<group>"; };
@@ -663,6 +666,8 @@
 		22A20A6A1BDD097B0060E81D /* model */ = {
 			isa = PBXGroup;
 			children = (
+				225F42BC1BE0DF8800987FCD /* activity.h */,
+				225F42BD1BE0DF8800987FCD /* activity.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -987,6 +992,7 @@
 				22AA88961BDC682F00FAD31F /* SDWebImageDecoder.m in Sources */,
 				22AA889E1BDC682F00FAD31F /* UIImage+WebP.m in Sources */,
 				22AA88951BDC682F00FAD31F /* SDWebImageCompat.m in Sources */,
+				225F42BE1BE0DF8800987FCD /* activity.m in Sources */,
 				22419A7D1BD3858000235CBD /* DHLandscapeMenuScrollView.m in Sources */,
 				22938D441BD48D0E00A58B9C /* MBProgressHUD+MJ.m in Sources */,
 				22AA88971BDC682F00FAD31F /* SDWebImageDownloader.m in Sources */,
