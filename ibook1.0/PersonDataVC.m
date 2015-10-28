@@ -51,6 +51,9 @@
 
 - (void)sethead
 {
+    
+    self.headview.image = [self circleImage:[UIImage imageNamed:@"avatar_default.png"] withParam:1];
+    
     AVUser *user = [AVUser currentUser];
     
     

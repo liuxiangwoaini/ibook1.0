@@ -16,7 +16,7 @@
 #import "DHSlideMenuController.h"
 #import "commonhead.h"
 #import <AVOSCloud/AVOSCloud.h>
-
+#import "homeVC.h"
 @interface AppDelegate ()
 
 @end
@@ -29,7 +29,7 @@
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    ViewController *viewd = [[ViewController alloc] init];
+    homeVC *viewd = [[homeVC alloc] init];
     ViewController *viewd1 = [[ViewController alloc] init];
     ViewController *viewd2 = [[ViewController alloc] init];
     DHMenuPagerViewController *pagerView = [[DHMenuPagerViewController alloc] initWithViewControllers:@[viewd,viewd1,viewd2] titles:@[@"首页",@"附近",@"消息"] menuBackgroundColor:IBColor(82, 183, 239)  titleColor: IBColor(239, 239, 239)titleColorHighlighted:IBColor(1, 1, 1)];

@@ -89,7 +89,7 @@
     [manager requestWhenInUseAuthorization];
     
     [manager requestAlwaysAuthorization];
-//    [manager startUpdatingLocation];
+    [manager startUpdatingLocation];
     self.manage =manager;
     self.getlocation = NO;
     return self;
@@ -169,7 +169,9 @@
         return;
     }
     AVUser *user = [AVUser currentUser];
+//    user[@"dasd"];
     if (user[@"lastLocation"]) {
+        
         return;
     }
     

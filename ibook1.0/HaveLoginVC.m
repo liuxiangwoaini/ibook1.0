@@ -61,7 +61,7 @@
 {
     AVUser *user = [AVUser currentUser];
     ;
-
+        self.headview.image = [self circleImage:[UIImage imageNamed:@"avatar_default.png"] withParam:1];
 //    iBookUser *u = [[iBookUser alloc] initwithdict:dict];
 //    NSLog(@"%@---%@", dict[@"nickname"],user);
     NSString *url = [NSString stringWithFormat:@"%@", user[@"avatarUrl"]];

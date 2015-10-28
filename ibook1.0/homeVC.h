@@ -1,5 +1,5 @@
 //
-//  homeTableVC.h
+//  homeVC.h
 //  ibook1.0
 //
 //  Created by liuxiang on 15-10-28.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface homeTableVC : UIViewController
+@interface homeVC : UIViewController
 
 @end
