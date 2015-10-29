@@ -91,6 +91,8 @@
 		22938D5E1BD4935800A58B9C /* registeredVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22938D5C1BD4935800A58B9C /* registeredVC.xib */; };
 		229C596E1BD47A2F005BDB8A /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C596D1BD47A2F005BDB8A /* UIImage+Extension.m */; };
 		229D61B21BD9EFD0002654AE /* iBookUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D61B11BD9EFD0002654AE /* iBookUser.m */; };
+		229ECE411BE1F4FD00D3FDCE /* changuserdataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE3F1BE1F4FD00D3FDCE /* changuserdataVC.m */; };
+		229ECE421BE1F4FD00D3FDCE /* changuserdataVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229ECE401BE1F4FD00D3FDCE /* changuserdataVC.xib */; };
 		22A20A5F1BDCEEB80060E81D /* PersonActivityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A20A5E1BDCEEB80060E81D /* PersonActivityVC.m */; };
 		22A20A631BDCF82F0060E81D /* PersonAcitiviCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A20A611BDCF82F0060E81D /* PersonAcitiviCell.m */; };
 		22A20A641BDCF82F0060E81D /* PersonAcitiviCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A20A621BDCF82F0060E81D /* PersonAcitiviCell.xib */; };
@@ -253,6 +255,9 @@
 		229C596D1BD47A2F005BDB8A /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		229D61B01BD9EFD0002654AE /* iBookUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBookUser.h; sourceTree = "<group>"; };
 		229D61B11BD9EFD0002654AE /* iBookUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBookUser.m; sourceTree = "<group>"; };
+		229ECE3E1BE1F4FD00D3FDCE /* changuserdataVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changuserdataVC.h; sourceTree = "<group>"; };
+		229ECE3F1BE1F4FD00D3FDCE /* changuserdataVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changuserdataVC.m; sourceTree = "<group>"; };
+		229ECE401BE1F4FD00D3FDCE /* changuserdataVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = changuserdataVC.xib; sourceTree = "<group>"; };
 		22A20A5D1BDCEEB80060E81D /* PersonActivityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonActivityVC.h; sourceTree = "<group>"; };
 		22A20A5E1BDCEEB80060E81D /* PersonActivityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonActivityVC.m; sourceTree = "<group>"; };
 		22A20A601BDCF82F0060E81D /* PersonAcitiviCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonAcitiviCell.h; sourceTree = "<group>"; };
@@ -393,6 +398,9 @@
 				22A20A601BDCF82F0060E81D /* PersonAcitiviCell.h */,
 				22A20A611BDCF82F0060E81D /* PersonAcitiviCell.m */,
 				22A20A621BDCF82F0060E81D /* PersonAcitiviCell.xib */,
+				229ECE3E1BE1F4FD00D3FDCE /* changuserdataVC.h */,
+				229ECE3F1BE1F4FD00D3FDCE /* changuserdataVC.m */,
+				229ECE401BE1F4FD00D3FDCE /* changuserdataVC.xib */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -855,6 +863,7 @@
 				22419AB71BD3881B00235CBD /* ic_aty_publish.png in Resources */,
 				22A20A641BDCF82F0060E81D /* PersonAcitiviCell.xib in Resources */,
 				22419A381BD383BE00235CBD /* LaunchScreen.xib in Resources */,
+				229ECE421BE1F4FD00D3FDCE /* changuserdataVC.xib in Resources */,
 				22419AB51BD3881B00235CBD /* ic_aty_apply.png in Resources */,
 				22A20A731BDD0C7C0060E81D /* SetHeaderBkg@2x.png in Resources */,
 				22419ABC1BD3881B00235CBD /* ic_exit.png in Resources */,
@@ -977,6 +986,7 @@
 				22AA88991BDC682F00FAD31F /* SDWebImageManager.m in Sources */,
 				226D38B81BD52B090019B4AB /* UIImage+MJ.m in Sources */,
 				22938D461BD48D0E00A58B9C /* MBProgressHUD.m in Sources */,
+				229ECE411BE1F4FD00D3FDCE /* changuserdataVC.m in Sources */,
 				22938D021BD48AFE00A58B9C /* HaveLoginVC.m in Sources */,
 				22AA889C1BDC682F00FAD31F /* UIImage+GIF.m in Sources */,
 				222072C51BDE6664000C3782 /* WGS84TOGCJ02.m in Sources */,

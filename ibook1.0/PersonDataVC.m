@@ -11,6 +11,7 @@
 #import "SDWebImageDownloader.h"
 #import "UIImageView+WebCache.h"
 #import "MBProgressHUD+MJ.h"
+#import "changuserdataVC.h"
 //#import "PersonActivityVC.h"
 @interface PersonDataVC ()<UIImagePickerControllerDelegate>
 - (IBAction)back;
@@ -51,7 +52,9 @@
 }
 
 - (IBAction)changeuserdata {
+    changuserdataVC *vc = [[changuserdataVC alloc] init];
     
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)sethead
