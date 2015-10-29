@@ -16,7 +16,7 @@
 #import "activity.h"
 #import "DHMenuPagerViewController.h"
 #import "MBProgressHUD+MJ.h"
-
+#import "MJRefresh.h"
 @interface homeVC ()<UITableViewDataSource, UITableViewDelegate,DHMenuPagerViewDelegate, homedataCelldelegate>
 @property (strong ,nonatomic) UIButton *addbtn;
 @property (strong ,nonatomic) UIView *chooseview;
@@ -121,6 +121,46 @@
     self.tableview.separatorStyle= UITableViewCellSeparatorStyleNone;
 
     self.tableview.rowHeight = 320;
+    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+        
+        [self getdatafromnet];
+        
+        [self.tableview.header endRefreshing];
+        
+    }];
+    [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
+    [header setTitle:@"放开刷新" forState:MJRefreshStatePulling];
+    [header setTitle:@"正在刷新 ..." forState:MJRefreshStateRefreshing];
+    
+    // 设置字体
+    header.stateLabel.font = [UIFont systemFontOfSize:20];
+    header.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:20];
+    
+    // 设置颜色
+    header.stateLabel.textColor = [UIColor redColor];
+    header.lastUpdatedTimeLabel.textColor = [UIColor blueColor];
+    self.tableview.header = header;
+//    self.tableview.footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+//        [MBProgressHUD showError:@"没有更多数据了。。。。"];
+//    }];
+    self.tableview.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [MBProgressHUD showError:@"没有更多数据了。。。。"];
+        [self.tableview.footer endRefreshing];
+//        self.tableview.footer.hidden = YES;
+    }];
+    
+}
+
+- (void)getdatafromnet
+{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *dbpath = [path stringByAppendingPathComponent:@"activitesdata"];
+    NSFileManager *manage = [NSFileManager defaultManager];
+//    NSLog(@"%@", [NSArray arrayWithContentsOfFile:dbpath]);
+    [manage removeItemAtPath:dbpath error:nil];
+//    NSLog(@"%@", [NSArray arrayWithContentsOfFile:dbpath]);
+    NSInteger num = self.activities.count;
+    [MBProgressHUD showSuccess:@"刷新成功"];
     
 }
 

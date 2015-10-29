@@ -217,7 +217,7 @@
 #warning 这里要弹出到用户详情
 - (void)changetouserdata:(AVUser *)user
 {
-    NSLog(@"%@", user);
+    
 }
 
 @end
