@@ -135,6 +135,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    AVUser *user = [AVUser currentUser];
     switch (indexPath.row) {
         case 0:{
             PersonDataVC *vc = [[PersonDataVC alloc] init];
@@ -145,6 +146,7 @@
         {
             
             PersonActivityVC *vc = [[PersonActivityVC alloc] init];
+            vc.userobjID = user.objectId;
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
@@ -152,6 +154,7 @@
         {
             
             PersonActivityVC *vc = [[PersonActivityVC alloc] init];
+            vc.userobjID = user.objectId;
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
@@ -159,6 +162,7 @@
         {
             
             PersonActivityVC *vc = [[PersonActivityVC alloc] init];
+            vc.userobjID = user.objectId;
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }

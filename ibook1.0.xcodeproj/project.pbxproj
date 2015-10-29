@@ -90,9 +90,15 @@
 		22938D5D1BD4935800A58B9C /* registeredVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22938D5B1BD4935800A58B9C /* registeredVC.m */; };
 		22938D5E1BD4935800A58B9C /* registeredVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22938D5C1BD4935800A58B9C /* registeredVC.xib */; };
 		229C596E1BD47A2F005BDB8A /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C596D1BD47A2F005BDB8A /* UIImage+Extension.m */; };
+		229C61A21BE240390061E55D /* activitydetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C61A01BE240390061E55D /* activitydetailVC.m */; };
+		229C61A31BE240390061E55D /* activitydetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229C61A11BE240390061E55D /* activitydetailVC.xib */; };
 		229D61B21BD9EFD0002654AE /* iBookUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D61B11BD9EFD0002654AE /* iBookUser.m */; };
 		229ECE411BE1F4FD00D3FDCE /* changuserdataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE3F1BE1F4FD00D3FDCE /* changuserdataVC.m */; };
 		229ECE421BE1F4FD00D3FDCE /* changuserdataVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229ECE401BE1F4FD00D3FDCE /* changuserdataVC.xib */; };
+		229ECE451BE213A300D3FDCE /* NSObject+LX.m in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE441BE213A300D3FDCE /* NSObject+LX.m */; };
+		229ECE481BE2382A00D3FDCE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE471BE2382A00D3FDCE /* Reachability.m */; };
+		229ECE4D1BE23C3C00D3FDCE /* otheruserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 229ECE4B1BE23C3C00D3FDCE /* otheruserVC.m */; };
+		229ECE4E1BE23C3C00D3FDCE /* otheruserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229ECE4C1BE23C3C00D3FDCE /* otheruserVC.xib */; };
 		22A20A5F1BDCEEB80060E81D /* PersonActivityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A20A5E1BDCEEB80060E81D /* PersonActivityVC.m */; };
 		22A20A631BDCF82F0060E81D /* PersonAcitiviCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A20A611BDCF82F0060E81D /* PersonAcitiviCell.m */; };
 		22A20A641BDCF82F0060E81D /* PersonAcitiviCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A20A621BDCF82F0060E81D /* PersonAcitiviCell.xib */; };
@@ -253,11 +259,21 @@
 		22938D5C1BD4935800A58B9C /* registeredVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = registeredVC.xib; sourceTree = "<group>"; };
 		229C596C1BD47A2F005BDB8A /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
 		229C596D1BD47A2F005BDB8A /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		229C619F1BE240390061E55D /* activitydetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activitydetailVC.h; sourceTree = "<group>"; };
+		229C61A01BE240390061E55D /* activitydetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activitydetailVC.m; sourceTree = "<group>"; };
+		229C61A11BE240390061E55D /* activitydetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = activitydetailVC.xib; sourceTree = "<group>"; };
 		229D61B01BD9EFD0002654AE /* iBookUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iBookUser.h; sourceTree = "<group>"; };
 		229D61B11BD9EFD0002654AE /* iBookUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBookUser.m; sourceTree = "<group>"; };
 		229ECE3E1BE1F4FD00D3FDCE /* changuserdataVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changuserdataVC.h; sourceTree = "<group>"; };
 		229ECE3F1BE1F4FD00D3FDCE /* changuserdataVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changuserdataVC.m; sourceTree = "<group>"; };
 		229ECE401BE1F4FD00D3FDCE /* changuserdataVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = changuserdataVC.xib; sourceTree = "<group>"; };
+		229ECE431BE213A300D3FDCE /* NSObject+LX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LX.h"; sourceTree = "<group>"; };
+		229ECE441BE213A300D3FDCE /* NSObject+LX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LX.m"; sourceTree = "<group>"; };
+		229ECE461BE2382A00D3FDCE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		229ECE471BE2382A00D3FDCE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		229ECE4A1BE23C3C00D3FDCE /* otheruserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = otheruserVC.h; sourceTree = "<group>"; };
+		229ECE4B1BE23C3C00D3FDCE /* otheruserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = otheruserVC.m; sourceTree = "<group>"; };
+		229ECE4C1BE23C3C00D3FDCE /* otheruserVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = otheruserVC.xib; sourceTree = "<group>"; };
 		22A20A5D1BDCEEB80060E81D /* PersonActivityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonActivityVC.h; sourceTree = "<group>"; };
 		22A20A5E1BDCEEB80060E81D /* PersonActivityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonActivityVC.m; sourceTree = "<group>"; };
 		22A20A601BDCF82F0060E81D /* PersonAcitiviCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonAcitiviCell.h; sourceTree = "<group>"; };
@@ -383,6 +399,7 @@
 		222E294F1BD488F600147A3C /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				229ECE491BE23B7400D3FDCE /* user(别的用户vc) */,
 				22E5F8311BD50C12003120BC /* register(注册) */,
 				22938CFA1BD489E400A58B9C /* NotLoginVC.h */,
 				22938CFB1BD489E400A58B9C /* NotLoginVC.m */,
@@ -641,14 +658,28 @@
 		229C596B1BD479FC005BDB8A /* catagory */ = {
 			isa = PBXGroup;
 			children = (
+				229ECE461BE2382A00D3FDCE /* Reachability.h */,
+				229ECE471BE2382A00D3FDCE /* Reachability.m */,
 				226D38B61BD52B090019B4AB /* UIImage+MJ.h */,
 				226D38B71BD52B090019B4AB /* UIImage+MJ.m */,
 				229C596C1BD47A2F005BDB8A /* UIImage+Extension.h */,
 				229C596D1BD47A2F005BDB8A /* UIImage+Extension.m */,
 				22A20A651BDD08530060E81D /* NSString+LX.h */,
 				22A20A661BDD08530060E81D /* NSString+LX.m */,
+				229ECE431BE213A300D3FDCE /* NSObject+LX.h */,
+				229ECE441BE213A300D3FDCE /* NSObject+LX.m */,
 			);
 			name = catagory;
+			sourceTree = "<group>";
+		};
+		229ECE491BE23B7400D3FDCE /* user(别的用户vc) */ = {
+			isa = PBXGroup;
+			children = (
+				229ECE4A1BE23C3C00D3FDCE /* otheruserVC.h */,
+				229ECE4B1BE23C3C00D3FDCE /* otheruserVC.m */,
+				229ECE4C1BE23C3C00D3FDCE /* otheruserVC.xib */,
+			);
+			name = "user(别的用户vc)";
 			sourceTree = "<group>";
 		};
 		22A20A681BDD09570060E81D /* home(首页) */ = {
@@ -667,6 +698,9 @@
 				22475B071BE09D4300B6789E /* homeVC.h */,
 				22475B081BE09D4300B6789E /* homeVC.m */,
 				22475B091BE09D4300B6789E /* homeVC.xib */,
+				229C619F1BE240390061E55D /* activitydetailVC.h */,
+				229C61A01BE240390061E55D /* activitydetailVC.m */,
+				229C61A11BE240390061E55D /* activitydetailVC.xib */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -833,6 +867,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229C61A31BE240390061E55D /* activitydetailVC.xib in Resources */,
 				22419AAD1BD3881B00235CBD /* avatar_me.png in Resources */,
 				22419AC41BD3881B00235CBD /* ic_send_normal.png in Resources */,
 				22419AC61BD3881B00235CBD /* ic_send_white.png in Resources */,
@@ -871,6 +906,7 @@
 				22419AB81BD3881B00235CBD /* ic_cancel.png in Resources */,
 				22419ABD1BD3881B00235CBD /* ic_launcher.png in Resources */,
 				22419ABB1BD3881B00235CBD /* ic_end_aty.png in Resources */,
+				229ECE4E1BE23C3C00D3FDCE /* otheruserVC.xib in Resources */,
 				22419AB41BD3881B00235CBD /* ic_apply_aty.png in Resources */,
 				22419ACF1BD3881B00235CBD /* left_bg_.png in Resources */,
 				22A867D21BD73BAA0085AACB /* schools.plist in Resources */,
@@ -989,17 +1025,20 @@
 				229ECE411BE1F4FD00D3FDCE /* changuserdataVC.m in Sources */,
 				22938D021BD48AFE00A58B9C /* HaveLoginVC.m in Sources */,
 				22AA889C1BDC682F00FAD31F /* UIImage+GIF.m in Sources */,
+				229ECE481BE2382A00D3FDCE /* Reachability.m in Sources */,
 				222072C51BDE6664000C3782 /* WGS84TOGCJ02.m in Sources */,
 				22419A301BD383BE00235CBD /* ViewController.m in Sources */,
 				22419A5B1BD384FC00235CBD /* NavParentController.m in Sources */,
 				22419A2D1BD383BE00235CBD /* AppDelegate.m in Sources */,
 				22AA889D1BDC682F00FAD31F /* UIImage+MultiFormat.m in Sources */,
 				22AA88981BDC682F00FAD31F /* SDWebImageDownloaderOperation.m in Sources */,
+				229ECE4D1BE23C3C00D3FDCE /* otheruserVC.m in Sources */,
 				22419A751BD3855B00235CBD /* ParentCellViewController.m in Sources */,
 				22938CFD1BD489E400A58B9C /* NotLoginVC.m in Sources */,
 				22419A5C1BD384FC00235CBD /* NavThreeController.m in Sources */,
 				22419A2A1BD383BE00235CBD /* main.m in Sources */,
 				22AA88961BDC682F00FAD31F /* SDWebImageDecoder.m in Sources */,
+				229ECE451BE213A300D3FDCE /* NSObject+LX.m in Sources */,
 				22AA889E1BDC682F00FAD31F /* UIImage+WebP.m in Sources */,
 				22AA88951BDC682F00FAD31F /* SDWebImageCompat.m in Sources */,
 				225F42BE1BE0DF8800987FCD /* activity.m in Sources */,
@@ -1008,6 +1047,7 @@
 				22AA88971BDC682F00FAD31F /* SDWebImageDownloader.m in Sources */,
 				22AA88921BDC682F00FAD31F /* MKAnnotationView+WebCache.m in Sources */,
 				22A20A671BDD08530060E81D /* NSString+LX.m in Sources */,
+				229C61A21BE240390061E55D /* activitydetailVC.m in Sources */,
 				22419A5D1BD384FC00235CBD /* NavTwoController.m in Sources */,
 				225F42BA1BE0ACBA00987FCD /* homedataCell.m in Sources */,
 				22419A7F1BD3858000235CBD /* DHMenuPagerViewController.m in Sources */,

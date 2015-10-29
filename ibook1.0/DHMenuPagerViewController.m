@@ -17,6 +17,10 @@
 #import "homeVC.h"
 #define kTopBarHeight 0
 #define kMenuViewHeight 30
+#import "otheruserVC.h"
+#import "activitydetailVC.h"
+#import "PersonActivityVC.h"
+
 @interface DHMenuPagerViewController () <MenuViewDelegate, CLLocationManagerDelegate,homeVCdelegate> {
     NSArray *titleArray;
     DHLandscapeMenuScrollView *menuView;
@@ -210,14 +214,34 @@
 }
 - (void)changedetailactiviVCwithdata:(AVObject *)data
 {
-        UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor blueColor];
-        [self.navigationController pushViewController:vc animated:YES];
+    activitydetailVC *vc = [[activitydetailVC alloc] init];
+//    vc.tabBarController.tabBar.hidden = YES;
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
 }
-#warning 这里要弹出到用户详情
+#warning 这里做转场动画....一定要做一定要做。。。。。
 - (void)changetouserdata:(AVUser *)user
 {
-    
+    otheruserVC *other = [[otheruserVC alloc] init];
+    other.user = user;
+//    NSLog(@"%@",user);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moreactivity:) name:@"moreactivi" object:nil];
+    [self.navigationController presentViewController:other animated:YES completion:nil];
+//    [UIView animateWithDuration:3 animations:^{
+//        other.view.transform = CGAffineTransformMakeTranslation(0, -200);
+//    } completion:^(BOOL finished) {
+//        other.view.transform = CGAffineTransformIdentity;
+//    }];
+   
 }
+#warning 这个地方还有问题。。。明天继续
+- (void)moreactivity:(NSNotification *)noti
+{
+    PersonActivityVC *vc = [[PersonActivityVC alloc] init];
+    vc.userobjID =noti.userInfo[@"objID"];
+    
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+
+}
+
 
 @end

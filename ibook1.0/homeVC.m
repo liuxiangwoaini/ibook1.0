@@ -17,6 +17,9 @@
 #import "DHMenuPagerViewController.h"
 #import "MBProgressHUD+MJ.h"
 #import "MJRefresh.h"
+
+#import "NSObject+LX.h"
+
 @interface homeVC ()<UITableViewDataSource, UITableViewDelegate,DHMenuPagerViewDelegate, homedataCelldelegate>
 @property (strong ,nonatomic) UIButton *addbtn;
 @property (strong ,nonatomic) UIView *chooseview;
@@ -149,7 +152,12 @@
 //        self.tableview.footer.hidden = YES;
     }];
     
+//    BOOL net = [NSObject connectwithnum];
+
+    
 }
+
+
 
 - (void)getdatafromnet
 {
@@ -160,9 +168,17 @@
     [manage removeItemAtPath:dbpath error:nil];
 //    NSLog(@"%@", [NSArray arrayWithContentsOfFile:dbpath]);
     NSInteger num = self.activities.count;
+    if ([NSArray arrayWithContentsOfFile:dbpath]) {
+        [MBProgressHUD showError:@"刷新失败"];
+    }else
+    {
     [MBProgressHUD showSuccess:@"刷新成功"];
+    }
+    
     
 }
+
+
 
 - (void)changeVC
 {
@@ -380,6 +396,9 @@
 
 - (void)clickheadbtnwithuserdata:(AVUser *)user
 {
+    if (!user) {
+        return;
+    }
     [self.delegate changetouserdata:user];
 }
 

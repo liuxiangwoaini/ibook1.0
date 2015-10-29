@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PersonActivityVC : UITableViewController
-
+@property (nonatomic ,strong) NSString *userobjID;
 @end

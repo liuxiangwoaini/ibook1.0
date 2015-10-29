@@ -28,7 +28,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setdatas];
+//    [self setdatas];
     self.navigationItem.title = @"我的活动";
     self.tableView.rowHeight = 80;
 //    self.navigationController.navigationBar.hidden = NO;
@@ -115,7 +115,7 @@
             AVUser *user1 = hehe[@"owner"];
 //            NSLog(@"%@", user1.objectId);
 //            NSLog(@"%@", user1.objectId);
-            if ([user1.objectId isEqualToString:user.objectId]) {
+            if ([user1.objectId isEqualToString:self.userobjID]) {
                 [self.activities addObject:hehe];
                 
             }
@@ -135,7 +135,11 @@
 //        [MBProgressHUD showError:@"没有数据"];
 //    }
 }
-
+- (void)setUserobjID:(NSString *)userobjID
+{
+    _userobjID = userobjID;
+    [self setdatas];
+}
 
 
 #pragma mark - Table view data source
