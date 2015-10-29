@@ -14,6 +14,7 @@
 //#import "PersonActivityVC.h"
 @interface PersonDataVC ()<UIImagePickerControllerDelegate>
 - (IBAction)back;
+- (IBAction)changeuserdata;
 @property (weak, nonatomic) IBOutlet UIImageView *headview;
 @property (weak, nonatomic) IBOutlet UILabel *nickname;
 @property (weak, nonatomic) IBOutlet UILabel *school;
@@ -47,6 +48,10 @@
 
 - (IBAction)back {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)changeuserdata {
+    
 }
 
 - (void)sethead

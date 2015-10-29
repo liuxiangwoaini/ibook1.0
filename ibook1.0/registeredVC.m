@@ -55,7 +55,7 @@
  */
 
 - (IBAction)bottomBtnclick;
-- (IBAction)ceshi;
+
 
 @end
 
@@ -422,7 +422,7 @@
     
 }
 
-- (IBAction)ceshi {
+
 //    AVQuery *query = [AVUser query];
 //    [query whereKey:@"username" equalTo:@"18345189176"];
 //    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -495,7 +495,7 @@
 //        }
 //    }];
     
-}
+
 /**
  根据nib名字返回相应的view
  */

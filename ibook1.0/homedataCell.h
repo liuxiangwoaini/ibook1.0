@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <AVOSCloud/AVOSCloud.h>
+@protocol homedataCelldelegate <NSObject>
+
+
+- (void)clickheadbtnwithuserdata:(AVUser *)user;
+@end
+
 @interface homedataCell : UITableViewCell
 @property (nonatomic, strong) NSDictionary *dict;
 @property (nonatomic ,strong) AVObject *obj;
+@property (assign, nonatomic) id<homedataCelldelegate> delegate;
 @end

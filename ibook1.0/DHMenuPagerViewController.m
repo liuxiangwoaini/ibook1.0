@@ -214,5 +214,10 @@
     vc.view.backgroundColor = [UIColor blueColor];
         [self.navigationController pushViewController:vc animated:YES];
 }
+#warning 这里要弹出到用户详情
+- (void)changetouserdata:(AVUser *)user
+{
+    NSLog(@"%@", user);
+}
 
 @end

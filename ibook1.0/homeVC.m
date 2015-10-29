@@ -17,7 +17,7 @@
 #import "DHMenuPagerViewController.h"
 #import "MBProgressHUD+MJ.h"
 
-@interface homeVC ()<UITableViewDataSource, UITableViewDelegate,DHMenuPagerViewDelegate>
+@interface homeVC ()<UITableViewDataSource, UITableViewDelegate,DHMenuPagerViewDelegate, homedataCelldelegate>
 @property (strong ,nonatomic) UIButton *addbtn;
 @property (strong ,nonatomic) UIView *chooseview;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
@@ -45,15 +45,15 @@
         NSArray *array = [NSArray arrayWithContentsOfFile:dbpath];
         if (array.count > 0) {
             _activities = [NSMutableArray arrayWithArray:array];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableview reloadData];
-            });
+
             AVQuery *query = [AVQuery queryWithClassName:@"Activities"];
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 if (!error) {
                     // 检索成功
                     self.activitiedatas = [NSMutableArray arrayWithArray:objects];
-                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.tableview reloadData];
+                    });
                     
                 }}];
             
@@ -120,7 +120,7 @@
     self.tableview.delegate = self;
     self.tableview.separatorStyle= UITableViewCellSeparatorStyleNone;
 
-    self.tableview.rowHeight = 80;
+    self.tableview.rowHeight = 320;
     
 }
 
@@ -185,6 +185,11 @@
 //    //    NSLog(@"%@--%@--%@--",obj[@"title"],obj[@"place"],obj[@"remark"] );
 //    cell.type.text = [NSString activitype:obj[@"type"]];
     cell.dict =(NSDictionary *) obj;
+    cell.delegate =self;
+//    NSLog(@"%d----", self.activitiedatas.count);
+    if (self.activitiedatas.count) {
+        cell.obj = self.activitiedatas[indexPath.row];
+    }
     return cell;
 }
 
@@ -293,7 +298,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    id data = self.activitiedatas[indexPath.row];
-    NSLog(@"%@", self.activitiedatas);
+//    NSLog(@"%@", self.activitiedatas);
     if (self.activitiedatas.count == 0) {
         [MBProgressHUD showError:@"网络不好请稍等"];
         return;
@@ -332,5 +337,10 @@
 //"objectId": "55fabba760b2849751b8905c",
 //"createdAt": "2015-09-17T21:09:59.537Z",
 //"updatedAt": "2015-10-21T18:16:52.339Z"
+
+- (void)clickheadbtnwithuserdata:(AVUser *)user
+{
+    [self.delegate changetouserdata:user];
+}
 
 @end

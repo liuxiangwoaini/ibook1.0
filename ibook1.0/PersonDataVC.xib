@@ -94,6 +94,15 @@
                         <action selector="back" destination="-1" eventType="touchUpInside" id="Ett-38-fdj"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tI6-KT-Ouh">
+                    <rect key="frame" x="252" y="18" width="60" height="30"/>
+                    <state key="normal" title="编辑资料">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changeuserdata" destination="-1" eventType="touchUpInside" id="jqY-pb-Eek"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.29176387729999997" green="1" blue="0.93521601840000002" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>

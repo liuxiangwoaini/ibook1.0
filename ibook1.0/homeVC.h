@@ -12,6 +12,7 @@
 
 
 - (void)changedetailactiviVCwithdata:(AVObject *)data;
+- (void)changetouserdata:(AVUser *)user;
 @end
 
 @interface homeVC : UIViewController
