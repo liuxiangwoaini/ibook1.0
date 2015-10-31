@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2975EEED-77BF-47A2-83A7-BC4A7F3305A8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Pods</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7EEE44C34F3E4AB2B1CE4B1E0F5A16ABA2DA91C1</key>
+		<string>https://github.com/liuxiangwoaini/ibook1.0.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Pods/Pods.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7EEE44C34F3E4AB2B1CE4B1E0F5A16ABA2DA91C1</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/liuxiangwoaini/ibook1.0.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7EEE44C34F3E4AB2B1CE4B1E0F5A16ABA2DA91C1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7EEE44C34F3E4AB2B1CE4B1E0F5A16ABA2DA91C1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ibook1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>
