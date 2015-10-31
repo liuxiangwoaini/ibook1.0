@@ -17,6 +17,7 @@
 #import "DHMenuPagerViewController.h"
 #import "MBProgressHUD+MJ.h"
 #import "MJRefresh.h"
+#import "activitydetailVC.h"
 
 #import "NSObject+LX.h"
 
@@ -153,7 +154,7 @@
     }];
     
 //    BOOL net = [NSObject connectwithnum];
-
+    self.navigationController.navigationBarHidden = YES;
     
 }
 
@@ -191,7 +192,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
- 
+    
  
     AVUser *user = [AVUser currentUser];
     if (user) {
@@ -359,8 +360,11 @@
         [MBProgressHUD showError:@"网络不好请稍等"];
         return;
     }
+//    activitydetailVC *vc = [[activitydetailVC alloc] init];
+    //    vc.tabBarController.tabBar.hidden = YES;
+//    [self.navigationController pushViewController:vc animated:YES];
+    [self.delegate changedetailactiviVCwithdata:self.activitiedatas[indexPath.row] anddict:self.activities[indexPath.row]];
     
-    [self.delegate changedetailactiviVCwithdata:self.activitiedatas[indexPath.row]];
 }
 //"remark": "图兔兔吐了",
 //"place": "哈尔滨理工大学南校区图书馆",

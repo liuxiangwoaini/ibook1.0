@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVOSCloud/AVOSCloud.h>
 
+@protocol activitydetailVCdelegate<NSObject>
+
+
+- (void)activitydetailVCclickheadbtnwithuserdata:(AVUser *)user;
+@end
 @interface activitydetailVC : UIViewController
-
+@property (nonatomic ,strong) AVObject *obj;
+@property (nonatomic, strong) NSDictionary *dict;
+@property (assign, nonatomic) id<activitydetailVCdelegate> delegate;
 @end

@@ -11,7 +11,7 @@
 @protocol homeVCdelegate <NSObject>
 
 
-- (void)changedetailactiviVCwithdata:(AVObject *)data;
+- (void)changedetailactiviVCwithdata:(AVObject *)data anddict:(NSDictionary *)dict;
 - (void)changetouserdata:(AVUser *)user;
 @end
 

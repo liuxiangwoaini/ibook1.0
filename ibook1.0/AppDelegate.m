@@ -30,6 +30,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     homeVC *viewd = [[homeVC alloc] init];
+    UINavigationController *home1 = [[UINavigationController alloc] initWithRootViewController:viewd];
     ViewController *viewd1 = [[ViewController alloc] init];
     ViewController *viewd2 = [[ViewController alloc] init];
     DHMenuPagerViewController *pagerView = [[DHMenuPagerViewController alloc] initWithViewControllers:@[viewd,viewd1,viewd2] titles:@[@"首页",@"附近",@"消息"] menuBackgroundColor:IBColor(82, 183, 239)  titleColor: IBColor(239, 239, 239)titleColorHighlighted:IBColor(1, 1, 1)];

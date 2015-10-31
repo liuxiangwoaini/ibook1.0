@@ -46,9 +46,13 @@
     
 }
 
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    [UIView animateWithDuration:0 animations:^{
+        self.navigationController.navigationBarHidden = YES;
+    }];
     
     self.headview.image = [self circleImage:[UIImage imageNamed:@"avatar_default.png"] withParam:1];
     //    iBookUser *u = [[iBookUser alloc] initwithdict:dict];
@@ -70,7 +74,8 @@
     self.place.text = self.user[@"school"];
 }
 - (IBAction)close {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+    self.navigationController.navigationBarHidden = NO;
 }
 
 //- (void)sethead
@@ -149,12 +154,12 @@
 //            break;
 //        }
 //    }
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"moreactivi" object:nil userInfo:@{@"objID":self.user.objectId,@"row":@(indexPath.row)}];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"moreactivi" object:nil userInfo:@{@"objID":self.user.objectId,@"row":@(indexPath.row)}];
     PersonActivityVC *vc = [[PersonActivityVC alloc] init];
-//    vc.userobjID =self.user.objectId;
-//    
-//    [self.navigationController presentViewController:vc animated:YES completion:nil];
+    vc.userobjID =self.user.objectId;
+//
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)ceshi {
  

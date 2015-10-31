@@ -169,6 +169,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    
 //
     if (self.getlocation) {
         return;
@@ -212,20 +213,24 @@
 - (void)contentViewChangedAtIndex:(NSUInteger)tag offset:(CGPoint)offset {
     [menuView changeIndicatorViewWithPage:tag offset:offset.y];
 }
-- (void)changedetailactiviVCwithdata:(AVObject *)data
+- (void)changedetailactiviVCwithdata:(AVObject *)data anddict:(NSDictionary *)dict
 {
     activitydetailVC *vc = [[activitydetailVC alloc] init];
 //    vc.tabBarController.tabBar.hidden = YES;
-        [self.navigationController presentViewController:vc animated:YES completion:nil];
+    vc.dict =dict;
+    vc.obj =data;
+    NSLog(@"%@---%@", data, dict);
+        [self.navigationController pushViewController:vc animated:YES];
 }
 #warning 这里做转场动画....一定要做一定要做。。。。。
 - (void)changetouserdata:(AVUser *)user
 {
     otheruserVC *other = [[otheruserVC alloc] init];
     other.user = user;
+    
 //    NSLog(@"%@",user);
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moreactivity:) name:@"moreactivi" object:nil];
-    [self.navigationController presentViewController:other animated:YES completion:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moreactivity:) name:@"moreactivi" object:nil];
+    [self.navigationController pushViewController:other animated:YES];
 //    [UIView animateWithDuration:3 animations:^{
 //        other.view.transform = CGAffineTransformMakeTranslation(0, -200);
 //    } completion:^(BOOL finished) {
@@ -234,14 +239,14 @@
    
 }
 #warning 这个地方还有问题。。。明天继续
-- (void)moreactivity:(NSNotification *)noti
-{
-    PersonActivityVC *vc = [[PersonActivityVC alloc] init];
-    vc.userobjID =noti.userInfo[@"objID"];
-    
-    [self.navigationController presentViewController:vc animated:YES completion:nil];
-
-}
+//- (void)moreactivity:(NSNotification *)noti
+//{
+//    PersonActivityVC *vc = [[PersonActivityVC alloc] init];
+//    vc.userobjID =noti.userInfo[@"objID"];
+//    
+//    [self.navigationController presentViewController:vc animated:YES completion:nil];
+//
+//}
 
 
 @end
