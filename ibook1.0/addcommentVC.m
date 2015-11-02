@@ -29,6 +29,13 @@
 }
 
 - (IBAction)close {
+    if (!self.commentfiled.text.length) {
+         [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+    
+
+   
     UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"要取消发送吗" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [action showInView:self.view];
     
@@ -89,8 +96,9 @@
                 [MBProgressHUD showSuccess:@"发送成功"];
                 NSNumber *newcomment = [NSNumber add:self.activiobj[@"commentCount"] and:[NSNumber numberWithInt:1]];
                 [self.activiobj setObject:newcomment forKey:@"commentCount"];
-                [self.activiobj save];
+                [self.activiobj saveInBackground];
                 [self.navigationController popViewControllerAnimated:YES];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"sendcomment" object:nil];
                 
             }else
             {
@@ -101,5 +109,10 @@
     
     
 
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
 @end

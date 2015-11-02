@@ -13,6 +13,7 @@
 #import "activitydetailCell.h"
 #import "MBProgressHUD+MJ.h"
 #import "addcommentVC.h"
+#import "NSNumber+LX.h"
 @interface activitydetailVC ()<UITableViewDataSource, UITableViewDelegate,activitydetailCelldelegate>
 - (IBAction)close;
 //@property (weak, nonatomic) IBOutlet UILabel *title;
@@ -30,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *headbtn;
 @property (weak, nonatomic) IBOutlet UIImageView *bigimage;
 
+@property (weak, nonatomic) IBOutlet UIButton *joinbtn;
 
 - (IBAction)addcomment:(id)sender;
 @property (strong, nonatomic) AVUser *userdata;
@@ -41,6 +43,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *username1;
 @property (weak, nonatomic) IBOutlet UILabel *userpubtime1;
 @property (weak, nonatomic) IBOutlet UILabel *commen1;
+- (IBAction)join;
 @property (weak, nonatomic) IBOutlet UILabel *joinnum1;
 #warning 写到这里。。。
 @property (strong ,nonatomic) UITableView *commenttable;
@@ -52,13 +55,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.headbtn.userInteractionEnabled = YES;
-    self.scrollview.contentSize = CGSizeMake(320, 530);
-    [self setdata];
+    
+    
     self.commenttable = [[UITableView alloc] initWithFrame:CGRectMake(0, 340, 320, 60*self.commentdatas.count)];
     self.commenttable.rowHeight = 60;
     [self.scrollview addSubview:self.commenttable];
     self.commenttable.delegate = self;
     self.commenttable.dataSource = self;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendcommentsucess) name:@"sendcomment" object:nil];
+    [self setdata];
 //    self.commenttableview.hidden = YES;
 //    
 }
@@ -136,19 +141,34 @@
 {
     
 
+    self.commentdatas= nil;
+//    NSLog(@"----%@", self.commentdatas);
+
     AVQuery *query = [AVQuery queryWithClassName:@"Comment"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (AVObject *obj in objects) {
                 if ([obj[@"atyObjId"] isEqualToString:self.obj.objectId]) {
                     
-                    [self.commentdatas addObject:obj];
+//                    if (!self.commentdatas.count) {
+                        [self.commentdatas addObject:obj];
+//                    }else
+//                    {
+//                        for (AVObject *obj2 in self.commentdatas) {
+//                            if (!(obj2 == obj) ) {
+//                                [self.commentdatas addObject:obj];
+//                            }
+//                        }
+//                    }
+                    
+                    
  
                 }
             }
         }
 //        NSLog(@"----%@", self.commentdatas);
         self.commenttable.frame = CGRectMake(0, 340, 320, 60*self.commentdatas.count);
+        self.scrollview.contentSize = CGSizeMake(320, 360 + self.commentdatas.count * 60);
         [self.commenttable reloadData];
         
 //        [self.commenttable reloadData];
@@ -189,6 +209,8 @@
     cell.delegate =self;
     return cell;
 }
+
+#warning 评论数没有更新。。。
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
@@ -197,6 +219,11 @@
             self.navigationController.navigationBarHidden = YES;
        
     }
+//    [self setcomment];
+ 
+    
+
+    
 
 
 }
@@ -290,6 +317,90 @@
     add.touser = self.obj[@"owner"];
     add.activiobj = self.obj;
     [self.navigationController pushViewController:add animated:YES];
+    
+    
+}
+- (void)sendcommentsucess
+{
+    self.commentdatas = nil;
+    self.commen1.text = nil;
+    self.joinnum1.text = nil;
+    AVQuery *query = [AVQuery queryWithClassName:@"Comment"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (AVObject *obj in objects) {
+                if ([obj[@"atyObjId"] isEqualToString:self.obj.objectId]) {
+                    
+                  
+                    [self.commentdatas addObject:obj];
+                    
+                    
+                    
+                    
+                }
+            }
+        }
+        //        NSLog(@"----%@", self.commentdatas);
+        self.commenttable.frame = CGRectMake(0, 340, 320, 60*self.commentdatas.count);
+        [self.commenttable reloadData];
+        self.scrollview.contentSize = CGSizeMake(320, 360 + self.commentdatas.count * 60);
+        
+        
+       
+        
+    }];
+    
+    
+    AVQuery *query1 = [AVQuery queryWithClassName:@"Activities"];
+    [query1 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (AVObject *obj1 in objects) {
+                if ([obj1.objectId isEqualToString:self.obj.objectId]) {
+                    self.commen1.text = [NSString stringWithFormat:@"评论%@条", (NSNumber *)obj1[@"commentCount"]];
+                    
+                    self.joinnum1.text = [NSString stringWithFormat:@"报名%@人", (NSNumber *)obj1[@"applyCount"]];
+                }
+            }
+            
+        }
+        
+    }];
+}
+- (IBAction)join {
+    if (self.joinbtn.tag == 0) {
+        AVUser *user =[AVUser currentUser];
+        AVUser *user1 =self.obj[@"owner"];
+        if (!user) {
+            [MBProgressHUD showError:@"没有登陆"];
+            return;
+        }else if ([user.objectId isEqualToString:user1.objectId])
+        {
+            [MBProgressHUD showError:@"自己的活动，已经报名..."];
+            return;
+        }
+        
+        NSNumber *newcomment = [NSNumber add:self.obj[@"applyCount"] and:[NSNumber numberWithInt:1]];
+        NSArray *temp = [NSArray arrayWithObject:user.objectId];
+        [self.obj setObject:temp forKey:@"joinuserid"];
+        [self.obj setObject:newcomment forKey:@"commentCount"];
+        
+        [self.obj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                [MBProgressHUD showSuccess:@"报名成功"];
+                self.joinnum1.text = [NSString stringWithFormat:@"报名%@人",newcomment];
+                self.joinbtn.tag = 1;
+                self.joinbtn.titleLabel.text = @"查看报名的人";
+                
+            }else
+            {
+                [MBProgressHUD showError:@"报名失败"];
+            }
+        }];
+    }else
+    {
+        NSLog(@"调到新的控制器");
+    }
+
     
     
 }
