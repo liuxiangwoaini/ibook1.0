@@ -14,6 +14,7 @@
 #import "MBProgressHUD+MJ.h"
 #import "addcommentVC.h"
 #import "NSNumber+LX.h"
+#import "alljoinusersVC.h"
 @interface activitydetailVC ()<UITableViewDataSource, UITableViewDelegate,activitydetailCelldelegate>
 - (IBAction)close;
 //@property (weak, nonatomic) IBOutlet UILabel *title;
@@ -64,6 +65,15 @@
     self.commenttable.dataSource = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendcommentsucess) name:@"sendcomment" object:nil];
     [self setdata];
+    NSMutableArray *array = self.obj[@"joinuserid"];
+    AVUser *user =[AVUser currentUser];
+    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isEqualToString:user.objectId]) {
+            self.joinbtn.tag =1;
+            [self.joinbtn setTitle:@"查看全部报名的人" forState:UIControlStateNormal];
+        }
+    }];
+    
 //    self.commenttableview.hidden = YES;
 //    
 }
@@ -380,8 +390,10 @@
         }
         
         NSNumber *newcomment = [NSNumber add:self.obj[@"applyCount"] and:[NSNumber numberWithInt:1]];
-        NSArray *temp = [NSArray arrayWithObject:user.objectId];
-        [self.obj setObject:temp forKey:@"joinuserid"];
+        
+        NSMutableArray *array = self.obj[@"joinuserid"];
+        [array addObject:user.objectId];
+        [self.obj setObject:array forKey:@"joinuserid"];
         [self.obj setObject:newcomment forKey:@"commentCount"];
         
         [self.obj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -389,7 +401,7 @@
                 [MBProgressHUD showSuccess:@"报名成功"];
                 self.joinnum1.text = [NSString stringWithFormat:@"报名%@人",newcomment];
                 self.joinbtn.tag = 1;
-                self.joinbtn.titleLabel.text = @"查看报名的人";
+                [self.joinbtn setTitle:@"查看全部报名的人" forState:UIControlStateNormal];
                 
             }else
             {
@@ -398,7 +410,9 @@
         }];
     }else
     {
-        NSLog(@"调到新的控制器");
+        alljoinusersVC *all = [[alljoinusersVC alloc] init];
+        all.obj = self.obj;
+        [self.navigationController pushViewController:all animated:YES];
     }
 
     

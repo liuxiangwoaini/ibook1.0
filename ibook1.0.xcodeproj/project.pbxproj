@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		22054E1E1BD38F7100C066F8 /* LaunchScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 22054E1D1BD38F7100C066F8 /* LaunchScreen.m */; };
+		221EA1181BE773BE00C99118 /* alljoinusersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EA1161BE773BE00C99118 /* alljoinusersVC.m */; };
+		221EA1191BE773BE00C99118 /* alljoinusersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221EA1171BE773BE00C99118 /* alljoinusersVC.xib */; };
 		222072831BDE567D000C3782 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222072821BDE567D000C3782 /* AddressBookUI.framework */; };
 		222072C51BDE6664000C3782 /* WGS84TOGCJ02.m in Sources */ = {isa = PBXBuildFile; fileRef = 222072C41BDE6664000C3782 /* WGS84TOGCJ02.m */; };
 		222FB7EC1BE6EC3E007281AB /* addcommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 222FB7EA1BE6EC3E007281AB /* addcommentVC.m */; };
 		222FB7ED1BE6EC3E007281AB /* addcommentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222FB7EB1BE6EC3E007281AB /* addcommentVC.xib */; };
 		222FB7F01BE6F5F6007281AB /* NSNumber+LX.m in Sources */ = {isa = PBXBuildFile; fileRef = 222FB7EF1BE6F5F6007281AB /* NSNumber+LX.m */; };
+		223AC8DD1BE77EEE00D27BBB /* alljoinusersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 223AC8DB1BE77EEE00D27BBB /* alljoinusersCell.m */; };
+		223AC8DE1BE77EEE00D27BBB /* alljoinusersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223AC8DC1BE77EEE00D27BBB /* alljoinusersCell.xib */; };
 		22419A2A1BD383BE00235CBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22419A291BD383BE00235CBD /* main.m */; };
 		22419A2D1BD383BE00235CBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22419A2C1BD383BE00235CBD /* AppDelegate.m */; };
 		22419A301BD383BE00235CBD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22419A2F1BD383BE00235CBD /* ViewController.m */; };
@@ -155,6 +159,9 @@
 		22054E1D1BD38F7100C066F8 /* LaunchScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreen.m; sourceTree = "<group>"; };
 		22054E1F1BD3924E00C066F8 /* ibook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ibook-Prefix.pch"; sourceTree = "<group>"; };
 		22054E201BD3970600C066F8 /* commonhead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonhead.h; sourceTree = "<group>"; };
+		221EA1151BE773BE00C99118 /* alljoinusersVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = alljoinusersVC.h; sourceTree = "<group>"; };
+		221EA1161BE773BE00C99118 /* alljoinusersVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = alljoinusersVC.m; sourceTree = "<group>"; };
+		221EA1171BE773BE00C99118 /* alljoinusersVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = alljoinusersVC.xib; sourceTree = "<group>"; };
 		222072821BDE567D000C3782 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		222072C31BDE6664000C3782 /* WGS84TOGCJ02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGS84TOGCJ02.h; sourceTree = "<group>"; };
 		222072C41BDE6664000C3782 /* WGS84TOGCJ02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGS84TOGCJ02.m; sourceTree = "<group>"; };
@@ -163,6 +170,9 @@
 		222FB7EB1BE6EC3E007281AB /* addcommentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addcommentVC.xib; sourceTree = "<group>"; };
 		222FB7EE1BE6F5F6007281AB /* NSNumber+LX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+LX.h"; sourceTree = "<group>"; };
 		222FB7EF1BE6F5F6007281AB /* NSNumber+LX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+LX.m"; sourceTree = "<group>"; };
+		223AC8DA1BE77EEE00D27BBB /* alljoinusersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = alljoinusersCell.h; sourceTree = "<group>"; };
+		223AC8DB1BE77EEE00D27BBB /* alljoinusersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = alljoinusersCell.m; sourceTree = "<group>"; };
+		223AC8DC1BE77EEE00D27BBB /* alljoinusersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = alljoinusersCell.xib; sourceTree = "<group>"; };
 		22419A241BD383BE00235CBD /* ibook1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ibook1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22419A281BD383BE00235CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22419A291BD383BE00235CBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -719,6 +729,9 @@
 				222FB7E91BE6EC3E007281AB /* addcommentVC.h */,
 				222FB7EA1BE6EC3E007281AB /* addcommentVC.m */,
 				222FB7EB1BE6EC3E007281AB /* addcommentVC.xib */,
+				221EA1151BE773BE00C99118 /* alljoinusersVC.h */,
+				221EA1161BE773BE00C99118 /* alljoinusersVC.m */,
+				221EA1171BE773BE00C99118 /* alljoinusersVC.xib */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -741,6 +754,9 @@
 				22B0E3301BE59CFC004F49DA /* activitydetailCell.h */,
 				22B0E3311BE59CFC004F49DA /* activitydetailCell.m */,
 				22B0E3321BE59CFC004F49DA /* activitydetailCell.xib */,
+				223AC8DA1BE77EEE00D27BBB /* alljoinusersCell.h */,
+				223AC8DB1BE77EEE00D27BBB /* alljoinusersCell.m */,
+				223AC8DC1BE77EEE00D27BBB /* alljoinusersCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -894,6 +910,7 @@
 				22419AC61BD3881B00235CBD /* ic_send_white.png in Resources */,
 				22419AB11BD3881B00235CBD /* card_img.jpg in Resources */,
 				225F42BB1BE0ACBA00987FCD /* homedataCell.xib in Resources */,
+				223AC8DE1BE77EEE00D27BBB /* alljoinusersCell.xib in Resources */,
 				22938D5E1BD4935800A58B9C /* registeredVC.xib in Resources */,
 				22419AC31BD3881B00235CBD /* ic_send_aty.png in Resources */,
 				22419AB21BD3881B00235CBD /* divider.png in Resources */,
@@ -917,6 +934,7 @@
 				22419ABA1BD3881B00235CBD /* ic_edit.png in Resources */,
 				22419AD11BD3881B00235CBD /* main_nav_bg.png in Resources */,
 				22419A681BD3852300235CBD /* tab_bg_pressed.png in Resources */,
+				221EA1191BE773BE00C99118 /* alljoinusersVC.xib in Resources */,
 				22419AB71BD3881B00235CBD /* ic_aty_publish.png in Resources */,
 				22A20A641BDCF82F0060E81D /* PersonAcitiviCell.xib in Resources */,
 				22419A381BD383BE00235CBD /* LaunchScreen.xib in Resources */,
@@ -1029,6 +1047,7 @@
 				22AA88A01BDC682F00FAD31F /* UIImageView+WebCache.m in Sources */,
 				22E5F8361BD50CBA003120BC /* registerView1.m in Sources */,
 				22419A6E1BD3854100235CBD /* DHSlideMenuController.m in Sources */,
+				221EA1181BE773BE00C99118 /* alljoinusersVC.m in Sources */,
 				22AA88931BDC682F00FAD31F /* NSData+ImageContentType.m in Sources */,
 				22E5F8391BD50CD0003120BC /* registerView2.m in Sources */,
 				22E5F83C1BD50CDC003120BC /* registerView3.m in Sources */,
@@ -1040,6 +1059,7 @@
 				22419A5A1BD384FC00235CBD /* NavOneController.m in Sources */,
 				22AA88AA1BDC809400FAD31F /* PersonDataVC.m in Sources */,
 				22938D5D1BD4935800A58B9C /* registeredVC.m in Sources */,
+				223AC8DD1BE77EEE00D27BBB /* alljoinusersCell.m in Sources */,
 				22AA889F1BDC682F00FAD31F /* UIImageView+HighlightedWebCache.m in Sources */,
 				22419A741BD3855B00235CBD /* DHTabBarViewController.m in Sources */,
 				22419A7E1BD3858000235CBD /* DHLandscapeTableView.m in Sources */,

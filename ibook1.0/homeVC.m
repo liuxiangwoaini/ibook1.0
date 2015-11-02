@@ -249,7 +249,7 @@
     }
     return cell;
 }
-
+#warning 这里跳转到发布活动页面
 - (void)pubactivity:(UIButton *)btn
 {
     NSArray *num = @[@"15001",@"15002",@"15003",@"15004",@"15005",@"15006"];

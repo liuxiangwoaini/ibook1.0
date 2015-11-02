@@ -75,7 +75,14 @@
 }
 - (IBAction)close {
     [self.navigationController popViewControllerAnimated:YES];
-    self.navigationController.navigationBarHidden = NO;
+    
+    
+    
+    if (!(self.navigationController.childViewControllers.count== 3)) {
+         self.navigationController.navigationBarHidden = NO;
+    }
+    
+
 }
 
 //- (void)sethead
