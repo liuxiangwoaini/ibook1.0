@@ -35,6 +35,7 @@
 - (void)setDict:(NSDictionary *)dict
 {
     _dict = dict;
+    
     self.title.text = dict[@"title"];
     self.remark.text = dict[@"remark"];
     self.place.text = dict[@"place"];

@@ -219,7 +219,7 @@
 //    vc.tabBarController.tabBar.hidden = YES;
     vc.dict =dict;
     vc.obj =data;
-    NSLog(@"%@---%@", data, dict);
+//    NSLog(@"%@---%@", data, dict);
         [self.navigationController pushViewController:vc animated:YES];
 }
 #warning 这里做转场动画....一定要做一定要做。。。。。

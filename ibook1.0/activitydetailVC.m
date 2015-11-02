@@ -10,7 +10,10 @@
 #import "NSString+LX.h"
 #import "UIImageView+WebCache.h"
 #import "otheruserVC.h"
-@interface activitydetailVC ()
+#import "activitydetailCell.h"
+#import "MBProgressHUD+MJ.h"
+#import "addcommentVC.h"
+@interface activitydetailVC ()<UITableViewDataSource, UITableViewDelegate,activitydetailCelldelegate>
 - (IBAction)close;
 //@property (weak, nonatomic) IBOutlet UILabel *title;
 //@property (weak, nonatomic) IBOutlet UILabel *remark;
@@ -27,6 +30,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *headbtn;
 @property (weak, nonatomic) IBOutlet UIImageView *bigimage;
 
+
+- (IBAction)addcomment:(id)sender;
 @property (strong, nonatomic) AVUser *userdata;
 @property (weak, nonatomic) IBOutlet UILabel *title1;
 @property (weak, nonatomic) IBOutlet UILabel *place1;
@@ -37,7 +42,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *userpubtime1;
 @property (weak, nonatomic) IBOutlet UILabel *commen1;
 @property (weak, nonatomic) IBOutlet UILabel *joinnum1;
-
+#warning 写到这里。。。
+@property (strong ,nonatomic) UITableView *commenttable;
+@property (strong, nonatomic) NSMutableArray *commentdatas;
 @end
 #warning 明天继续。。。
 @implementation activitydetailVC
@@ -47,7 +54,20 @@
     self.headbtn.userInteractionEnabled = YES;
     self.scrollview.contentSize = CGSizeMake(320, 530);
     [self setdata];
-    
+    self.commenttable = [[UITableView alloc] initWithFrame:CGRectMake(0, 340, 320, 60*self.commentdatas.count)];
+    self.commenttable.rowHeight = 60;
+    [self.scrollview addSubview:self.commenttable];
+    self.commenttable.delegate = self;
+    self.commenttable.dataSource = self;
+//    self.commenttableview.hidden = YES;
+//    
+}
+- (NSMutableArray *)commentdatas
+{
+    if (_commentdatas == nil) {
+        _commentdatas = [NSMutableArray array];
+    }
+    return _commentdatas;
 }
 - (void)setdata
 {
@@ -107,7 +127,67 @@
             
             
         }}];
+    if (self.obj[@"commentCount"]) {
+        [self setcomment];
+    }
 
+}
+- (void)setcomment
+{
+    
+
+    AVQuery *query = [AVQuery queryWithClassName:@"Comment"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (AVObject *obj in objects) {
+                if ([obj[@"atyObjId"] isEqualToString:self.obj.objectId]) {
+                    
+                    [self.commentdatas addObject:obj];
+ 
+                }
+            }
+        }
+//        NSLog(@"----%@", self.commentdatas);
+        self.commenttable.frame = CGRectMake(0, 340, 320, 60*self.commentdatas.count);
+        [self.commenttable reloadData];
+        
+//        [self.commenttable reloadData];
+
+    }];
+    
+
+//    self.commenttableview.hidden = NO;
+    
+
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    return self.commentdatas.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *ID = @"home11";
+    activitydetailCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"activitydetailCell" owner:nil options:nil] lastObject];
+    }
+    AVObject *obj = self.commentdatas[indexPath.row];
+#warning 这里强转可能会有bug
+    //    cell.title.text  = obj[@"title"];
+    //    cell.place.text = obj[@"place"];
+    //    cell.remark.text = obj[@"remark"];
+    //    //    NSLog(@"%@--%@--%@--",obj[@"title"],obj[@"place"],obj[@"remark"] );
+    //    cell.type.text = [NSString activitype:obj[@"type"]];
+
+//    cell.delegate =self;
+    //    NSLog(@"%d----", self.activitiedatas.count);
+//    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+//    cell.textLabel.text = @"dasd";
+    cell.obj = obj;
+    cell.delegate =self;
+    return cell;
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -123,8 +203,10 @@
  -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:YES];
+    if (self.navigationController.childViewControllers.count == 1) {
+        self.navigationController.navigationBarHidden = NO;
+    }
     
-         self.navigationController.navigationBarHidden = NO;
    
    
     
@@ -187,5 +269,28 @@
     UIGraphicsEndImageContext();
     return newimg;
 }
+- (void)clickactivitydetailheadbtnwithuserdata:(AVUser *)user
+{
+    otheruserVC *other = [[otheruserVC alloc] init];
+    other.user = user;
+    
+    //    NSLog(@"%@",user);
+    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moreactivity:) name:@"moreactivi" object:nil];
+    [self.navigationController pushViewController:other animated:YES];
+}
 
+- (IBAction)addcomment:(id)sender {
+    AVUser *user =[AVUser currentUser];
+    if (!user) {
+        [MBProgressHUD showError:@"没有登陆"];
+        return;
+    }
+    addcommentVC *add = [[addcommentVC alloc] init];
+    add.fromuser = user;
+    add.touser = self.obj[@"owner"];
+    add.activiobj = self.obj;
+    [self.navigationController pushViewController:add animated:YES];
+    
+    
+}
 @end
