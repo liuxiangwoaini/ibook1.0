@@ -41,7 +41,7 @@
             return @"仅限男生";
             break;
         case 15008:
-            return @"仅限女生";
+            return @"仅限男生";
             break;
             
             

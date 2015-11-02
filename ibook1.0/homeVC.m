@@ -18,7 +18,7 @@
 #import "MBProgressHUD+MJ.h"
 #import "MJRefresh.h"
 #import "activitydetailVC.h"
-
+#import "pubactivityVC.h"
 #import "NSObject+LX.h"
 
 @interface homeVC ()<UITableViewDataSource, UITableViewDelegate,DHMenuPagerViewDelegate, homedataCelldelegate>
@@ -211,7 +211,7 @@
     for (int i = 0; i < 6; i ++) {
         NSString *title = temp[i];
         UIButton *btn = [self addbtnwithtitle:title];
-        btn.frame = CGRectMake(0, i * 33.3, 60, 25);
+        btn.frame = CGRectMake(0, i * 33.3+5, 60, 25);
         btn.tag = i;
         [btn addTarget:self action:@selector(pubactivity:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:btn];
@@ -254,7 +254,14 @@
 {
     NSArray *num = @[@"15001",@"15002",@"15003",@"15004",@"15005",@"15006"];
     NSInteger he = [num[btn.tag] intValue];
-    NSLog(@"%@", [NSString activitype:he]);
+//    NSLog(@"%@", [NSString activitype:he]);
+//    pubactivityVC *pub = [[pubactivityVC alloc] init];
+//    pub.headlabel.text =[NSString activitype:he];
+//    [self.navigationController presentViewController:pub
+//                                            animated:YES completion:nil];
+    self.chooseview.hidden = YES;
+    [self.delegate pubactivityVCwithtitle:[NSString activitype:he]];
+    
 }
 - (UIButton *)addbtnwithtitle:(NSString *)title
 {

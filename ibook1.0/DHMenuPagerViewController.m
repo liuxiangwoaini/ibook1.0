@@ -20,7 +20,7 @@
 #import "otheruserVC.h"
 #import "activitydetailVC.h"
 #import "PersonActivityVC.h"
-
+#import "pubactivityVC.h"
 @interface DHMenuPagerViewController () <MenuViewDelegate, CLLocationManagerDelegate,homeVCdelegate> {
     NSArray *titleArray;
     DHLandscapeMenuScrollView *menuView;
@@ -247,6 +247,12 @@
 //    [self.navigationController presentViewController:vc animated:YES completion:nil];
 //
 //}
-
+- (void)pubactivityVCwithtitle:(NSString *)tilte
+{
+        pubactivityVC *pub = [[pubactivityVC alloc] init];
+    pub.title = tilte;
+        [self.navigationController presentViewController:pub
+                                                animated:YES completion:nil];
+}
 
 @end

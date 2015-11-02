@@ -13,6 +13,7 @@
 
 - (void)changedetailactiviVCwithdata:(AVObject *)data anddict:(NSDictionary *)dict;
 - (void)changetouserdata:(AVUser *)user;
+- (void)pubactivityVCwithtitle:(NSString *)tilte;
 @end
 
 @interface homeVC : UIViewController

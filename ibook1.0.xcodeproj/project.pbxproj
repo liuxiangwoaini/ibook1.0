@@ -17,6 +17,8 @@
 		222FB7F01BE6F5F6007281AB /* NSNumber+LX.m in Sources */ = {isa = PBXBuildFile; fileRef = 222FB7EF1BE6F5F6007281AB /* NSNumber+LX.m */; };
 		223AC8DD1BE77EEE00D27BBB /* alljoinusersCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 223AC8DB1BE77EEE00D27BBB /* alljoinusersCell.m */; };
 		223AC8DE1BE77EEE00D27BBB /* alljoinusersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223AC8DC1BE77EEE00D27BBB /* alljoinusersCell.xib */; };
+		223AC8E71BE7833C00D27BBB /* pubactivityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 223AC8E51BE7833C00D27BBB /* pubactivityVC.m */; };
+		223AC8E81BE7833C00D27BBB /* pubactivityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223AC8E61BE7833C00D27BBB /* pubactivityVC.xib */; };
 		22419A2A1BD383BE00235CBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22419A291BD383BE00235CBD /* main.m */; };
 		22419A2D1BD383BE00235CBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22419A2C1BD383BE00235CBD /* AppDelegate.m */; };
 		22419A301BD383BE00235CBD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22419A2F1BD383BE00235CBD /* ViewController.m */; };
@@ -173,6 +175,9 @@
 		223AC8DA1BE77EEE00D27BBB /* alljoinusersCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = alljoinusersCell.h; sourceTree = "<group>"; };
 		223AC8DB1BE77EEE00D27BBB /* alljoinusersCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = alljoinusersCell.m; sourceTree = "<group>"; };
 		223AC8DC1BE77EEE00D27BBB /* alljoinusersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = alljoinusersCell.xib; sourceTree = "<group>"; };
+		223AC8E41BE7833C00D27BBB /* pubactivityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pubactivityVC.h; sourceTree = "<group>"; };
+		223AC8E51BE7833C00D27BBB /* pubactivityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pubactivityVC.m; sourceTree = "<group>"; };
+		223AC8E61BE7833C00D27BBB /* pubactivityVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = pubactivityVC.xib; sourceTree = "<group>"; };
 		22419A241BD383BE00235CBD /* ibook1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ibook1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22419A281BD383BE00235CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22419A291BD383BE00235CBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -732,6 +737,9 @@
 				221EA1151BE773BE00C99118 /* alljoinusersVC.h */,
 				221EA1161BE773BE00C99118 /* alljoinusersVC.m */,
 				221EA1171BE773BE00C99118 /* alljoinusersVC.xib */,
+				223AC8E41BE7833C00D27BBB /* pubactivityVC.h */,
+				223AC8E51BE7833C00D27BBB /* pubactivityVC.m */,
+				223AC8E61BE7833C00D27BBB /* pubactivityVC.xib */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -919,6 +927,7 @@
 				22419A651BD3852300235CBD /* tabbar_discover.png in Resources */,
 				22419AD31BD3881B00235CBD /* user_icon.png in Resources */,
 				22938D031BD48AFE00A58B9C /* HaveLoginVC.xib in Resources */,
+				223AC8E81BE7833C00D27BBB /* pubactivityVC.xib in Resources */,
 				22938CFE1BD489E400A58B9C /* NotLoginVC.xib in Resources */,
 				22419AB31BD3881B00235CBD /* ic_about.png in Resources */,
 				22419AAC1BD3881B00235CBD /* avatar_default_add.png in Resources */,
@@ -1083,6 +1092,7 @@
 				22419A5C1BD384FC00235CBD /* NavThreeController.m in Sources */,
 				22419A2A1BD383BE00235CBD /* main.m in Sources */,
 				22AA88961BDC682F00FAD31F /* SDWebImageDecoder.m in Sources */,
+				223AC8E71BE7833C00D27BBB /* pubactivityVC.m in Sources */,
 				229ECE451BE213A300D3FDCE /* NSObject+LX.m in Sources */,
 				22AA889E1BDC682F00FAD31F /* UIImage+WebP.m in Sources */,
 				22AA88951BDC682F00FAD31F /* SDWebImageCompat.m in Sources */,

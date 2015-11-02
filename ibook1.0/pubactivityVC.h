@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface pubactivityVC : UIViewController
-
+@property (weak, nonatomic) IBOutlet UILabel *headlabel;
+@property (strong, nonatomic) NSString *title;
 @end

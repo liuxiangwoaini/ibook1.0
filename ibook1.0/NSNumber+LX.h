@@ -10,4 +10,6 @@
 
 @interface NSNumber (LX)
 +(NSNumber*)add:(NSNumber *)one and:(NSNumber *)anotherNumber;
++ (int )activitytypewith:(NSString *)string;
++ (int )activitytargetwith:(NSString *)string;
 @end
