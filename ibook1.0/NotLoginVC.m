@@ -11,6 +11,7 @@
 #import "registeredVC.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "HaveLoginVC.h"
+#import "NSObject+LX.h"
 @interface NotLoginVC ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *passwd;
@@ -36,7 +37,7 @@
     self.username.delegate = self;
     self.passwd.delegate = self;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    
+    self.view.frame = [NSObject setVCviewframewithinchs];
     
     
 }

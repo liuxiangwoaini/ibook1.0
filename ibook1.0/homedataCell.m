@@ -10,6 +10,7 @@
 #import "NSString+LX.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "UIImageView+WebCache.h"
+#import "commonhead.h"
 @interface homedataCell()
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *remark;
@@ -29,7 +30,11 @@
 @implementation homedataCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    if (iphone6) {
+        CGRect frame = self.frame;
+        CGRect frame1 = CGRectMake(frame.origin.x, frame.origin.y, 375, frame.size.height);
+        self.frame = frame1;
+    }
 }
 
 - (void)setDict:(NSDictionary *)dict
@@ -48,6 +53,7 @@
 //    UIImage *image = [self circleImage:[UIImage imageNamed:@"avatar_default.png"] withParam:1];
 //    self.headbtn.imageView.image = image;
     [self.headbtn addTarget:self action:@selector(persondetail) forControlEvents:UIControlEventTouchUpInside];
+
     
     
 }
@@ -130,4 +136,5 @@
     UIGraphicsEndImageContext();
     return newimg;
 }
+
 @end

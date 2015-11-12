@@ -24,7 +24,7 @@
 @interface homeVC ()<UITableViewDataSource, UITableViewDelegate,DHMenuPagerViewDelegate, homedataCelldelegate>
 @property (strong ,nonatomic) UIButton *addbtn;
 @property (strong ,nonatomic) UIView *chooseview;
-@property (weak, nonatomic) IBOutlet UITableView *tableview;
+@property (strong, nonatomic) UITableView *tableview;
 @property (nonatomic, strong) NSMutableArray *activities;
 @property (nonatomic, strong) NSMutableArray *activitiedatas;
 
@@ -112,19 +112,33 @@
 
     return _activities;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    if (iphone6) {
+    self.view.frame = [NSObject setVCviewframewithinchs];
+        //
+        //    CGRect frame1 = CGRectMake(0, 0, 375, self.tableview.frame.size.height);
+        //            self.tableview.frame = frame1;
+        //            self.tableview.backgroundColor = [UIColor redColor];
+//    }
     [self setAddbtn1];
     [self setchoosebtns];
+//    NSLog(@"----frame%f", self.view.frame.size.width);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeVC) name:@"changeVC" object:nil];
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeVC1) name:@"changeVC1" object:nil];
     
     NSInteger num = self.activities.count;
+    self.tableview =[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-155)];
+    
     self.tableview.dataSource =self;
     self.tableview.delegate = self;
     self.tableview.separatorStyle= UITableViewCellSeparatorStyleNone;
-
+    
     self.tableview.rowHeight = 320;
+    self.tableview.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:self.tableview];
+//    NSLog(@"aaaaa%f", self.view.frame.size.width);
     MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
         
         [self getdatafromnet];
@@ -193,7 +207,11 @@
 {
     [super viewWillAppear:YES];
     
- 
+//    if (iphone6) {
+////        375x667
+//        self.view.bounds = CGRectMake(0, 0, 375, 667);
+//        
+//    }
     AVUser *user = [AVUser currentUser];
     if (user) {
         self.addbtn.hidden = NO;
@@ -205,6 +223,7 @@
 {
     UIView *view  = [[UIView alloc] initWithFrame:CGRectMake(250, 45, 60, 200)];
     view.backgroundColor = [UIColor blueColor];
+    
     
     NSArray *temp = @[@"陪看书",@"去自习",@"找书友",@"换本书",@"求教材",@"求补课"];
 //    NSArray *num = @[@(15001),@(15002),@(15003),@(15004),@(15005),@(15006),];
@@ -247,6 +266,16 @@
     if (self.activitiedatas.count) {
         cell.obj = self.activitiedatas[indexPath.row];
     }
+    if (iphone6) {
+//
+        CGRect frame1 = CGRectMake(0, 0, self.view.frame.size.width, 320);
+        cell.frame = frame1;
+////
+    }
+//    NSLog(@"----%f", cell.frame.size.height);
+//    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewStylePlain reuseIdentifier:nil];lue
+//    cell.textLabel.text = @"dasda";
+    cell.backgroundColor = [UIColor blueColor];
     return cell;
 }
 #warning 这里跳转到发布活动页面

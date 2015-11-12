@@ -19,6 +19,7 @@
 		223AC8DE1BE77EEE00D27BBB /* alljoinusersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223AC8DC1BE77EEE00D27BBB /* alljoinusersCell.xib */; };
 		223AC8E71BE7833C00D27BBB /* pubactivityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 223AC8E51BE7833C00D27BBB /* pubactivityVC.m */; };
 		223AC8E81BE7833C00D27BBB /* pubactivityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223AC8E61BE7833C00D27BBB /* pubactivityVC.xib */; };
+		22415B221BF4C2F800D8B6EB /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22415B211BF4C2F800D8B6EB /* Images-2.xcassets */; };
 		22419A2A1BD383BE00235CBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22419A291BD383BE00235CBD /* main.m */; };
 		22419A2D1BD383BE00235CBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22419A2C1BD383BE00235CBD /* AppDelegate.m */; };
 		22419A301BD383BE00235CBD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22419A2F1BD383BE00235CBD /* ViewController.m */; };
@@ -135,6 +136,8 @@
 		22AA88AB1BDC809400FAD31F /* PersonDataVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22AA88A91BDC809400FAD31F /* PersonDataVC.xib */; };
 		22B0E3331BE59CFC004F49DA /* activitydetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B0E3311BE59CFC004F49DA /* activitydetailCell.m */; };
 		22B0E3341BE59CFC004F49DA /* activitydetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B0E3321BE59CFC004F49DA /* activitydetailCell.xib */; };
+		22B204361BF4CB2300D8BB5E /* lanuchview.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B204351BF4CB2300D8BB5E /* lanuchview.m */; };
+		22B204381BF4CB3600D8BB5E /* lanuchviewxib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B204371BF4CB3600D8BB5E /* lanuchviewxib.xib */; };
 		22E5F8331BD50C49003120BC /* registerView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E5F8321BD50C49003120BC /* registerView1.xib */; };
 		22E5F8361BD50CBA003120BC /* registerView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5F8351BD50CBA003120BC /* registerView1.m */; };
 		22E5F8391BD50CD0003120BC /* registerView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5F8381BD50CD0003120BC /* registerView2.m */; };
@@ -178,6 +181,7 @@
 		223AC8E41BE7833C00D27BBB /* pubactivityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pubactivityVC.h; sourceTree = "<group>"; };
 		223AC8E51BE7833C00D27BBB /* pubactivityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pubactivityVC.m; sourceTree = "<group>"; };
 		223AC8E61BE7833C00D27BBB /* pubactivityVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = pubactivityVC.xib; sourceTree = "<group>"; };
+		22415B211BF4C2F800D8B6EB /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		22419A241BD383BE00235CBD /* ibook1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ibook1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22419A281BD383BE00235CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22419A291BD383BE00235CBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -348,6 +352,9 @@
 		22B0E3301BE59CFC004F49DA /* activitydetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activitydetailCell.h; sourceTree = "<group>"; };
 		22B0E3311BE59CFC004F49DA /* activitydetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activitydetailCell.m; sourceTree = "<group>"; };
 		22B0E3321BE59CFC004F49DA /* activitydetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = activitydetailCell.xib; sourceTree = "<group>"; };
+		22B204341BF4CB2300D8BB5E /* lanuchview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lanuchview.h; sourceTree = "<group>"; };
+		22B204351BF4CB2300D8BB5E /* lanuchview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lanuchview.m; sourceTree = "<group>"; };
+		22B204371BF4CB3600D8BB5E /* lanuchviewxib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = lanuchviewxib.xib; sourceTree = "<group>"; };
 		22E5F8321BD50C49003120BC /* registerView1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = registerView1.xib; sourceTree = "<group>"; };
 		22E5F8341BD50CBA003120BC /* registerView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registerView1.h; sourceTree = "<group>"; };
 		22E5F8351BD50CBA003120BC /* registerView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registerView1.m; sourceTree = "<group>"; };
@@ -476,6 +483,7 @@
 				22A20A681BDD09570060E81D /* home(首页) */,
 				222E294C1BD488D800147A3C /* person(个人中心) */,
 				22419A4D1BD383DC00235CBD /* common */,
+				22415B211BF4C2F800D8B6EB /* Images-2.xcassets */,
 			);
 			path = ibook1.0;
 			sourceTree = "<group>";
@@ -765,6 +773,9 @@
 				223AC8DA1BE77EEE00D27BBB /* alljoinusersCell.h */,
 				223AC8DB1BE77EEE00D27BBB /* alljoinusersCell.m */,
 				223AC8DC1BE77EEE00D27BBB /* alljoinusersCell.xib */,
+				22B204341BF4CB2300D8BB5E /* lanuchview.h */,
+				22B204351BF4CB2300D8BB5E /* lanuchview.m */,
+				22B204371BF4CB3600D8BB5E /* lanuchviewxib.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -912,6 +923,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22415B221BF4C2F800D8B6EB /* Images-2.xcassets in Resources */,
 				229C61A31BE240390061E55D /* activitydetailVC.xib in Resources */,
 				22419AAD1BD3881B00235CBD /* avatar_me.png in Resources */,
 				22419AC41BD3881B00235CBD /* ic_send_normal.png in Resources */,
@@ -968,6 +980,7 @@
 				22419ACA1BD3881B00235CBD /* img_find_friend.jpg in Resources */,
 				22419AC01BD3881B00235CBD /* ic_logo.png in Resources */,
 				22B0E3341BE59CFC004F49DA /* activitydetailCell.xib in Resources */,
+				22B204381BF4CB3600D8BB5E /* lanuchviewxib.xib in Resources */,
 				22419ACC1BD3881B00235CBD /* img_request_book.jpg in Resources */,
 				22E5F83E1BD50CF1003120BC /* registerView2.xib in Resources */,
 				22419ACD1BD3881B00235CBD /* img_request_lesson.jpg in Resources */,
@@ -1086,6 +1099,7 @@
 				22AA889D1BDC682F00FAD31F /* UIImage+MultiFormat.m in Sources */,
 				22B0E3331BE59CFC004F49DA /* activitydetailCell.m in Sources */,
 				22AA88981BDC682F00FAD31F /* SDWebImageDownloaderOperation.m in Sources */,
+				22B204361BF4CB2300D8BB5E /* lanuchview.m in Sources */,
 				229ECE4D1BE23C3C00D3FDCE /* otheruserVC.m in Sources */,
 				22419A751BD3855B00235CBD /* ParentCellViewController.m in Sources */,
 				22938CFD1BD489E400A58B9C /* NotLoginVC.m in Sources */,

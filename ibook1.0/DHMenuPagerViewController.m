@@ -21,6 +21,7 @@
 #import "activitydetailVC.h"
 #import "PersonActivityVC.h"
 #import "pubactivityVC.h"
+#import "commonhead.h"
 @interface DHMenuPagerViewController () <MenuViewDelegate, CLLocationManagerDelegate,homeVCdelegate> {
     NSArray *titleArray;
     DHLandscapeMenuScrollView *menuView;
@@ -93,9 +94,13 @@
     manager.desiredAccuracy = kCLLocationAccuracyBest;
     [manager requestWhenInUseAuthorization];
     
-    [manager requestAlwaysAuthorization];
-    [manager startUpdatingLocation];
+    if (IOS8) {
+        [manager requestAlwaysAuthorization];
+        [manager startUpdatingLocation];
+    }
+    
     self.manage =manager;
+    
     self.getlocation = NO;
     return self;
 }

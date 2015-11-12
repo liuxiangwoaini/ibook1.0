@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <CoreGraphics/CoreGraphics.h>
 @interface NSObject (LX)
 + (BOOL) connectedToNetwork;
 + (NSString*  )connectwithnum;
++ (CGRect )setVCviewframewithinchs;
 @end

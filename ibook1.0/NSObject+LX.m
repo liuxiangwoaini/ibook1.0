@@ -11,8 +11,10 @@
 #import <netinet/in.h>
 //#import <SystemConfiguration/>
 #import "Reachability.h"
+#import "commonhead.h"
+#import <CoreFoundation/CoreFoundation.h>
 //#import <sys>
-
+#import <UIKit/UIKit.h>
 # warning 网络监测怎么做，不会啊。。。。
 @implementation NSObject (LX)
 + (BOOL) connectedToNetwork
@@ -71,6 +73,25 @@
         return result;
         
     
+    
+}
+
++ (CGRect)setVCviewframewithinchs
+{
+    if (iphone4and4s) {
+        return CGRectMake(0, 0, 320, 480);
+    }else if (iphone6)
+    {
+        return CGRectMake(0, 0, 375,667 );
+    }
+    else if (iphone6plus)
+    {
+        return CGRectMake(0, 0, 414,736 );
+    }
+    else
+    {
+        return CGRectMake(0, 0, 320, 568);
+    }
     
 }
 @end
