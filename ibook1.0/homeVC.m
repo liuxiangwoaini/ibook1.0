@@ -122,8 +122,6 @@
         //            self.tableview.frame = frame1;
         //            self.tableview.backgroundColor = [UIColor redColor];
 //    }
-    [self setAddbtn1];
-    [self setchoosebtns];
 //    NSLog(@"----frame%f", self.view.frame.size.width);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeVC) name:@"changeVC" object:nil];
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeVC1) name:@"changeVC1" object:nil];
@@ -206,7 +204,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    
+    [self setAddbtn1];
+    [self setchoosebtns];
+
 //    if (iphone6) {
 ////        375x667
 //        self.view.bounds = CGRectMake(0, 0, 375, 667);
@@ -221,7 +221,7 @@
 
 - (void)setchoosebtns
 {
-    UIView *view  = [[UIView alloc] initWithFrame:CGRectMake(250, 45, 60, 200)];
+    UIView *view  = [[UIView alloc] initWithFrame:CGRectMake(self.addbtn.frame.origin.x, self.addbtn.frame.origin.y - 210, 60, 200)];
     view.backgroundColor = [UIColor blueColor];
     
     
@@ -310,10 +310,10 @@
 
 //    CGFloat scrollW = self.midScrollView.frame.size.width;
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(250, 250, 60, 60);
+    btn.frame = CGRectMake(self.view.frame.size.width*0.77, self.view.frame.size.height*0.59, 60, 60);
     //    btn.backgroundColor = [UIColor redColor];
     UIImage *backimage = [UIImage circleImageWithName:@"avatar_default_add.png" borderWidth:1 borderColor:IBColor(238, 238, 238)];
-    
+//    [btn setBackgroundColor:[UIColor redColor]];
     [btn setImage:backimage forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(addbtnclick) forControlEvents:UIControlEventTouchUpInside];
     btn.hidden = YES;
@@ -323,7 +323,9 @@
 }
 - (void)addbtnclick
 {
+    
     self.chooseview.hidden = !self.chooseview.hidden;
+    
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *dbpath = [path stringByAppendingPathComponent:@"activitesdata"];
     NSArray *array = [NSArray arrayWithContentsOfFile:dbpath];

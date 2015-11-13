@@ -9,6 +9,7 @@
 #import "otheruserVC.h"
 #import "UIImageView+WebCache.h"
 #import "PersonActivityVC.h"
+#import "NSObject+LX.h"
 @interface otheruserVC ()<UITableViewDataSource,UITableViewDelegate>
 - (IBAction)close;
 @property (weak, nonatomic) IBOutlet UIImageView *headview;
@@ -23,6 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    CGRect tableframe = self.persontable.frame;
+    self.persontable.frame = CGRectMake(tableframe.origin.x, tableframe.origin.y, self.view.frame.size.width, 44*3);
     self.persontable.dataSource = self;
     self.persontable.delegate  =self;
 }
@@ -130,7 +133,8 @@
     }
     cell.textLabel.text =self.datas[indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
+//    CGRect frame1 = CGRectMake(0, 0, [NSObject settableviewcellsizewithinchs], 320);
+//    cell.bounds = frame1;
     return cell;
 }
 

@@ -15,6 +15,7 @@
 #import "addcommentVC.h"
 #import "NSNumber+LX.h"
 #import "alljoinusersVC.h"
+#import "NSObject+LX.h"
 @interface activitydetailVC ()<UITableViewDataSource, UITableViewDelegate,activitydetailCelldelegate>
 - (IBAction)close;
 //@property (weak, nonatomic) IBOutlet UILabel *title;
@@ -48,6 +49,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *joinnum1;
 #warning 写到这里。。。
 @property (strong ,nonatomic) UITableView *commenttable;
+@property (weak, nonatomic) IBOutlet UILabel *commenlable;
 @property (strong, nonatomic) NSMutableArray *commentdatas;
 @end
 #warning 明天继续。。。
@@ -176,8 +178,9 @@
                 }
             }
         }
-        NSLog(@"----%f", self.view.frame.size.height);
-        self.commenttable.frame = CGRectMake(0, self.view.frame.size.height*0.8, self.view.frame.size.width, 60*self.commentdatas.count);
+//        NSLog(@"----%f", self.view.frame.size.height);
+        CGFloat commentY = CGRectGetMaxY(self.commenlable.frame);
+        self.commenttable.frame = CGRectMake(0, commentY+8, self.view.frame.size.width, 60*self.commentdatas.count);
         self.scrollview.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + self.commentdatas.count * 60);
         [self.commenttable reloadData];
         
@@ -217,6 +220,8 @@
 //    cell.textLabel.text = @"dasd";
     cell.obj = obj;
     cell.delegate =self;
+//    CGRect frame1 = CGRectMake(0, 0, [NSObject settableviewcellsizewithinchs], 320);
+//    cell.bounds = frame1;
     return cell;
 }
 
