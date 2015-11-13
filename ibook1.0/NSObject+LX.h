@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import <CoreLocation/CoreLocation.h>
 @interface NSObject (LX)
 + (BOOL) connectedToNetwork;
 + (NSString*  )connectwithnum;
 + (CGRect )setVCviewframewithinchs;
 + (CGFloat )settableviewcellsizewithinchs;
++ (NSMutableArray *)getlibraryswithlocation:(CLLocation *)location;
+
+
 @end

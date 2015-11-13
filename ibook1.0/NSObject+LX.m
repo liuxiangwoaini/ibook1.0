@@ -16,6 +16,8 @@
 //#import <sys>
 #import <UIKit/UIKit.h>
 # warning 网络监测怎么做，不会啊。。。。
+
+
 @implementation NSObject (LX)
 + (BOOL) connectedToNetwork
 {
@@ -112,4 +114,6 @@
         return 320;
     }
 }
+
+
 @end

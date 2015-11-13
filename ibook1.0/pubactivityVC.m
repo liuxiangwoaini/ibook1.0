@@ -84,8 +84,15 @@
             [self.view endEditing:YES];
             self.tableview.hidden = NO;
             self.tableview.frame =CGRectMake(self.place.frame.origin.x, CGRectGetMaxY(self.place.frame) +10, self.view.frame.size.width - 61, 200);
-            NSString *path = [[NSBundle mainBundle] pathForResource:@"schools.plist" ofType:nil];
-            self.datas = [NSMutableArray arrayWithContentsOfFile:path];
+            NSString *path1 = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+            NSString *libdatapath = [path1 stringByAppendingPathComponent:@"libsdata"];
+            self.datas = [NSMutableArray arrayWithContentsOfFile:libdatapath];
+//            NSLog(@"-----%@", self.datas);
+            if (self.datas.count ==0) {
+                self.datas = nil;
+                NSString *tempstroing =  [[NSBundle mainBundle] pathForResource:@"schools.plist" ofType:nil];
+                self.datas = [NSMutableArray arrayWithContentsOfFile:tempstroing];
+            }
             [self.tableview reloadData];
             self.index = 2;
             
@@ -151,7 +158,7 @@
     [post setObject:@(1) forKey:@"isUseful"];
     int type = [NSNumber activitytypewith:self.title];
     [post setObject:@(type) forKey:@"type"];
-    [post setObject:self.title forKey:@"title"];
+    [post setObject:self.theme.text forKey:@"title"];
     [post setObject:@(0) forKey:@"commentCount"];
     int target = [NSNumber activitytargetwith:self.type.text];
     [post setObject:@(target) forKey:@"target"];

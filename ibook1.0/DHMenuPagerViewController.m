@@ -12,6 +12,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+
 #import <AVOSCloud/AVOSCloud.h>
 #import "WGS84TOGCJ02.h"
 #import "homeVC.h"
@@ -22,6 +23,7 @@
 #import "PersonActivityVC.h"
 #import "pubactivityVC.h"
 #import "commonhead.h"
+#define Baidulocationapikey @"1457ac3d0f915dfd1d64757c49d811ff"
 @interface DHMenuPagerViewController () <MenuViewDelegate, CLLocationManagerDelegate,homeVCdelegate> {
     NSArray *titleArray;
     DHLandscapeMenuScrollView *menuView;
@@ -33,10 +35,18 @@
 @property (strong, nonatomic) CLLocationManager *manage;
 @property (assign ,nonatomic) CLLocation *location;
 @property (nonatomic, assign) BOOL getlocation;
+@property (nonatomic, strong) NSMutableArray *libsdata;
 @end
 
 @implementation DHMenuPagerViewController
 
+- (NSMutableArray *)libsdata
+{
+    if (_libsdata ==nil) {
+        _libsdata = [NSMutableArray array];
+    }
+    return _libsdata;
+}
 - (id)initWithViewControllers:(NSArray *)controllers {
     return [self initWithViewControllers:controllers titles:nil];
 }
@@ -104,9 +114,36 @@
     self.getlocation = NO;
     return self;
 }
+- (void)request: (NSString*)httpUrl withHttpArg: (NSString*)HttpArg  {
+    NSString *urlStr = [[NSString alloc]initWithFormat: @"%@?%@", httpUrl, HttpArg];
+    NSURL *url = [NSURL URLWithString: urlStr];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 10];
+    [request setHTTPMethod: @"GET"];
+    [request addValue: Baidulocationapikey forHTTPHeaderField: @"apikey"];
+    [NSURLConnection sendAsynchronousRequest: request
+                                       queue: [NSOperationQueue mainQueue]
+                           completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error){
+                               if (error) {
+                                   NSLog(@"Httperror: %@%d", error.localizedDescription, error.code);
+                               } else {
+                                   NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                   NSArray *array = dict[@"retData"];
+                                   [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//                                       NSLog(@"%@", obj[@"name"]);
+                                       [self.libsdata addObject:obj[@"name"]];
+                                   }];
+                                   
+                                   NSString *path1 = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+                                   NSString *libdatapath = [path1 stringByAppendingPathComponent:@"libsdata"];
+                                   [self.libsdata writeToFile:libdatapath atomically:YES];
+                               }
+                           }];
+}
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *location = [locations lastObject];
+    
+  
     CLGeocoder *geo = [[CLGeocoder alloc] init];
     //    NSLog(@"%@", location);
 #warning 地理位置看反编码失败，下面这个方法进不去
@@ -157,6 +194,10 @@
             }
             
             [self.manage stopUpdatingLocation];
+            
+            NSString *httpUrl = @"http://apis.baidu.com/apistore/lbswebapi/placeapi_circleregion";
+            NSString *httpArg = [NSString stringWithFormat:@"location=%f,%f%@",location.coordinate.latitude, location.coordinate.longitude, @"&radius=200000&query=%E5%9B%BE%E4%B9%A6%E9%A6%86&scope=1"];
+            [self request: httpUrl withHttpArg: httpArg];
         }}];
         
     

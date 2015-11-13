@@ -20,6 +20,8 @@
 #import "activitydetailVC.h"
 #import "pubactivityVC.h"
 #import "NSObject+LX.h"
+#import "LXLocation.h"
+#define Baidulocationapikey @"1457ac3d0f915dfd1d64757c49d811ff"
 
 @interface homeVC ()<UITableViewDataSource, UITableViewDelegate,DHMenuPagerViewDelegate, homedataCelldelegate>
 @property (strong ,nonatomic) UIButton *addbtn;
@@ -115,6 +117,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+    //    NSString *httpArg = [NSString stringWithFormat:@"location=38.76623,116.43213&radius=2000&query=%E9%93%B6%E8%A1%8C%0A&scope=1"];
+    
+//    LXLocation *lx = [[LXLocation alloc] init];
+//     NSMutableArray *hearray = [lx getlibraryswithlocation:nil];
+//    NSLog(@"%@---------", hearray);
 //    if (iphone6) {
     self.view.frame = [NSObject setVCviewframewithinchs];
         //

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		22054E1E1BD38F7100C066F8 /* LaunchScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 22054E1D1BD38F7100C066F8 /* LaunchScreen.m */; };
+		221E17141BF6194E000FA3CE /* LXLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 221E17131BF6194E000FA3CE /* LXLocation.m */; };
 		221EA1181BE773BE00C99118 /* alljoinusersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 221EA1161BE773BE00C99118 /* alljoinusersVC.m */; };
 		221EA1191BE773BE00C99118 /* alljoinusersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221EA1171BE773BE00C99118 /* alljoinusersVC.xib */; };
 		222072831BDE567D000C3782 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 222072821BDE567D000C3782 /* AddressBookUI.framework */; };
@@ -164,6 +165,8 @@
 		22054E1D1BD38F7100C066F8 /* LaunchScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreen.m; sourceTree = "<group>"; };
 		22054E1F1BD3924E00C066F8 /* ibook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ibook-Prefix.pch"; sourceTree = "<group>"; };
 		22054E201BD3970600C066F8 /* commonhead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonhead.h; sourceTree = "<group>"; };
+		221E17121BF6194E000FA3CE /* LXLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXLocation.h; sourceTree = "<group>"; };
+		221E17131BF6194E000FA3CE /* LXLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXLocation.m; sourceTree = "<group>"; };
 		221EA1151BE773BE00C99118 /* alljoinusersVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = alljoinusersVC.h; sourceTree = "<group>"; };
 		221EA1161BE773BE00C99118 /* alljoinusersVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = alljoinusersVC.m; sourceTree = "<group>"; };
 		221EA1171BE773BE00C99118 /* alljoinusersVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = alljoinusersVC.xib; sourceTree = "<group>"; };
@@ -563,6 +566,8 @@
 				22054E201BD3970600C066F8 /* commonhead.h */,
 				222072C31BDE6664000C3782 /* WGS84TOGCJ02.h */,
 				222072C41BDE6664000C3782 /* WGS84TOGCJ02.m */,
+				221E17121BF6194E000FA3CE /* LXLocation.h */,
+				221E17131BF6194E000FA3CE /* LXLocation.m */,
 			);
 			name = other;
 			sourceTree = "<group>";
@@ -1062,6 +1067,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				221E17141BF6194E000FA3CE /* LXLocation.m in Sources */,
 				229C596E1BD47A2F005BDB8A /* UIImage+Extension.m in Sources */,
 				22AA88A11BDC682F00FAD31F /* UIView+WebCacheOperation.m in Sources */,
 				22054E1E1BD38F7100C066F8 /* LaunchScreen.m in Sources */,

@@ -66,8 +66,11 @@
 - (NSMutableArray *)schools
 {
     if (_schools == nil) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"schools.plist" ofType:nil];
-        _schools = [NSMutableArray arrayWithContentsOfFile:path];
+        NSString *path1 = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *libdatapath = [path1 stringByAppendingPathComponent:@"libsdata"];
+        
+        _schools = [NSMutableArray arrayWithContentsOfFile:libdatapath];
+        
     }
     return _schools;
 }
