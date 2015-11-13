@@ -56,16 +56,6 @@
                 <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xWu-U9-geU">
                     <rect key="frame" x="-1" y="0.0" width="320" height="370"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfx-Pe-RMf">
-                            <rect key="frame" x="8" y="8" width="35" height="35"/>
-                            <state key="normal" backgroundImage="ic_left.png">
-                                <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="close" destination="-1" eventType="touchUpInside" id="Mxi-LF-urf"/>
-                            </connections>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="评论" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZc-ll-xV7">
                             <rect key="frame" x="8" y="321" width="56" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -142,11 +132,21 @@
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kdK-Bj-3Ze">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
+                            <rect key="frame" x="-8" y="0.0" width="320" height="184"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="220" id="tPp-N8-NxN"/>
                             </constraints>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfx-Pe-RMf">
+                            <rect key="frame" x="8" y="18" width="35" height="35"/>
+                            <state key="normal" backgroundImage="ic_left.png">
+                                <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="close" destination="-1" eventType="touchUpInside" id="Mxi-LF-urf"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.50050999600000001" green="0.13426426699999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
