@@ -39,6 +39,7 @@
     self.birthdaylable.text = [[user[@"birth"] description] substringToIndex:10];
 //    self.schoollable.text = user[@"school"];
     self.school.text =user[@"school"];
+    self.birthdaypdate= [NSDate date];
 }
 
 

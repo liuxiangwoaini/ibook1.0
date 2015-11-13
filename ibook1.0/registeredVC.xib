@@ -16,8 +16,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_bottom.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Cc-Sd-i0P">
-                    <rect key="frame" x="0.0" y="300" width="320" height="180"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_bottom.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Cc-Sd-i0P">
+                    <rect key="frame" x="0.0" y="270" width="320" height="210"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="181" id="Pkj-BW-h1T"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Pkj-BW-h1T"/>
+                        </mask>
+                    </variation>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOQ-Zf-4YU">
                     <rect key="frame" x="21" y="25" width="46" height="30"/>
@@ -30,22 +38,56 @@
                         <action selector="close" destination="-1" eventType="touchUpInside" id="qhC-py-qy0"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGW-sE-b5j">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gc-rY-ZDr">
+                    <rect key="frame" x="0.0" y="69" width="320" height="260"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="260" id="3cI-EB-hkx"/>
+                    </constraints>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGW-sE-b5j">
                     <rect key="frame" x="135" y="360" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Dyg-I7-9WJ"/>
+                        <constraint firstAttribute="width" constant="50" id="NoQ-fB-T93"/>
+                        <constraint firstAttribute="height" constant="50" id="SYb-Vn-QEO"/>
+                    </constraints>
                     <state key="normal" backgroundImage="ic_send_white.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="highlighted" backgroundImage="ic_send_press.png"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="SYb-Vn-QEO"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <action selector="bottomBtnclick" destination="-1" eventType="touchUpInside" id="hY9-uu-vOU"/>
                     </connections>
                 </button>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3gc-rY-ZDr">
-                    <rect key="frame" x="0.0" y="69" width="320" height="260"/>
-                </scrollView>
             </subviews>
             <color key="backgroundColor" red="0.058708231884518375" green="0.28423904420540236" blue="0.56098533163265307" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="3gc-rY-ZDr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0kK-Bx-211"/>
+                <constraint firstAttribute="bottom" secondItem="xGW-sE-b5j" secondAttribute="bottom" constant="70" id="1RB-82-eyx"/>
+                <constraint firstItem="xGW-sE-b5j" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="135" id="PSv-4N-bf2"/>
+                <constraint firstAttribute="centerX" secondItem="xGW-sE-b5j" secondAttribute="centerX" id="Q0J-gu-FJ6"/>
+                <constraint firstItem="3gc-rY-ZDr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="69" id="Qv6-Pn-nPl"/>
+                <constraint firstAttribute="trailing" secondItem="8Cc-Sd-i0P" secondAttribute="trailing" id="VNg-zI-yXe"/>
+                <constraint firstItem="8Cc-Sd-i0P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YUu-Iq-J4e"/>
+                <constraint firstAttribute="bottom" secondItem="8Cc-Sd-i0P" secondAttribute="bottom" id="ZXT-Vb-pRk"/>
+                <constraint firstAttribute="trailing" secondItem="xGW-sE-b5j" secondAttribute="trailing" constant="135" id="m8d-bu-m5e"/>
+                <constraint firstItem="xGW-sE-b5j" firstAttribute="top" secondItem="3gc-rY-ZDr" secondAttribute="bottom" constant="31" id="ovD-iG-Yfm"/>
+                <constraint firstItem="8Cc-Sd-i0P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="270" id="vKP-rH-Wrq"/>
+                <constraint firstAttribute="trailing" secondItem="3gc-rY-ZDr" secondAttribute="trailing" id="wRj-iK-Fgn"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="1RB-82-eyx"/>
+                    <exclude reference="PSv-4N-bf2"/>
+                    <exclude reference="m8d-bu-m5e"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="139" y="91"/>
         </view>
     </objects>

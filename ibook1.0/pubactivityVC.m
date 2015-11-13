@@ -83,7 +83,7 @@
         {
             [self.view endEditing:YES];
             self.tableview.hidden = NO;
-            self.tableview.frame =CGRectMake(35, 180, 259, 200);
+            self.tableview.frame =CGRectMake(self.place.frame.origin.x, CGRectGetMaxY(self.place.frame) +10, self.view.frame.size.width - 61, 200);
             NSString *path = [[NSBundle mainBundle] pathForResource:@"schools.plist" ofType:nil];
             self.datas = [NSMutableArray arrayWithContentsOfFile:path];
             [self.tableview reloadData];
@@ -96,7 +96,7 @@
         {
             [self.view endEditing:YES];
             self.tableview.hidden = NO;
-            self.tableview.frame =CGRectMake(35, 234, 100, 170);
+            self.tableview.frame =CGRectMake(self.time.frame.origin.x, CGRectGetMaxY(self.time.frame) +10, 131, 170);
             self.datas = (NSMutableArray *)@[@"1天",@"7天", @"15天",@"30天"];
              [self.tableview reloadData];
             self.index = 3;
@@ -107,7 +107,7 @@
         {
             [self.view endEditing:YES];
             self.tableview.hidden = NO;
-            self.tableview.frame =CGRectMake(163, 234, 100, 130);
+            self.tableview.frame =CGRectMake(self.type.frame.origin.x, CGRectGetMaxY(self.type.frame) +10, 131, 130);
             self.datas = (NSMutableArray *)@[@"仅限男生",@"仅限女生", @"男女不限"];
             [self.tableview reloadData];
             self.index  =4;

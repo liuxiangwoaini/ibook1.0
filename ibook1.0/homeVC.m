@@ -275,7 +275,7 @@
   
 //    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewStylePlain reuseIdentifier:nil];lue
 //    cell.textLabel.text = @"dasda";
-    cell.backgroundColor = [UIColor blueColor];
+//    cell.backgroundColor = [UIColor blueColor];
     
     return cell;
 }

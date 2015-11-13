@@ -16,21 +16,41 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="个人中心" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twd-8U-EoG">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人中心" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twd-8U-EoG">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="so3-Cy-3jA"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VXv-Bj-9fc">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VXv-Bj-9fc">
                     <rect key="frame" x="120" y="49" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="8Bq-5z-4q0"/>
+                        <constraint firstAttribute="height" constant="80" id="ut6-yZ-8FI"/>
+                    </constraints>
                 </imageView>
-                <tableView clipsSubviews="YES" alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OII-wh-I49">
+                <tableView clipsSubviews="YES" alpha="0.40000000000000002" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OII-wh-I49">
                     <rect key="frame" x="-5" y="137" width="325" height="226"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="226" id="0Gk-ct-v5E"/>
+                    </constraints>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="0.4502149432" green="1" blue="0.77700375970000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="twd-8U-EoG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0hJ-9J-mfV"/>
+                <constraint firstItem="OII-wh-I49" firstAttribute="top" secondItem="VXv-Bj-9fc" secondAttribute="bottom" constant="8" id="6sN-Px-ZYn"/>
+                <constraint firstAttribute="trailing" secondItem="OII-wh-I49" secondAttribute="trailing" id="73c-8q-OFF"/>
+                <constraint firstAttribute="trailing" secondItem="twd-8U-EoG" secondAttribute="trailing" id="G4E-Mj-dkl"/>
+                <constraint firstAttribute="centerX" secondItem="VXv-Bj-9fc" secondAttribute="centerX" id="JOf-vg-gG4"/>
+                <constraint firstItem="twd-8U-EoG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="V7y-H9-929"/>
+                <constraint firstItem="VXv-Bj-9fc" firstAttribute="top" secondItem="twd-8U-EoG" secondAttribute="bottom" constant="8" id="fdC-dR-yVJ"/>
+                <constraint firstItem="OII-wh-I49" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-5" id="mVa-Ao-kvh"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>

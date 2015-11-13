@@ -14,6 +14,7 @@
 #import "UIImage+MJ.h"
 #import "MBProgressHUD+MJ.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "NSObject+LX.h"
 @interface registeredVC ()<UIScrollViewDelegate, registerView1Delagate,registerView2Delagate,UIImagePickerControllerDelegate, registerView3Delagate, UITableViewDataSource, UITableViewDelegate>
 /**
  *  取消注册，关闭控制器
@@ -72,7 +73,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.frame = [NSObject setVCviewframewithinchs];
     [self setupscrollview];
     self.index = 1;
     self.birthdaypdate = [NSDate date];
@@ -88,7 +89,7 @@
 {
     CGFloat scrollW = self.midScrollView.frame.size.width;
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(scrollW/2 - 40, 30, 80, 80);
+    btn.frame = CGRectMake(self.view.frame.size.width*0.5- 40 , 30, 80, 80);
     //    btn.backgroundColor = [UIColor redColor];
     UIImage *backimage = [UIImage circleImageWithName:@"avatar_default_add.png" borderWidth:1 borderColor:IBColor(238, 238, 238)];
     
@@ -104,7 +105,7 @@
 - (void)setupscrollview
 {
     CGFloat width =self.view.frame.size.width;
-    self.midScrollView.contentSize = CGSizeMake(width*3, 260);
+    self.midScrollView.contentSize = CGSizeMake(self.view.frame.size.width*3, 260);
     self.midScrollView.pagingEnabled =  YES;
     self.midScrollView.showsHorizontalScrollIndicator = NO;
     self.midScrollView.delegate = self;
@@ -288,13 +289,13 @@
         
 - (void)addchildviews
 {
-    CGFloat scrollW = self.midScrollView.frame.size.width;
-    CGFloat scrollH = self.midScrollView.frame.size.height;
+    CGFloat scrollW = self.view.frame.size.width;
+    CGFloat scrollH = 260;
     UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, scrollW, scrollH)];
     view1.backgroundColor = [UIColor whiteColor];
     registerView1 *view1child = (registerView1 *)[self loadnibwithname:@"registerView1"];
     view1child.delegate =self;
-    view1child.frame = CGRectMake((scrollW - view1child.frame.size.width) / 2, 0, view1child.frame.size.width, view1child.frame.size.height);
+    view1child.frame = CGRectMake(0, 0, self.view.frame.size.width, 260);
     self.register1 = view1child;
     [view1 addSubview:view1child];
     
@@ -631,7 +632,7 @@
     self.backgroundview  =[[UIView alloc] initWithFrame:self.view.bounds];
     self.backgroundview.backgroundColor = [UIColor blueColor];
     [self.view addSubview:self.backgroundview];
-    self.chooseschooltable = [[UITableView alloc] initWithFrame:CGRectMake(30, 80, 260, 300) style:UITableViewStylePlain];
+    self.chooseschooltable = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.5- 130, 80, 260, 300) style:UITableViewStylePlain];
     self.chooseschooltable.delegate = self;
     self.chooseschooltable.dataSource  =self;
     [self.view addSubview:self.chooseschooltable];

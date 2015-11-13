@@ -356,10 +356,11 @@
             }
         }
         //        NSLog(@"----%@", self.commentdatas);
-        self.commenttable.frame = CGRectMake(0, 340, 320, 60*self.commentdatas.count);
-        [self.commenttable reloadData];
-        self.scrollview.contentSize = CGSizeMake(320, 360 + self.commentdatas.count * 60);
+        CGFloat commentY = CGRectGetMaxY(self.commenlable.frame);
+        self.commenttable.frame = CGRectMake(0, commentY+8, self.view.frame.size.width, 60*self.commentdatas.count);
         
+        self.scrollview.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + self.commentdatas.count * 60);
+        [self.commenttable reloadData];
         
        
         

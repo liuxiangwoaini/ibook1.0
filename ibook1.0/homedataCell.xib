@@ -27,8 +27,8 @@
                             <constraint firstAttribute="height" constant="184" id="zpI-cX-nOD"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nE-zG-cuI">
-                        <rect key="frame" x="0.0" y="184" width="320" height="128"/>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1nE-zG-cuI">
+                        <rect key="frame" x="0.0" y="183" width="320" height="128"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXy-0c-EDi" userLabel="target">
                                 <rect key="frame" x="238" y="58" width="82" height="21"/>
@@ -116,7 +116,7 @@
                             <constraint firstAttribute="trailing" secondItem="bla-ZY-ScD" secondAttribute="trailing" id="0EY-IQ-cbE"/>
                             <constraint firstItem="lug-mm-oHP" firstAttribute="top" secondItem="1nE-zG-cuI" secondAttribute="top" constant="15" id="36g-6F-Upl"/>
                             <constraint firstItem="2Ad-Lz-i7H" firstAttribute="bottom" secondItem="bla-ZY-ScD" secondAttribute="bottom" id="9Ch-yo-SsD"/>
-                            <constraint firstAttribute="height" constant="128" id="DKp-dU-Pvn"/>
+                            <constraint firstAttribute="height" constant="134" id="DKp-dU-Pvn"/>
                             <constraint firstItem="2Ad-Lz-i7H" firstAttribute="top" secondItem="bla-ZY-ScD" secondAttribute="top" id="IEk-N8-bVh"/>
                             <constraint firstItem="NWH-Ab-ekp" firstAttribute="leading" secondItem="TWm-IE-PmT" secondAttribute="leading" id="IGV-NA-ZDP"/>
                             <constraint firstItem="NWH-Ab-ekp" firstAttribute="trailing" secondItem="MXy-0c-EDi" secondAttribute="trailing" id="IwP-ac-Ez5"/>
