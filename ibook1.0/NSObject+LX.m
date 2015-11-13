@@ -80,11 +80,11 @@
 {
     if (iphone4and4s) {
         return CGRectMake(0, 0, 320, 480);
-    }else if (iphone6)
+    }else if (iphone6and6s)
     {
         return CGRectMake(0, 0, 375,667 );
     }
-    else if (iphone6plus)
+    else if (iphone6plusand6spus)
     {
         return CGRectMake(0, 0, 414,736 );
     }
@@ -99,11 +99,11 @@
 {
     if (iphone4and4s) {
         return 320;
-    }else if (iphone6)
+    }else if (iphone6and6s)
     {
         return 375;
     }
-    else if (iphone6plus)
+    else if (iphone6plusand6spus)
     {
         return 414;
     }

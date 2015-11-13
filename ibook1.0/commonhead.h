@@ -19,7 +19,7 @@
 #define IOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
 #define iphone4and4s ([UIScreen mainScreen].bounds.size.height == 480)
 #define iphone5and5s ([UIScreen mainScreen].bounds.size.height == 568)
-#define iphone6 ([UIScreen mainScreen].bounds.size.height == 667)
-#define iphone6plus ([UIScreen mainScreen].bounds.size.height == 736)
+#define iphone6and6s ([UIScreen mainScreen].bounds.size.height == 667)
+#define iphone6plusand6spus ([UIScreen mainScreen].bounds.size.height == 736)
 
 #endif
