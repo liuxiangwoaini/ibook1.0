@@ -94,4 +94,22 @@
     }
     
 }
+
++ (CGFloat )settableviewcellsizewithinchs
+{
+    if (iphone4and4s) {
+        return 320;
+    }else if (iphone6)
+    {
+        return 375;
+    }
+    else if (iphone6plus)
+    {
+        return 414;
+    }
+    else
+    {
+        return 320;
+    }
+}
 @end

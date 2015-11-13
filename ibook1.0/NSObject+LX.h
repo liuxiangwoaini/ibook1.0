@@ -12,4 +12,5 @@
 + (BOOL) connectedToNetwork;
 + (NSString*  )connectwithnum;
 + (CGRect )setVCviewframewithinchs;
++ (CGFloat )settableviewcellsizewithinchs;
 @end

@@ -266,16 +266,17 @@
     if (self.activitiedatas.count) {
         cell.obj = self.activitiedatas[indexPath.row];
     }
-    if (iphone6) {
+    
 //
-        CGRect frame1 = CGRectMake(0, 0, self.view.frame.size.width, 320);
-        cell.frame = frame1;
+        CGRect frame1 = CGRectMake(0, 0, [NSObject settableviewcellsizewithinchs], 320);
+        cell.bounds = frame1;
 ////
-    }
-//    NSLog(@"----%f", cell.frame.size.height);
+    
+  
 //    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewStylePlain reuseIdentifier:nil];lue
 //    cell.textLabel.text = @"dasda";
     cell.backgroundColor = [UIColor blueColor];
+    
     return cell;
 }
 #warning 这里跳转到发布活动页面
