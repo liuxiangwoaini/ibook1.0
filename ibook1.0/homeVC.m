@@ -178,15 +178,30 @@
     NSString *dbpath = [path stringByAppendingPathComponent:@"activitesdata"];
     NSFileManager *manage = [NSFileManager defaultManager];
 //    NSLog(@"%@", [NSArray arrayWithContentsOfFile:dbpath]);
-    [manage removeItemAtPath:dbpath error:nil];
-//    NSLog(@"%@", [NSArray arrayWithContentsOfFile:dbpath]);
-    NSInteger num = self.activities.count;
-    if ([NSArray arrayWithContentsOfFile:dbpath]) {
-        [MBProgressHUD showError:@"刷新失败"];
+    NSError *error;
+    if([manage removeItemAtPath:dbpath error:nil])
+    {
+        
+        self.activities = nil;
+        if ([NSArray arrayWithContentsOfFile:dbpath]) {
+            [MBProgressHUD showError:@"刷新失败"];
+        }else
+        {
+            NSInteger num = self.activities.count;
+            [MBProgressHUD showSuccess:@"刷新成功"];
+        }
     }else
     {
-    [MBProgressHUD showSuccess:@"刷新成功"];
-    }
+        [MBProgressHUD showError:@"删除失败,刷新失败"];
+    };
+//    NSLog(@"%@", [NSArray arrayWithContentsOfFile:dbpath]);
+    
+//    if ([NSArray arrayWithContentsOfFile:dbpath]) {
+//        [MBProgressHUD showError:@"刷新失败"];
+//    }else
+//    {
+//    [MBProgressHUD showSuccess:@"刷新成功"];
+//    }
     
     
 }

@@ -30,7 +30,7 @@
 @implementation homedataCell
 
 - (void)awakeFromNib {
-    if (iphone6) {
+    if (iphone6and6s) {
         CGRect frame = self.frame;
         CGRect frame1 = CGRectMake(frame.origin.x, frame.origin.y, 375, frame.size.height);
         self.frame = frame1;

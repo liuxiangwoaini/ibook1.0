@@ -372,9 +372,11 @@
         if (!error) {
             for (AVObject *obj1 in objects) {
                 if ([obj1.objectId isEqualToString:self.obj.objectId]) {
-                    self.commen1.text = [NSString stringWithFormat:@"评论%@条", (NSNumber *)obj1[@"commentCount"]];
-                    
-                    self.joinnum1.text = [NSString stringWithFormat:@"报名%@人", (NSNumber *)obj1[@"applyCount"]];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.commen1.text = [NSString stringWithFormat:@"评论%@条", (NSNumber *)obj1[@"commentCount"]];
+                        
+                        self.joinnum1.text = [NSString stringWithFormat:@"报名%@人", (NSNumber *)obj1[@"applyCount"]];
+                    });
                 }
             }
             
