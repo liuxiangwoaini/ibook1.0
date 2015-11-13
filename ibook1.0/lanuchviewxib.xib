@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,14 +11,39 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOB-TN-1Dp">
-                    <rect key="frame" x="153" y="211" width="46" height="30"/>
-                    <state key="normal" title="Button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_guide_bottom.png" translatesAutoresizingMaskIntoConstraints="NO" id="2cQ-lI-hME">
+                    <rect key="frame" x="0.0" y="525" width="600" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="GIf-R3-cIa"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo_login.png" translatesAutoresizingMaskIntoConstraints="NO" id="VrT-VM-OJ2">
+                    <rect key="frame" x="225" y="55" width="150" height="203"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="7lz-cs-oPA"/>
+                        <constraint firstAttribute="width" constant="120" id="lR4-qY-z9J"/>
+                    </constraints>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.49419757009999998" green="1" blue="0.48170381429999998" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="VrT-VM-OJ2" secondAttribute="centerY" multiplier="1.7" id="Aiz-dI-clq"/>
+                <constraint firstAttribute="trailing" secondItem="2cQ-lI-hME" secondAttribute="trailing" id="Chr-JZ-1d0"/>
+                <constraint firstAttribute="centerX" secondItem="VrT-VM-OJ2" secondAttribute="centerX" id="GDU-zH-nS2"/>
+                <constraint firstItem="2cQ-lI-hME" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GVM-7Y-Uwj"/>
+                <constraint firstAttribute="bottom" secondItem="2cQ-lI-hME" secondAttribute="bottom" constant="-5" id="R6t-uP-z29"/>
+                <constraint firstItem="VrT-VM-OJ2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="130" id="Uv0-Ab-rDY"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Uv0-Ab-rDY"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="-59" y="124"/>
         </view>
     </objects>
+    <resources>
+        <image name="bg_guide_bottom.png" width="720" height="186"/>
+        <image name="logo_login.png" width="703" height="703"/>
+    </resources>
 </document>
