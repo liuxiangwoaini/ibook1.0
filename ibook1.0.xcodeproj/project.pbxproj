@@ -87,6 +87,8 @@
 		22419AD31BD3881B00235CBD /* user_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22419AAA1BD3881B00235CBD /* user_icon.png */; };
 		22475B0A1BE09D4300B6789E /* homeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22475B081BE09D4300B6789E /* homeVC.m */; };
 		22475B0B1BE09D4300B6789E /* homeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22475B091BE09D4300B6789E /* homeVC.xib */; };
+		224E2F461BF81B370048902A /* BTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224E2F451BF81B370048902A /* BTViewController.m */; };
+		224E2F481BF82C7F0048902A /* schooldatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 224E2F471BF82C7F0048902A /* schooldatas.plist */; };
 		225F42BA1BE0ACBA00987FCD /* homedataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 225F42B81BE0ACBA00987FCD /* homedataCell.m */; };
 		225F42BB1BE0ACBA00987FCD /* homedataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225F42B91BE0ACBA00987FCD /* homedataCell.xib */; };
 		225F42BE1BE0DF8800987FCD /* activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 225F42BD1BE0DF8800987FCD /* activity.m */; };
@@ -268,6 +270,9 @@
 		22475B071BE09D4300B6789E /* homeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeVC.h; sourceTree = "<group>"; };
 		22475B081BE09D4300B6789E /* homeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeVC.m; sourceTree = "<group>"; };
 		22475B091BE09D4300B6789E /* homeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeVC.xib; sourceTree = "<group>"; };
+		224E2F441BF81B370048902A /* BTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTViewController.h; sourceTree = "<group>"; };
+		224E2F451BF81B370048902A /* BTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTViewController.m; sourceTree = "<group>"; };
+		224E2F471BF82C7F0048902A /* schooldatas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = schooldatas.plist; sourceTree = "<group>"; };
 		225F42B71BE0ACBA00987FCD /* homedataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homedataCell.h; sourceTree = "<group>"; };
 		225F42B81BE0ACBA00987FCD /* homedataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homedataCell.m; sourceTree = "<group>"; };
 		225F42B91BE0ACBA00987FCD /* homedataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homedataCell.xib; sourceTree = "<group>"; };
@@ -494,6 +499,7 @@
 		22419A271BD383BE00235CBD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				224E2F471BF82C7F0048902A /* schooldatas.plist */,
 				22419A281BD383BE00235CBD /* Info.plist */,
 				22419A291BD383BE00235CBD /* main.m */,
 				22054E1F1BD3924E00C066F8 /* ibook-Prefix.pch */,
@@ -828,6 +834,8 @@
 		22E5F8311BD50C12003120BC /* register(注册) */ = {
 			isa = PBXGroup;
 			children = (
+				224E2F441BF81B370048902A /* BTViewController.h */,
+				224E2F451BF81B370048902A /* BTViewController.m */,
 				22A867D11BD73BAA0085AACB /* schools.plist */,
 				22938D5A1BD4935800A58B9C /* registeredVC.h */,
 				22938D5B1BD4935800A58B9C /* registeredVC.m */,
@@ -969,6 +977,7 @@
 				22A20A731BDD0C7C0060E81D /* SetHeaderBkg@2x.png in Resources */,
 				22419ABC1BD3881B00235CBD /* ic_exit.png in Resources */,
 				22419AC21BD3881B00235CBD /* ic_ok.png in Resources */,
+				224E2F481BF82C7F0048902A /* schooldatas.plist in Resources */,
 				22419AB81BD3881B00235CBD /* ic_cancel.png in Resources */,
 				22419ABD1BD3881B00235CBD /* ic_launcher.png in Resources */,
 				22419ABB1BD3881B00235CBD /* ic_end_aty.png in Resources */,
@@ -1100,6 +1109,7 @@
 				229ECE481BE2382A00D3FDCE /* Reachability.m in Sources */,
 				222072C51BDE6664000C3782 /* WGS84TOGCJ02.m in Sources */,
 				22419A301BD383BE00235CBD /* ViewController.m in Sources */,
+				224E2F461BF81B370048902A /* BTViewController.m in Sources */,
 				22419A5B1BD384FC00235CBD /* NavParentController.m in Sources */,
 				22419A2D1BD383BE00235CBD /* AppDelegate.m in Sources */,
 				22AA889D1BDC682F00FAD31F /* UIImage+MultiFormat.m in Sources */,

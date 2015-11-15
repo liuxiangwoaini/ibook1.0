@@ -15,7 +15,8 @@
 #import "MBProgressHUD+MJ.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "NSObject+LX.h"
-@interface registeredVC ()<UIScrollViewDelegate, registerView1Delagate,registerView2Delagate,UIImagePickerControllerDelegate, registerView3Delagate, UITableViewDataSource, UITableViewDelegate>
+#import "BTViewController.h"
+@interface registeredVC ()<UIScrollViewDelegate, registerView1Delagate,registerView2Delagate,UIImagePickerControllerDelegate, registerView3Delagate, UITableViewDataSource, UITableViewDelegate,BTViewControllerdelegate>
 /**
  *  取消注册，关闭控制器
  */
@@ -627,18 +628,23 @@
 
 - (void)chooseschool
 {
-    if (self.chooseschooltable && self.backgroundview) {
-        self.backgroundview.hidden = NO;
-        self.chooseschooltable.hidden = NO;
-        return;
-    }
-    self.backgroundview  =[[UIView alloc] initWithFrame:self.view.bounds];
-    self.backgroundview.backgroundColor = [UIColor blueColor];
-    [self.view addSubview:self.backgroundview];
-    self.chooseschooltable = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.5- 130, 80, 260, 300) style:UITableViewStylePlain];
-    self.chooseschooltable.delegate = self;
-    self.chooseschooltable.dataSource  =self;
-    [self.view addSubview:self.chooseschooltable];
+//    if (self.chooseschooltable && self.backgroundview) {
+//        self.backgroundview.hidden = NO;
+//        self.chooseschooltable.hidden = NO;
+//        return;
+//    }
+//    self.backgroundview  =[[UIView alloc] initWithFrame:self.view.bounds];
+//    self.backgroundview.backgroundColor = [UIColor blueColor];
+//    [self.view addSubview:self.backgroundview];
+//    self.chooseschooltable = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width*0.5- 130, 80, 260, 300) style:UITableViewStylePlain];
+//    self.chooseschooltable.delegate = self;
+//    self.chooseschooltable.dataSource  =self;
+//    [self.view addSubview:self.chooseschooltable];
+    BTViewController *bt = [[BTViewController alloc] init];
+    bt.delegate =self;
+    [self presentViewController:bt animated:YES completion:nil];
+    
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
@@ -713,6 +719,11 @@
     
     return [scan scanInt:&val] && [scan isAtEnd];
     
+}
+
+- (void)BTViewControllerchooseschoolname:(NSString *)name
+{
+    self.register3.schoollable.text = name;
 }
 
 @end

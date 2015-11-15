@@ -22,4 +22,13 @@
 #define iphone6and6s ([UIScreen mainScreen].bounds.size.height == 667)
 #define iphone6plusand6spus ([UIScreen mainScreen].bounds.size.height == 736)
 
+
+#define RGBACOLOR(R,G,B,A) [UIColor colorWithRed:(R)/255.0f green:(G)/255.0f blue:(B)/255.0f alpha:(A)]
+
+#pragma mark - 设备型号识别
+#define is_IOS_7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+
+#pragma mark - 硬件
+#define SCREEN_WIDTH    ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 #endif
