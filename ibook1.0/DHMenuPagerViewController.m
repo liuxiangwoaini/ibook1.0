@@ -102,12 +102,14 @@
     CLLocationManager *manager = [[CLLocationManager alloc] init];
     manager.delegate =self;
     manager.desiredAccuracy = kCLLocationAccuracyBest;
-    [manager requestWhenInUseAuthorization];
+    
     
     if (IOS8) {
         [manager requestAlwaysAuthorization];
-        [manager startUpdatingLocation];
+        [manager requestWhenInUseAuthorization];
+        
     }
+    [manager startUpdatingLocation];
     
     self.manage =manager;
     
