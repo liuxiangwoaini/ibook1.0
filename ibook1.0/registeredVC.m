@@ -515,9 +515,9 @@
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
     CGFloat x = targetContentOffset->x;
-    if (x== 640) {
+    if (x== self.view.frame.size.width*2) {
         self.index = 3;
-    }else if (x== 320)
+    }else if (x==self.view.frame.size.width )
     {
         self.index = 2;
     }
